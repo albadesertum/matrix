@@ -22,7 +22,7 @@ public extension Matrix where T: Routable {
             }
             closed.append(current)
             if current == nodeB {
-                return restoredPath(from: current)
+                return restoredRoute(from: current)
             }
             let tuples = [(-1, 0), (-1, 1), (0, 1), (1, 1), (1, 0), (1, -1), (0, -1), (-1, -1)]
             var childs = [Node]();
@@ -71,13 +71,13 @@ public extension Matrix where T: Routable {
         return valueX || valueY
     }
     
-    private func restoredPath(from node: Node?) -> [Index] {
-        var path = [Index]()
+    private func restoredRoute(from node: Node?) -> [Index] {
+        var route = [Index]()
         var temp = node
         while temp != nil {
-            path.append(temp!.index)
+            route.append(temp!.index)
             temp = temp!.parent
         }
-        return path.reversed()
+        return route.reversed()
     }
 }
