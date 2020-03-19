@@ -65,6 +65,10 @@ class MyScene: SKScene, MovableDelegate {
             Wall(), Cell(), Cell(), Cell(), Cell(), Cell(), Cell(), Wall(), Cell(), Wall(),
             Wall(), Wall(), Wall(), Wall(), Wall(), Wall(), Wall(), Wall(), Wall(), Wall()
         ]
+        let x = SKShapeNode(circleOfRadius: 8.0)
+        x.strokeColor = .yellow
+        x.position = CGPoint(x: 0, y: 0)
+        addChild(x)
         matrix = Matrix<Cell>(m: 10, n: 10, array: array)
         converter = Converter(m: 10, n: 10, cellSize: CGSize(width: 16.0, height: 16.0))
         matrix.forEachIndex { index, value in
@@ -79,7 +83,7 @@ class MyScene: SKScene, MovableDelegate {
         main.strokeColor = .red
         main.movableDelegate = self
         addChild(main)
-        main.position = CGPoint(x: 16.0, y: 16.0)
+        main.position = converter.point(by: Index(i: 1, j: 1))
     }
     
     func objectDidFinishMove(_ object: SKNode) {

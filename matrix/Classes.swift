@@ -28,7 +28,7 @@ public extension Movable {
         }
         if hasActions() {
             removeAllActions()
-            move(by: [.zero] + points)
+            move(by: points)
         } else {
             var actions = [SKAction]()
             var previousPoint = position
@@ -62,8 +62,8 @@ public class Converter {
     }
     
     public func index(by point: CGPoint) -> Index {
-        let i = m - Int(point.y / cellSize.height)
-        let j = Int(point.x / cellSize.width)
+        let i = m - Int(round(point.y / cellSize.height))
+        let j = Int(round(point.x / cellSize.width))
         return Index(i: i, j: j)
     }
     
