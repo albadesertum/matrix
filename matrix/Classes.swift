@@ -33,10 +33,10 @@ public extension Movable {
             var actions = [SKAction]()
             var previousPoint = position
             for point in points.dropFirst() {
-//                let angle: CGFloat = 0.0
-//                let rotate = SKAction.rotate(toAngle: angle, duration: rotateSpeed, shortestUnitArc: true)
+                // let angle: CGFloat = 0.0
+                // let rotate = SKAction.rotate(toAngle: angle, duration: rotateSpeed, shortestUnitArc: true)
                 let move = SKAction.move(to: point, duration: moveSpeed)
-//                actions.append(.group([rotate, move]))
+                // actions.append(.group([rotate, move]))
                 actions.append(move)
                 previousPoint = point
             }
@@ -73,8 +73,6 @@ public class Converter {
         return CGPoint(x: x, y: y)
     }
 }
-
-//
 
 //let delta = index - previousIndex
 //let x = CGFloat(index.j) * cellSize.height
