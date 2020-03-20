@@ -68,7 +68,7 @@ public extension Matrix where T: Routable {
         let intersection = setA.intersection(setB)
         let valueX = self[Array(intersection)[0]]?.isEmpty ?? true
         let valueY = self[Array(intersection)[1]]?.isEmpty ?? true
-        return valueX || valueY
+        return valueX && valueY
     }
     
     private func restoredRoute(from node: Node?) -> [Index] {
