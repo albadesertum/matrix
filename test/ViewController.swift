@@ -15,7 +15,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,12 +55,12 @@ class MyScene: SKScene, MovableDelegate {
         let array = [
             Wall(), Wall(), Wall(), Wall(), Wall(), Wall(), Wall(), Wall(), Wall(), Wall(),
             Wall(), Cell(), Cell(), Wall(), Cell(), Cell(), Cell(), Cell(), Cell(), Wall(),
+            Wall(), Cell(), Cell(), Wall(), Cell(), Wall(), Wall(), Wall(), Cell(), Wall(),
             Wall(), Cell(), Cell(), Wall(), Cell(), Cell(), Cell(), Wall(), Cell(), Wall(),
             Wall(), Cell(), Cell(), Wall(), Cell(), Cell(), Cell(), Wall(), Cell(), Wall(),
             Wall(), Cell(), Cell(), Wall(), Cell(), Cell(), Cell(), Wall(), Cell(), Wall(),
             Wall(), Cell(), Cell(), Wall(), Cell(), Cell(), Cell(), Wall(), Cell(), Wall(),
-            Wall(), Cell(), Cell(), Wall(), Cell(), Cell(), Cell(), Wall(), Cell(), Wall(),
-            Wall(), Cell(), Cell(), Wall(), Cell(), Cell(), Cell(), Wall(), Cell(), Wall(),
+            Wall(), Cell(), Cell(), Wall(), Wall(), Wall(), Cell(), Wall(), Cell(), Wall(),
             Wall(), Cell(), Cell(), Cell(), Cell(), Cell(), Cell(), Wall(), Cell(), Wall(),
             Wall(), Wall(), Wall(), Wall(), Wall(), Wall(), Wall(), Wall(), Wall(), Wall()
         ]
@@ -107,17 +106,13 @@ class MyScene: SKScene, MovableDelegate {
             let location = touch.location(in: self)
             let indexA = converter.index(by: main.position)
             let indexB = converter.index(by: location)
-            print(indexB)
             let route = matrix.searchRoute(from: indexA, to: indexB)
             let points = route?.map { converter.point(by: $0) }
-            main.move(by: points)
+            main.move(with: points ?? [])
         }
     }
 }
 
 public class Main: SKShapeNode, Movable {
-    public var rotateSpeed: Double = 1
-    public var moveSpeed: Double = 0.6
-    
     public weak var movableDelegate: MovableDelegate?
 }

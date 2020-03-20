@@ -13,38 +13,106 @@ public protocol MovableDelegate: class {
 }
 
 public protocol Movable: SKNode {
-    var rotateSpeed: Double { get }
-    var moveSpeed: Double { get }
+    var standart: CGFloat { get }
     
     var movableDelegate: MovableDelegate? { get set }
     
-    func move(by points: [CGPoint]?)
+    func moveDuration(from pointA: CGPoint, to pointB: CGPoint) -> CGFloat
+    
+    func rotateDuration(from pointA: CGPoint, to pointB: CGPoint) -> CGFloat
+    
+    func move(to point: CGPoint)
+    
+    func move(with points: [CGPoint])
 }
 
 public extension Movable {
-    func move(by points: [CGPoint]?) {
-        guard let points = points else {
-            return
+    var standart: CGFloat {
+        return 16.0
+    }
+    
+    func rotateAngle(from pointA: CGPoint, to pointB: CGPoint) -> CGFloat {
+        return 0.0
+    }
+    
+    func moveDuration(from pointA: CGPoint, to pointB: CGPoint) -> CGFloat {
+        let distance = pointA.distance(to: pointB)
+        let moveDuration: CGFloat = 0.2
+        if distance <= standart {
+            return distance * moveDuration / standart
+        } else {
+            return moveDuration + (moveDuration - moveDuration * (distance - standart) / standart)
         }
+    }
+    
+    func rotateDuration(from pointA: CGPoint, to pointB: CGPoint) -> CGFloat {
+        return 0.0
+    }
+    
+    func move(to point: CGPoint) {
+        move(with: [point])
+    }
+    
+    func move(with points: [CGPoint]) {
         if hasActions() {
             removeAllActions()
-            move(by: points)
-        } else {
-            var actions = [SKAction]()
-            var previousPoint = position
-            for point in points.dropFirst() {
-                // let angle: CGFloat = 0.0
-                // let rotate = SKAction.rotate(toAngle: angle, duration: rotateSpeed, shortestUnitArc: true)
-                let move = SKAction.move(to: point, duration: moveSpeed)
-                // actions.append(.group([rotate, move]))
-                actions.append(move)
-                previousPoint = point
+        }
+        var actions = [SKAction]()
+        var previousPoint = position
+        for point in points {
+            let angle = rotateAngle(from: previousPoint, to: point)
+            let durationA = rotateDuration(from: previousPoint, to: point)
+            let durationB = moveDuration(from: previousPoint, to: point)
+            let rotate = SKAction.rotate(byAngle: angle, duration: Double(durationA))
+            let move = SKAction.move(to: point, duration: Double(durationB))
+            previousPoint = point
+            actions.append(.group([rotate, move]))
+        }
+        run(.sequence(actions)) { [weak self] in
+            if let self = self {
+                self.movableDelegate?.objectDidFinishMove(self)
             }
-            run(.sequence(actions)) { [weak self] in
-                if let self = self {
-                    self.movableDelegate?.objectDidFinishMove(self)
-                }
-            }
+        }
+    }
+}
+
+public extension CGPoint {
+    func distance(to point: CGPoint) -> CGFloat {
+        let x = self.x - point.x
+        let y = self.y - point.y
+        return sqrt(x * x + y * y)
+    }
+}
+
+public protocol Itemable: SKNode {
+    var items: [Item] { get set }
+    
+    func append(_ item: Item)
+    func remove(_ item: Item)
+}
+
+public class Item {
+    public var id: String
+    
+    public init(id: String) {
+        self.id = id
+    }
+}
+
+extension Item: Equatable {
+    public static func == (lhs: Item, rhs: Item) -> Bool {
+        return lhs.id == rhs.id
+    }
+}
+
+extension Itemable {
+    func append(_ item: Item) {
+        items.append(item)
+    }
+    
+    func remove(_ item: Item) {
+        if let index = items.firstIndex(of: item) {
+            items.remove(at: index)
         }
     }
 }
@@ -73,13 +141,3 @@ public class Converter {
         return CGPoint(x: x, y: y)
     }
 }
-
-//let delta = index - previousIndex
-//let x = CGFloat(index.j) * cellSize.height
-//let y = (mapSize.height - CGFloat(index.i)) * cellSize.height
-
-//var currentIndex: Index {
-//    let i = Int(mapSize.height) - Int(position.y / cellSize.height)
-//    let j = Int(position.x / cellSize.width)
-//    return Index(i: i, j: j)
-//}
