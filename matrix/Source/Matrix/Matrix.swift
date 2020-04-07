@@ -13,7 +13,7 @@ public class Matrix<T> {
     public let n: Int
     
     public private(set) var array: [T?]
-        
+    
     public var size: Int {
         return m * n
     }
@@ -50,25 +50,25 @@ public class Matrix<T> {
     
     // MARK: - Subscript
     
-    public subscript(index: Index) -> T? {
+    public subscript(index: Index?) -> T? {
         get {
-            return self[index.tuple]
+            return self[index?.tuple]
         }
         set {
-            self[index.tuple] = newValue
+            self[index?.tuple] = newValue
         }
     }
     
-    public subscript(tuple: (i: Int, j: Int)) -> T? {
+    public subscript(tuple: (i: Int, j: Int)?) -> T? {
         get {
-            return self[tuple.i, tuple.j]
+            return self[tuple?.i, tuple?.j]
         }
         set {
-            self[tuple.i, tuple.j] = newValue
+            self[tuple?.i, tuple?.j] = newValue
         }
     }
     
-    public subscript(i: Int, j: Int) -> T? {
+    public subscript(i: Int?, j: Int?) -> T? {
         get {
             if let index = index(i, j) {
                 return array[index]
@@ -106,11 +106,11 @@ public class Matrix<T> {
     
     // MARK: - Private
     
-    private func index(_ i: Int, _ j: Int) -> Int? {
-        if isValid(i, j) {
-            return i + j * m
+    private func index(_ i: Int?, _ j: Int?) -> Int? {
+        guard let i = i, let j = j, isValid(i, j) else {
+            return nil
         }
-        return nil
+        return i + j * m
     }
     
     private func isValid(_ i: Int, _ j: Int) -> Bool {

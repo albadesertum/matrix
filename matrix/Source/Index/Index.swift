@@ -13,11 +13,47 @@ public struct Index {
         return Index(i: 0, j: 0)
     }
     
+    public static var up: Index {
+        return Index(i: -1, j: 0)
+    }
+    
+    public static var upRight: Index {
+        return Index(i: -1, j: 1)
+    }
+    
+    public static var right: Index {
+        return Index(i: 0, j: 1)
+    }
+    
+    public static var downRight: Index {
+        return Index(i: 1, j: 1)
+    }
+    
+    public static var down: Index {
+        return Index(i: 1, j: 0)
+    }
+    
+    public static var downLeft: Index {
+        return Index(i: 1, j: -1)
+    }
+    
+    public static var left: Index {
+        return Index(i: 0, j: -1)
+    }
+    
+    public static var upLeft: Index {
+        return Index(i: -1, j: -1)
+    }
+    
     public var i: Int
     public var j: Int
     
-    public var haveZero: Bool {
+    public var isZero: Bool {
         return i == 0 || j == 0
+    }
+    
+    public var isUnit: Bool {
+        return abs(i) <= 1 && abs(j) <= 1
     }
     
     public var tuple: (i: Int, j: Int) {

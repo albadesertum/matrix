@@ -13,40 +13,51 @@ public protocol MovableDelegate: class {
 }
 
 public protocol Movable: SKNode {
-    var standart: CGFloat { get }
-    
-    var movableDelegate: MovableDelegate? { get set }
+    var cellLenght: CGFloat { get }
+    var rotateDuration: CGFloat { get }
+    var moveDuration: CGFloat { get }
+    var movableDelegate: MovableDelegate? { get }
     
     func moveDuration(from pointA: CGPoint, to pointB: CGPoint) -> CGFloat
-    
     func rotateDuration(from pointA: CGPoint, to pointB: CGPoint) -> CGFloat
-    
     func move(to point: CGPoint)
-    
     func move(with points: [CGPoint])
 }
 
 public extension Movable {
-    var standart: CGFloat {
-        return 16.0
+    var cellLenght: CGFloat {
+        get {
+            return 16.0
+        }
+    }
+    
+    var rotateDuration: CGFloat {
+        get {
+            return 0.0
+        }
+    }
+    
+    var moveDuration: CGFloat {
+        get {
+            return 0.2
+        }
     }
     
     func rotateAngle(from pointA: CGPoint, to pointB: CGPoint) -> CGFloat {
         return 0.0
     }
     
-    func moveDuration(from pointA: CGPoint, to pointB: CGPoint) -> CGFloat {
-        let distance = pointA.distance(to: pointB)
-        let moveDuration: CGFloat = 0.2
-        if distance <= standart {
-            return distance * moveDuration / standart
-        } else {
-            return moveDuration + (moveDuration - moveDuration * (distance - standart) / standart)
-        }
-    }
-    
     func rotateDuration(from pointA: CGPoint, to pointB: CGPoint) -> CGFloat {
         return 0.0
+    }
+    
+    func moveDuration(from pointA: CGPoint, to pointB: CGPoint) -> CGFloat {
+        let distance = pointA.distance(to: pointB)
+        if distance <= cellLenght {
+            return distance * moveDuration / cellLenght
+        } else {
+            return moveDuration + (moveDuration - moveDuration * (distance - cellLenght) / cellLenght)
+        }
     }
     
     func move(to point: CGPoint) {
@@ -78,9 +89,9 @@ public extension Movable {
 
 public extension CGPoint {
     func distance(to point: CGPoint) -> CGFloat {
-        let x = self.x - point.x
-        let y = self.y - point.y
-        return sqrt(x * x + y * y)
+        let deltaX = x - point.x
+        let deltaY = y - point.y
+        return sqrt(deltaX * deltaX + deltaY * deltaY)
     }
 }
 

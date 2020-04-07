@@ -24,15 +24,15 @@ public extension Matrix where T: Routable {
             if current == nodeB {
                 return restoredRoute(from: current)
             }
-            let tuples = [(-1, 0), (-1, 1), (0, 1), (1, 1), (1, 0), (1, -1), (0, -1), (-1, -1)]
             var childs = [Node]();
-            for tuple in tuples {
-                let index = current.index + tuple
+            let neighbors = [Index.up, .upRight, .right, .downRight, .down, .downLeft, .left, .upLeft]
+            for neighbor in neighbors {
+                let index = current.index + neighbor
                 if let value = self[index], value.isEmpty, isDiagonal(from: current.index, to: index) {
-                    let deltaX = index - current.index
-                    let deltaY = index - nodeB.index
-                    let g = current.g + deltaX.lenght
-                    let h = deltaY.lenght
+                    let deltaA = index - current.index
+                    let deltaB = index - nodeB.index
+                    let g = current.g + deltaA.lenght
+                    let h = deltaB.lenght
                     let node = Node(index: index, parent: current, g: g, h: h)
                     childs.append(node)
                 }
@@ -47,36 +47,36 @@ public extension Matrix where T: Routable {
                 opened.append(child)
             }
         }
-        return nil
+        let nearest = closed.min { ($0.index - indexB).lenght < ($1.index - indexB).lenght }!
+        return searchRoute(from: indexA, to: nearest.index)
     }
     
     private func isDiagonal(from indexA: Index, to indexB: Index) -> Bool {
         let delta = indexA - indexB
-        if delta.haveZero {
+        if delta.isZero {
             return true
         }
-        let tuples = [(-1, 0), (0, 1), (1, 0), (0, -1)]
         var arrayA = [Index]()
         var arrayB = [Index]()
-        for tuple in tuples {
-            let temp = Index(tuple: tuple)
-            arrayA.append(indexA + temp)
-            arrayB.append(indexB + temp)
+        let neighbors = [Index.up, .right, .down, .left]
+        for neighbor in neighbors {
+            arrayA.append(indexA + neighbor)
+            arrayB.append(indexB + neighbor)
         }
         let setA = Set(arrayA)
         let setB = Set(arrayB)
-        let intersection = setA.intersection(setB)
-        let valueX = self[Array(intersection)[0]]?.isEmpty ?? true
-        let valueY = self[Array(intersection)[1]]?.isEmpty ?? true
-        return valueX && valueY
+        let intersections = Array(setA.intersection(setB))
+        let valueA = self[intersections.first]?.isEmpty ?? true
+        let valueB = self[intersections.last]?.isEmpty ?? true
+        return valueA && valueB
     }
     
     private func restoredRoute(from node: Node?) -> [Index] {
         var route = [Index]()
-        var temp = node
-        while temp != nil {
-            route.append(temp!.index)
-            temp = temp!.parent
+        var current = node
+        while current != nil {
+            route.append(current!.index)
+            current = current!.parent
         }
         return route.reversed()
     }

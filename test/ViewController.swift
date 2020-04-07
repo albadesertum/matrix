@@ -54,7 +54,7 @@ class MyScene: SKScene, MovableDelegate {
         super.didMove(to: view)
         let array = [
             Wall(), Wall(), Wall(), Wall(), Wall(), Wall(), Wall(), Wall(), Wall(), Wall(),
-            Wall(), Cell(), Cell(), Wall(), Cell(), Cell(), Cell(), Cell(), Cell(), Wall(),
+            Wall(), Cell(), Cell(), Wall(), Cell(), Cell(), Cell(), Wall(), Cell(), Wall(),
             Wall(), Cell(), Cell(), Wall(), Cell(), Wall(), Wall(), Wall(), Cell(), Wall(),
             Wall(), Cell(), Cell(), Wall(), Cell(), Cell(), Cell(), Wall(), Cell(), Wall(),
             Wall(), Cell(), Cell(), Wall(), Cell(), Cell(), Cell(), Wall(), Cell(), Wall(),
@@ -113,6 +113,6 @@ class MyScene: SKScene, MovableDelegate {
     }
 }
 
-public class Main: SKShapeNode, Movable {
+public class Main: SKShapeNode, Movable {    
     public weak var movableDelegate: MovableDelegate?
 }
