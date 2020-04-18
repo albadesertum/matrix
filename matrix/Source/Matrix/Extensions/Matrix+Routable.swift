@@ -6,7 +6,7 @@
 //  Copyright © 2020 Vladimir Psyukalov. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public extension Matrix where T: Routable {
     func searchRoute(from indexA: Index, to indexB: Index) -> [Index]? {
@@ -25,7 +25,7 @@ public extension Matrix where T: Routable {
                 return restoredRoute(from: current)
             }
             var childs = [Node]();
-            let neighbors = [Index.up, .upRight, .right, .downRight, .down, .downLeft, .left, .upLeft]
+            let neighbors: [Index] = [.up, .upRight, .right, .downRight, .down, .downLeft, .left, .upLeft]
             for neighbor in neighbors {
                 let index = current.index + neighbor
                 if let value = self[index], value.isEmpty, isDiagonal(from: current.index, to: index) {
@@ -51,6 +51,32 @@ public extension Matrix where T: Routable {
         return searchRoute(from: indexA, to: nearest.index)
     }
     
+    func index(by point: CGPoint, cellSize: CGSize, geometry: Geometry) -> Index {
+        switch geometry {
+        case .plane:
+            let i = m - Int(round(point.y / cellSize.height))
+            let j = Int(round(point.x / cellSize.width))
+            return Index(i: i, j: j)
+        case .isometry:
+            // TODO:
+            return .zero
+        }
+    }
+    
+    func point(by index: Index, cellSize: CGSize, geometry: Geometry) -> CGPoint {
+        switch geometry {
+        case .plane:
+            let x = CGFloat(index.j) * cellSize.width
+            let y = CGFloat(m - index.i) * cellSize.height
+            return CGPoint(x: x, y: y)
+        case .isometry:
+            // TODO:
+            return .zero
+        }
+    }
+    
+    // MARK: - Private
+    
     private func isDiagonal(from indexA: Index, to indexB: Index) -> Bool {
         let delta = indexA - indexB
         if delta.isZero {
@@ -58,7 +84,7 @@ public extension Matrix where T: Routable {
         }
         var arrayA = [Index]()
         var arrayB = [Index]()
-        let neighbors = [Index.up, .right, .down, .left]
+        let neighbors: [Index] = [.up, .right, .down, .left]
         for neighbor in neighbors {
             arrayA.append(indexA + neighbor)
             arrayB.append(indexB + neighbor)
@@ -66,8 +92,8 @@ public extension Matrix where T: Routable {
         let setA = Set(arrayA)
         let setB = Set(arrayB)
         let intersections = Array(setA.intersection(setB))
-        let valueA = self[intersections.first]?.isEmpty ?? true
-        let valueB = self[intersections.last]?.isEmpty ?? true
+        let valueA = self[intersections[0]]?.isEmpty ?? true
+        let valueB = self[intersections[1]]?.isEmpty ?? true
         return valueA && valueB
     }
     

@@ -16,10 +16,12 @@ public protocol Movable: SKNode {
     var cellLenght: CGFloat { get }
     var rotateDuration: CGFloat { get }
     var moveDuration: CGFloat { get }
+    
     var movableDelegate: MovableDelegate? { get }
     
     func moveDuration(from pointA: CGPoint, to pointB: CGPoint) -> CGFloat
     func rotateDuration(from pointA: CGPoint, to pointB: CGPoint) -> CGFloat
+    
     func move(to point: CGPoint)
     func move(with points: [CGPoint])
 }

@@ -24,7 +24,7 @@
 		C745FB2A24221EDF009F6405 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = C745FB1A24221EDF009F6405 /* Matrix.swift */; };
 		C745FB2B24221EDF009F6405 /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C745FB1C24221EDF009F6405 /* Routable.swift */; };
 		C768DB942423571900F6B4EE /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C768DB932423571900F6B4EE /* Classes.swift */; };
-		C768DB962423662600F6B4EE /* Index+CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C768DB952423662600F6B4EE /* Index+CGPoint.swift */; };
+		C7802515244BA1B1002AF191 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7802514244BA1B1002AF191 /* Geometry.swift */; };
 		C7DF0FEA2422491D006EF23E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF0FE92422491D006EF23E /* AppDelegate.swift */; };
 		C7DF0FEC2422491D006EF23E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF0FEB2422491D006EF23E /* SceneDelegate.swift */; };
 		C7DF0FEE2422491D006EF23E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF0FED2422491D006EF23E /* ViewController.swift */; };
@@ -53,7 +53,7 @@
 		C745FB1A24221EDF009F6405 /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 		C745FB1C24221EDF009F6405 /* Routable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routable.swift; sourceTree = "<group>"; };
 		C768DB932423571900F6B4EE /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
-		C768DB952423662600F6B4EE /* Index+CGPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Index+CGPoint.swift"; sourceTree = "<group>"; };
+		C7802514244BA1B1002AF191 /* Geometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 		C7DF0FE72422491D006EF23E /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DF0FE92422491D006EF23E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7DF0FEB2422491D006EF23E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,7 +114,7 @@
 		C745FB0524221EDF009F6405 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				C745FB0D24221EDF009F6405 /* Errors */,
+				C745FB0D24221EDF009F6405 /* Enums */,
 				C745FB0624221EDF009F6405 /* Index */,
 				C745FB1324221EDF009F6405 /* Matrix */,
 				C745FB0F24221EDF009F6405 /* Node */,
@@ -139,17 +139,17 @@
 				C745FB0A24221EDF009F6405 /* Index+Equatable.swift */,
 				C745FB0B24221EDF009F6405 /* Index+Hashable.swift */,
 				C745FB0924221EDF009F6405 /* Index+Operation.swift */,
-				C768DB952423662600F6B4EE /* Index+CGPoint.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		C745FB0D24221EDF009F6405 /* Errors */ = {
+		C745FB0D24221EDF009F6405 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				C7802514244BA1B1002AF191 /* Geometry.swift */,
 				C745FB0E24221EDF009F6405 /* MatrixError.swift */,
 			);
-			path = Errors;
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		C745FB0F24221EDF009F6405 /* Node */ = {
@@ -330,8 +330,8 @@
 				C745FB2024221EDF009F6405 /* Index+Hashable.swift in Sources */,
 				C745FB1E24221EDF009F6405 /* Index+Operation.swift in Sources */,
 				C768DB942423571900F6B4EE /* Classes.swift in Sources */,
+				C7802515244BA1B1002AF191 /* Geometry.swift in Sources */,
 				C745FB2A24221EDF009F6405 /* Matrix.swift in Sources */,
-				C768DB962423662600F6B4EE /* Index+CGPoint.swift in Sources */,
 				C745FB2724221EDF009F6405 /* Matrix+CustomStringConvertible.swift in Sources */,
 				C745FB2624221EDF009F6405 /* Matrix+Double.swift in Sources */,
 				C745FB2924221EDF009F6405 /* Matrix+Equatable.swift in Sources */,

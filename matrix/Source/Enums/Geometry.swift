@@ -1,6 +1,6 @@
 //
-//  Routable.swift
-//  Routable
+//  Geometry.swift
+//  Geometry
 //
 //  Created by Vladimir Psyukalov on 20.01.2020.
 //  Copyright © 2020 Vladimir Psyukalov. All rights reserved.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-public protocol Routable {
-    var isEmpty: Bool { get }
+public enum Geometry {
+    case plane, isometry
 }

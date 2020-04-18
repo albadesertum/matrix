@@ -82,6 +82,18 @@ public class Matrix<T> {
         }
     }
     
+    public subscript(mIndices: ClosedRange<Int>, nIndices: ClosedRange<Int>) -> Matrix<T> {
+        get {
+            var transposed = [T?]()
+            for i in mIndices {
+                for j in nIndices {
+                    transposed.append(self[i, j])
+                }
+            }
+            return Matrix<T>(m: mIndices.count, n: nIndices.count, transposed: transposed)
+        }
+    }
+    
     // MARK: - Public
     
     public func forEach(block: (_ i: Int, _ j: Int, _ value: T?) -> ()) {
