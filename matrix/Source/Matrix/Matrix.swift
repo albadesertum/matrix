@@ -82,15 +82,15 @@ public class Matrix<T> {
         }
     }
     
-    public subscript(mIndices: ClosedRange<Int>, nIndices: ClosedRange<Int>) -> Matrix<T> {
+    public subscript(m: ClosedRange<Int>, n: ClosedRange<Int>) -> Matrix<T> {
         get {
             var transposed = [T?]()
-            for i in mIndices {
-                for j in nIndices {
+            for i in m {
+                for j in n {
                     transposed.append(self[i, j])
                 }
             }
-            return Matrix<T>(m: mIndices.count, n: nIndices.count, transposed: transposed)
+            return Matrix<T>(m: m.count, n: n.count, transposed: transposed)
         }
     }
     

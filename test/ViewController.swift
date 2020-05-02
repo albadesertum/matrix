@@ -8,7 +8,6 @@
 
 import UIKit
 import SpriteKit
-import CommonCrypto
 import matrix
 
 class ViewController: UIViewController {
@@ -27,23 +26,24 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let str = "givesomestringtoencode"
-        let data = ccSha256(data: str.data(using: .utf8)!)
-        print("sha256 String: \(data.map { String(format: "%02hhx", $0) }.joined())")
+        let chest = Chest(id: "chest", size: 4, items: [])
+        chest.load()
+        // chest.append(Item(id: "1"))
+        // chest.append(Item(id: "2"))
+        // chest.append(Item(id: "3"))
+        do {
+            try chest.append(Item(id: "error"))
+        } catch ItemableError.notEnoughSpace {
+            print("notEnoughSpace")
+        } catch {
+            /* Nothing. */
+        }
+        print(chest.items)
+        // chest.append(Item(id: "asdasd1"))
+        // chest.remove(Item(id: "2"))
         let scene = MyScene(size: CGSize(width: 160.0, height: 160.0))
         scene.scaleMode = .aspectFit
         skView.presentScene(scene)
-    }
-    
-    func ccSha256(data: Data) -> Data {
-        var digest = Data(count: Int(CC_SHA256_DIGEST_LENGTH))
-        
-        _ = digest.withUnsafeMutableBytes { (digestBytes) in
-            data.withUnsafeBytes { (stringBytes) in
-                CC_SHA256(stringBytes, CC_LONG(data.count), digestBytes)
-            }
-        }
-        return digest
     }
 }
 
@@ -67,8 +67,6 @@ class Wall: Cell {
 
 class MyScene: SKScene, MovableDelegate {
     var matrix: Matrix<Cell>!
-    
-    //var converter: Converter!
     
     let cellSize = CGSize(width: 16.0, height: 16.0)
     
@@ -107,7 +105,6 @@ class MyScene: SKScene, MovableDelegate {
         main.strokeColor = .red
         main.movableDelegate = self
         addChild(main)
-        //main.position = converter.point(by: Index(i: 1, j: 1))
         main.position = point(by: Index(i: 1, j: 1))
     }
     
@@ -130,12 +127,9 @@ class MyScene: SKScene, MovableDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let location = touch.location(in: self)
-            //let indexA = converter.index(by: main.position)
-            //let indexB = converter.index(by: location)
             let indexA = index(by: main.position)
             let indexB = index(by: location)
             let route = matrix.searchRoute(from: indexA, to: indexB)
-            //let points = route?.map { converter.point(by: $0) }
             let points = route?.map { point(by: $0) }
             main.move(with: points ?? [])
         }

@@ -97,60 +97,26 @@ public extension CGPoint {
     }
 }
 
-public protocol Itemable: SKNode {
-    var items: [Item] { get set }
-    
-    func append(_ item: Item)
-    func remove(_ item: Item)
-}
 
-public class Item {
+
+
+
+
+
+
+
+
+
+public class Chest: Itemable {    
     public var id: String
     
-    public init(id: String) {
+    public var size: Int
+    
+    public var items: [Item]
+    
+    public init(id: String, size: Int, items: [Item]) {
         self.id = id
-    }
-}
-
-extension Item: Equatable {
-    public static func == (lhs: Item, rhs: Item) -> Bool {
-        return lhs.id == rhs.id
-    }
-}
-
-extension Itemable {
-    func append(_ item: Item) {
-        items.append(item)
-    }
-    
-    func remove(_ item: Item) {
-        if let index = items.firstIndex(of: item) {
-            items.remove(at: index)
-        }
-    }
-}
-
-public class Converter {
-    private let m: Int
-    private let n: Int
-    
-    private let cellSize: CGSize
-    
-    public init(m: Int, n: Int, cellSize: CGSize) {
-        self.m = m
-        self.n = n
-        self.cellSize = cellSize
-    }
-    
-    public func index(by point: CGPoint) -> Index {
-        let i = m - Int(round(point.y / cellSize.height))
-        let j = Int(round(point.x / cellSize.width))
-        return Index(i: i, j: j)
-    }
-    
-    public func point(by index: Index) -> CGPoint {
-        let x = CGFloat(index.j) * cellSize.width
-        let y = CGFloat(m - index.i) * cellSize.height
-        return CGPoint(x: x, y: y)
+        self.size = size
+        self.items = items
     }
 }
