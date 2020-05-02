@@ -13,6 +13,11 @@ public protocol Itemable: Storable {
     
     var items: [Item] { get set }
     
-    func append(_ item: Item) throws
-    func remove(_ item: Item)
+    func append(_ item: Item?) throws
+    
+    func remove(_ item: Item?)
+    func remove(at index: Int)
+    
+    func move(_ item: Item?, to itemable: Itemable) throws
+    func move(at index: Int, to itemable: Itemable) throws
 }

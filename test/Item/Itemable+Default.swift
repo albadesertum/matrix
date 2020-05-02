@@ -9,19 +9,37 @@
 import Foundation
 
 public extension Itemable {
-    func append(_ item: Item) throws {
-        if items.count == size {
+    func append(_ item: Item?) throws {
+        if size <= items.count {
             throw ItemableError.notEnoughSpace
         }
-        items.append(item)
-        save()
+        if let item = item {
+            items.append(item)
+            save()
+        }
     }
     
-    func remove(_ item: Item) {
-        if let index = items.firstIndex(of: item) {
+    func remove(_ item: Item?) {
+        if let item = item, let index = items.firstIndex(of: item) {
+            remove(at: index)
+        }
+    }
+    
+    func remove(at index: Int) {
+        if 0 <= index && index < items.count {
             items.remove(at: index)
             save()
         }
+    }
+    
+    func move(_ item: Item?, to itemable: Itemable) throws {
+        remove(item)
+        try itemable.append(item)
+    }
+    
+    func move(at index: Int, to itemable: Itemable) throws {
+        let item = items[index]
+        try move(item, to: itemable)
     }
     
     func save() {

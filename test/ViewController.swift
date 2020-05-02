@@ -91,11 +91,9 @@ class MyScene: SKScene, MovableDelegate {
         x.position = CGPoint(x: 0, y: 0)
         addChild(x)
         matrix = Matrix<Cell>(m: 10, n: 10, array: array)
-        //converter = Converter(m: 10, n: 10, cellSize: CGSize(width: 16.0, height: 16.0))
         matrix.forEachIndex { index, value in
             if value?.isEmpty ?? false == false {
                 let a = SKShapeNode(circleOfRadius: 8.0)
-                //a.position = converter.point(by: index)
                 a.position = point(by: index)
                 a.fillColor = .blue
                 addChild(a)
