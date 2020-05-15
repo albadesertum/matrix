@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol Storable: class {
-    var id: String { get }
+    var key: String { get }
     
     func save(_ data: Data?)
     func load() -> Data?

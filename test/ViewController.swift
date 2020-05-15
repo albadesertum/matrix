@@ -51,7 +51,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let chest = Chest()
         let scene = MyScene(size: CGSize(width: 160.0, height: 160.0))
         scene.scaleMode = .aspectFit
         skView.presentScene(scene)
