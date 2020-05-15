@@ -18,12 +18,4 @@ public extension Storable {
     func load() -> Data? {
         return UserDefaults.standard.data(forKey: id)
     }
-    
-    func save() {
-        /* Abstract. */
-    }
-    
-    func load() {
-        /* Abstract. */
-    }
 }

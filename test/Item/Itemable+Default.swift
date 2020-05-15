@@ -9,48 +9,48 @@
 import Foundation
 
 public extension Itemable {
+    var data: Data? {
+        return try? JSONEncoder().encode(items)
+    }
+    
+    subscript(_ index: Int) -> Item? {
+        get {
+            if isValid(index) {
+                return items[index]
+            }
+            return nil
+        }
+        set {
+            if let item = newValue, isValid(index) {
+                items[index] = item
+            }
+        }
+    }
+    
     func append(_ item: Item?) throws {
-        if size <= items.count {
-            throw ItemableError.notEnoughSpace
-        }
-        if let item = item {
+        if let item = item, items.count < size {
             items.append(item)
-            save()
+            return;
         }
+        throw ItemableError.notEnoughSpace
     }
     
-    func remove(_ item: Item?) {
+    func remove(_ item: Item?) throws {
         if let item = item, let index = items.firstIndex(of: item) {
-            remove(at: index)
-        }
-    }
-    
-    func remove(at index: Int) {
-        if 0 <= index && index < items.count {
             items.remove(at: index)
-            save()
+            return
         }
+        throw ItemableError.notFound
     }
     
     func move(_ item: Item?, to itemable: Itemable) throws {
-        remove(item)
+        try remove(item)
         try itemable.append(item)
     }
     
-    func move(at index: Int, to itemable: Itemable) throws {
-        let item = items[index]
-        try move(item, to: itemable)
-    }
+    // MARK: - Private
     
-    func save() {
-        if let data = try? JSONEncoder().encode(items) {
-            save(data)
-        }
-    }
-    
-    func load() {
-        if let data = UserDefaults.standard.data(forKey: id), let items = try? JSONDecoder().decode([Item].self, from: data) {
-            self.items = items
-        }
+    private func isValid(_ index: Int) -> Bool {
+        return 0 <= index && index < items.count
     }
 }

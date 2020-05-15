@@ -13,7 +13,4 @@ public protocol Storable: class {
     
     func save(_ data: Data?)
     func load() -> Data?
-    
-    func save()
-    func load()
 }

@@ -107,15 +107,12 @@ public extension CGPoint {
 
 
 
-public class Chest: Itemable {    
-    public var id: String
-    
+public class Chest: Itemable {
     public var size: Int
     
     public var items: [Item]
     
-    public init(id: String, size: Int, items: [Item]) {
-        self.id = id
+    public init(size: Int, items: [Item]) {
         self.size = size
         self.items = items
     }

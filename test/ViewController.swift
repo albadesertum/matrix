@@ -10,37 +10,48 @@ import UIKit
 import SpriteKit
 import matrix
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var skView: SKView!
+    
+    var tap: UITapGestureRecognizer!
+    var dTap: UITapGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        tap = UITapGestureRecognizer(target: self, action: #selector(tapHandle(_:)))
+//        dTap = UITapGestureRecognizer(target: self, action: #selector(dTapHandle(_:)))
+//        dTap.numberOfTapsRequired = 2
+//        tap.delegate = self
+//        dTap.delegate = self
+//        view.addGestureRecognizer(tap)
+//        view.addGestureRecognizer(dTap)
         let a = ["a", "b", "c", "d", "e", "f", "g"]
         let mx = Matrix<Int>(m: 3, n: 3, elements: 0, 1, 2, 3, 4, 5, 6, 7, 8)
         let x = mx[0...3, 0...0]
         print(x)
-        
+
         print(a[0...3])
         print(a.reduce("_", { $0 + $1 }))
     }
     
+    @objc func tapHandle(_ sender: AnyObject?) {
+        print("1")
+    }
+    
+    @objc func dTapHandle(_ sender: AnyObject?) {
+        print("2")
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        if gestureRecognizer == tap && otherGestureRecognizer == dTap {
+            return true
+        }
+        return false
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let chest = Chest(id: "chest", size: 4, items: [])
-        chest.load()
-        // chest.append(Item(id: "1"))
-        // chest.append(Item(id: "2"))
-        // chest.append(Item(id: "3"))
-        do {
-            try chest.append(Item(id: "error"))
-        } catch ItemableError.notEnoughSpace {
-            print("notEnoughSpace")
-        } catch {
-            /* Nothing. */
-        }
-        print(chest.items)
-        // chest.append(Item(id: "asdasd1"))
-        // chest.remove(Item(id: "2"))
+        let chest = Chest()
         let scene = MyScene(size: CGSize(width: 160.0, height: 160.0))
         scene.scaleMode = .aspectFit
         skView.presentScene(scene)

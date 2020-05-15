@@ -8,16 +8,16 @@
 
 import Foundation
 
-public protocol Itemable: Storable {
+public protocol Itemable: Datable {
     var size: Int { get }
     
     var items: [Item] { get set }
     
+    subscript(index: Int) -> Item? { get set }
+    
     func append(_ item: Item?) throws
     
-    func remove(_ item: Item?)
-    func remove(at index: Int)
+    func remove(_ item: Item?) throws
     
     func move(_ item: Item?, to itemable: Itemable) throws
-    func move(at index: Int, to itemable: Itemable) throws
 }

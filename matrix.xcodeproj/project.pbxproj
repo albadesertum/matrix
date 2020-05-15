@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C70D83B8246F1103007E97B0 /* Datable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70D83B7246F1103007E97B0 /* Datable.swift */; };
+		C70D83BA246F1D60007E97B0 /* Storable+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70D83B9246F1D60007E97B0 /* Storable+Default.swift */; };
+		C70D83BC246F1D67007E97B0 /* Storable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70D83BB246F1D67007E97B0 /* Storable.swift */; };
 		C745FAFF24221D4F009F6405 /* matrix.h in Headers */ = {isa = PBXBuildFile; fileRef = C745FAFD24221D4F009F6405 /* matrix.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C745FB1D24221EDF009F6405 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = C745FB0724221EDF009F6405 /* Index.swift */; };
 		C745FB1E24221EDF009F6405 /* Index+Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C745FB0924221EDF009F6405 /* Index+Operation.swift */; };
@@ -28,8 +31,6 @@
 		C768045A245D79EF00861156 /* Item+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7680459245D79EF00861156 /* Item+Equatable.swift */; };
 		C7680460245D7B7900861156 /* Itemable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C768045F245D7B7900861156 /* Itemable.swift */; };
 		C7680462245D7BE700861156 /* Itemable+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7680461245D7BE700861156 /* Itemable+Default.swift */; };
-		C7680465245D7CEB00861156 /* Storable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7680464245D7CEB00861156 /* Storable.swift */; };
-		C7680467245D7D5A00861156 /* Storable+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7680466245D7D5A00861156 /* Storable+Default.swift */; };
 		C7680469245D89AC00861156 /* Item+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7680468245D89AC00861156 /* Item+CustomStringConvertible.swift */; };
 		C768046F245D8F6800861156 /* ItemableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C768046E245D8F6800861156 /* ItemableError.swift */; };
 		C7802515244BA1B1002AF191 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7802514244BA1B1002AF191 /* Geometry.swift */; };
@@ -42,6 +43,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C70D83B7246F1103007E97B0 /* Datable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Datable.swift; sourceTree = "<group>"; };
+		C70D83B9246F1D60007E97B0 /* Storable+Default.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storable+Default.swift"; sourceTree = "<group>"; };
+		C70D83BB246F1D67007E97B0 /* Storable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storable.swift; sourceTree = "<group>"; };
 		C745FAFA24221D4F009F6405 /* matrix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = matrix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C745FAFD24221D4F009F6405 /* matrix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = matrix.h; sourceTree = "<group>"; };
 		C745FAFE24221D4F009F6405 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -64,8 +68,6 @@
 		C7680459245D79EF00861156 /* Item+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+Equatable.swift"; sourceTree = "<group>"; };
 		C768045F245D7B7900861156 /* Itemable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Itemable.swift; sourceTree = "<group>"; };
 		C7680461245D7BE700861156 /* Itemable+Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Itemable+Default.swift"; path = "../Itemable+Default.swift"; sourceTree = "<group>"; };
-		C7680464245D7CEB00861156 /* Storable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storable.swift; sourceTree = "<group>"; };
-		C7680466245D7D5A00861156 /* Storable+Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storable+Default.swift"; sourceTree = "<group>"; };
 		C7680468245D89AC00861156 /* Item+CustomStringConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CustomStringConvertible.swift"; sourceTree = "<group>"; };
 		C768046E245D8F6800861156 /* ItemableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemableError.swift; path = ../ItemableError.swift; sourceTree = "<group>"; };
 		C768DB932423571900F6B4EE /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
@@ -227,8 +229,9 @@
 		C768045E245D7B0D00861156 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				C70D83B7246F1103007E97B0 /* Datable.swift */,
 				C768045F245D7B7900861156 /* Itemable.swift */,
-				C7680464245D7CEB00861156 /* Storable.swift */,
+				C70D83BB246F1D67007E97B0 /* Storable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -239,7 +242,7 @@
 				C7680468245D89AC00861156 /* Item+CustomStringConvertible.swift */,
 				C7680459245D79EF00861156 /* Item+Equatable.swift */,
 				C7680461245D7BE700861156 /* Itemable+Default.swift */,
-				C7680466245D7D5A00861156 /* Storable+Default.swift */,
+				C70D83B9246F1D60007E97B0 /* Storable+Default.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -402,7 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7680465245D7CEB00861156 /* Storable.swift in Sources */,
+				C70D83B8246F1103007E97B0 /* Datable.swift in Sources */,
 				C7680460245D7B7900861156 /* Itemable.swift in Sources */,
 				C7680458245D798300861156 /* Item.swift in Sources */,
 				C7DF0FEE2422491D006EF23E /* ViewController.swift in Sources */,
@@ -410,9 +413,10 @@
 				C7680462245D7BE700861156 /* Itemable+Default.swift in Sources */,
 				C7680456245D74A600861156 /* Classes.swift in Sources */,
 				C768046F245D8F6800861156 /* ItemableError.swift in Sources */,
-				C7680467245D7D5A00861156 /* Storable+Default.swift in Sources */,
 				C7680469245D89AC00861156 /* Item+CustomStringConvertible.swift in Sources */,
+				C70D83BA246F1D60007E97B0 /* Storable+Default.swift in Sources */,
 				C7DF0FEC2422491D006EF23E /* SceneDelegate.swift in Sources */,
+				C70D83BC246F1D67007E97B0 /* Storable.swift in Sources */,
 				C768045A245D79EF00861156 /* Item+Equatable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
