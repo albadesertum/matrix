@@ -33,8 +33,8 @@
 		C74C427824818A9500C5113E /* Item+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74C427624818A9500C5113E /* Item+CustomStringConvertible.swift */; };
 		C74C427924818A9500C5113E /* Item+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74C427724818A9500C5113E /* Item+Equatable.swift */; };
 		C74C427B24818C1B00C5113E /* Movable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74C427A24818C1B00C5113E /* Movable.swift */; };
-		C74C427D24818C9E00C5113E /* MovableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74C427C24818C9E00C5113E /* MovableDelegate.swift */; };
 		C74C4280248194D400C5113E /* CGPoint+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74C427F248194D400C5113E /* CGPoint+Common.swift */; };
+		C74C4285248196D400C5113E /* MovableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74C4284248196D400C5113E /* MovableDelegate.swift */; };
 		C7680456245D74A600861156 /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C768DB932423571900F6B4EE /* Classes.swift */; };
 		C7802515244BA1B1002AF191 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7802514244BA1B1002AF191 /* Geometry.swift */; };
 		C7DF0FEA2422491D006EF23E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF0FE92422491D006EF23E /* AppDelegate.swift */; };
@@ -94,8 +94,8 @@
 		C74C427624818A9500C5113E /* Item+CustomStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CustomStringConvertible.swift"; sourceTree = "<group>"; };
 		C74C427724818A9500C5113E /* Item+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+Equatable.swift"; sourceTree = "<group>"; };
 		C74C427A24818C1B00C5113E /* Movable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movable.swift; sourceTree = "<group>"; };
-		C74C427C24818C9E00C5113E /* MovableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MovableDelegate.swift; path = ../MovableDelegate.swift; sourceTree = "<group>"; };
 		C74C427F248194D400C5113E /* CGPoint+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Common.swift"; sourceTree = "<group>"; };
+		C74C4284248196D400C5113E /* MovableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovableDelegate.swift; sourceTree = "<group>"; };
 		C768045F245D7B7900861156 /* Itemable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Itemable.swift; sourceTree = "<group>"; };
 		C768046E245D8F6800861156 /* ItemableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemableError.swift; sourceTree = "<group>"; };
 		C768DB932423571900F6B4EE /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				C74C4281248194FF00C5113E /* Common */,
-				C74C427E24818CA300C5113E /* Delegates */,
+				C74C4283248196D400C5113E /* Delegate */,
 				C745FB0D24221EDF009F6405 /* Enums */,
 				C745FB0624221EDF009F6405 /* Index */,
 				C768045B245D7A8400861156 /* Item */,
@@ -260,14 +260,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C74C427E24818CA300C5113E /* Delegates */ = {
-			isa = PBXGroup;
-			children = (
-				C74C427C24818C9E00C5113E /* MovableDelegate.swift */,
-			);
-			path = Delegates;
-			sourceTree = "<group>";
-		};
 		C74C4281248194FF00C5113E /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +274,14 @@
 				C74C427F248194D400C5113E /* CGPoint+Common.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C74C4283248196D400C5113E /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				C74C4284248196D400C5113E /* MovableDelegate.swift */,
+			);
+			path = Delegate;
 			sourceTree = "<group>";
 		};
 		C768045B245D7A8400861156 /* Item */ = {
@@ -432,7 +432,6 @@
 			files = (
 				C745FB2224221EDF009F6405 /* MatrixError.swift in Sources */,
 				C745FB1D24221EDF009F6405 /* Index.swift in Sources */,
-				C74C427D24818C9E00C5113E /* MovableDelegate.swift in Sources */,
 				C745FB2124221EDF009F6405 /* Index+CustomStringConvertible.swift in Sources */,
 				C74C42722481887E00C5113E /* Storable.swift in Sources */,
 				C74C42752481899A00C5113E /* Item.swift in Sources */,
@@ -454,6 +453,7 @@
 				C745FB2824221EDF009F6405 /* Matrix+Float.swift in Sources */,
 				C745FB2524221EDF009F6405 /* Matrix+Routable.swift in Sources */,
 				C745FB2424221EDF009F6405 /* Node.swift in Sources */,
+				C74C4285248196D400C5113E /* MovableDelegate.swift in Sources */,
 				C745FB2324221EDF009F6405 /* Node+Equatable.swift in Sources */,
 				C745FB2B24221EDF009F6405 /* Routable.swift in Sources */,
 			);
