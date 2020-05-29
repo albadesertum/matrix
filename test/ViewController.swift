@@ -87,8 +87,8 @@ class MyScene: SKScene, MovableDelegate {
         let array = [
             Wall(), Wall(), Wall(), Wall(), Wall(), Wall(), Wall(), Wall(), Wall(), Wall(),
             Wall(), Cell(), Cell(), Wall(), Cell(), Cell(), Cell(), Wall(), Cell(), Wall(),
-            Wall(), Cell(), Cell(), Wall(), Cell(), Wall(), Wall(), Wall(), Cell(), Wall(),
-            Wall(), Cell(), Cell(), Wall(), Cell(), Cell(), Cell(), Wall(), Cell(), Wall(),
+            Wall(), Cell(), Cell(), Wall(), Cell(), Cell(), Wall(), Wall(), Cell(), Wall(),
+            Wall(), Cell(), Cell(), Wall(), Cell(), Wall(), Cell(), Wall(), Cell(), Wall(),
             Wall(), Cell(), Cell(), Wall(), Cell(), Cell(), Cell(), Wall(), Cell(), Wall(),
             Wall(), Cell(), Cell(), Wall(), Cell(), Cell(), Cell(), Wall(), Cell(), Wall(),
             Wall(), Cell(), Cell(), Wall(), Cell(), Cell(), Cell(), Wall(), Cell(), Wall(),
@@ -138,8 +138,8 @@ class MyScene: SKScene, MovableDelegate {
             let indexA = index(by: main.position)
             let indexB = index(by: location)
             let route = matrix.searchRoute(from: indexA, to: indexB)
-            let points = route?.map { point(by: $0) }
-            main.move(with: points ?? [])
+            let points = route.map { point(by: $0) }
+            main.move(with: points)
         }
     }
     
@@ -156,7 +156,7 @@ class MyScene: SKScene, MovableDelegate {
 
 public class Main: SKShapeNode, Movable {
     public var duration: TimeInterval {
-        return 1.0
+        return 0.2
     }
     
     public var lenght: CGFloat {

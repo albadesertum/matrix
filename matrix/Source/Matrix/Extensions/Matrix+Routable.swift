@@ -9,7 +9,7 @@
 import UIKit
 
 public extension Matrix where T: Routable {
-    func searchRoute(from indexA: Index, to indexB: Index) -> [Index]? {
+    func searchRoute(from indexA: Index, to indexB: Index) -> [Index] {
         var opened = [Node]()
         var closed = [Node]()
         let nodeA = Node(index: indexA, parent: nil, g: 0.0, h: 0.0)
@@ -25,17 +25,14 @@ public extension Matrix where T: Routable {
                 return restoredRoute(from: current)
             }
             var childs = [Node]();
-            let neighbors: [Index] = [.up, .upRight, .right, .downRight, .down, .downLeft, .left, .upLeft]
-            for neighbor in neighbors {
-                let index = current.index + neighbor
-                if let value = self[index], value.isEmpty, isDiagonal(from: current.index, to: index) {
-                    let deltaA = index - current.index
-                    let deltaB = index - nodeB.index
-                    let g = current.g + deltaA.lenght
-                    let h = deltaB.lenght
-                    let node = Node(index: index, parent: current, g: g, h: h)
-                    childs.append(node)
-                }
+            let indices = nearestEmptyIndices(from: current.index)
+            for index in indices {
+                let deltaA = index - current.index
+                let deltaB = index - nodeB.index
+                let g = current.g + deltaA.lenght
+                let h = deltaB.lenght
+                let node = Node(index: index, parent: current, g: g, h: h)
+                childs.append(node)
             }
             for child in childs {
                 if closed.firstIndex(of: child) != nil {
@@ -49,6 +46,18 @@ public extension Matrix where T: Routable {
         }
         let nearest = closed.min { ($0.index - indexB).lenght < ($1.index - indexB).lenght }!
         return searchRoute(from: indexA, to: nearest.index)
+    }
+    
+    func nearestEmptyIndices(from index: Index) -> [Index] {
+        var result = [Index]()
+        let neighbors: [Index] = [.up, .upRight, .right, .downRight, .down, .downLeft, .left, .upLeft]
+        for neighbor in neighbors {
+            let neighborIndex = neighbor + index
+            if let value = self[neighborIndex], value.isEmpty, isDiagonal(from: index, to: neighborIndex) {
+                result.append(neighborIndex)
+            }
+        }
+        return result
     }
     
     func index(by point: CGPoint, cellSize: CGSize, geometry: Geometry) -> Index {
