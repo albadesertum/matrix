@@ -6,7 +6,7 @@
 //  Copyright © 2020 Vladimir Psyukalov. All rights reserved.
 //
 
-import SpriteKit
+import matrix
 
 public class Chest: Itemable {
     public var size: Int

@@ -116,7 +116,7 @@ class MyScene: SKScene, MovableDelegate {
         main.position = point(by: Index(i: 1, j: 1))
     }
     
-    func objectDidFinishMove(_ object: SKNode) {
+    func nodeDidFinishMove(_ node: SKNode) {
         print("finish move");
     }
     
@@ -154,6 +154,14 @@ class MyScene: SKScene, MovableDelegate {
     }
 }
 
-public class Main: SKShapeNode, Movable {    
+public class Main: SKShapeNode, Movable {
+    public var duration: TimeInterval {
+        return 1.0
+    }
+    
+    public var lenght: CGFloat {
+        return 16.0
+    }
+    
     public weak var movableDelegate: MovableDelegate?
 }
