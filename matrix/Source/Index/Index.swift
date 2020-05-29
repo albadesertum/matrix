@@ -48,16 +48,12 @@ public struct Index {
     public var i: Int
     public var j: Int
     
-    public var isZero: Bool {
+    public var isHaveZero: Bool {
         return i == 0 || j == 0
     }
     
-    public var isUnit: Bool {
-        return abs(i) <= 1 && abs(j) <= 1
-    }
-    
     public var tuple: (i: Int, j: Int) {
-        return (i, j)
+        return (i: i, j: j)
     }
     
     public var lenght: Float {

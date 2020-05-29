@@ -1,6 +1,6 @@
 //
-//  Itemable+Default.swift
-//  Itemable+Default
+//  Itemable.swift
+//  Itemable
 //
 //  Created by Vladimir Psyukalov on 20.01.2020.
 //  Copyright © 2020 Vladimir Psyukalov. All rights reserved.
@@ -8,11 +8,21 @@
 
 import Foundation
 
-public extension Itemable {
-    var data: Data? {
-        return try? JSONEncoder().encode(items)
-    }
+public protocol Itemable: class {
+    var size: Int { get }
     
+    var items: [Item] { get set }
+    
+    subscript(index: Int) -> Item? { get set }
+    
+    func append(_ item: Item?) throws
+    
+    func remove(_ item: Item?) throws
+    
+    func move(_ item: Item?, to itemable: Itemable) throws
+}
+
+public extension Itemable {
     subscript(_ index: Int) -> Item? {
         get {
             if isValid(index) {

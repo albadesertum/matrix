@@ -9,6 +9,5 @@
 import Foundation
 
 public enum ItemableError: Error {
-    case notEnoughSpace
-    case notFound
+    case notEnoughSpace, notFound
 }

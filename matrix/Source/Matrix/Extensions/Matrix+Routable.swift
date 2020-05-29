@@ -79,7 +79,7 @@ public extension Matrix where T: Routable {
     
     private func isDiagonal(from indexA: Index, to indexB: Index) -> Bool {
         let delta = indexA - indexB
-        if delta.isZero {
+        if delta.isHaveZero {
             return true
         }
         var arrayA = [Index]()
