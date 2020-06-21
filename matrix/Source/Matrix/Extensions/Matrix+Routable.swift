@@ -6,7 +6,7 @@
 //  Copyright © 2020 Vladimir Psyukalov. All rights reserved.
 //
 
-import UIKit
+import SpriteKit
 
 public extension Matrix where T: Routable {
     func searchRoute(from indexA: Index, to indexB: Index) -> [Index] {
@@ -60,11 +60,11 @@ public extension Matrix where T: Routable {
         return result
     }
     
-    func index(by point: CGPoint, cellSize: CGSize, geometry: Geometry) -> Index {
+    func index(by point: CGPoint, _ tileSize: CGSize, _ geometry: Geometry) -> Index {
         switch geometry {
         case .plane:
-            let i = m - Int(round(point.y / cellSize.height))
-            let j = Int(round(point.x / cellSize.width))
+            let i = m - Int(round(point.y / tileSize.height))
+            let j = Int(round(point.x / tileSize.width))
             return Index(i: i, j: j)
         case .isometry:
             // TODO:
@@ -72,15 +72,27 @@ public extension Matrix where T: Routable {
         }
     }
     
-    func point(by index: Index, cellSize: CGSize, geometry: Geometry) -> CGPoint {
+    func point(by index: Index, _ tileSize: CGSize, _ geometry: Geometry) -> CGPoint {
         switch geometry {
         case .plane:
-            let x = CGFloat(index.j) * cellSize.width
-            let y = CGFloat(m - index.i) * cellSize.height
+            let x = CGFloat(index.j) * tileSize.width
+            let y = CGFloat(m - index.i) * tileSize.height
             return CGPoint(x: x, y: y)
         case .isometry:
             // TODO:
             return .zero
+        }
+    }
+    
+    func sync(with tileMapNode: SKTileMapNode, _ geometry: Geometry, _ block: (_ value: inout T?, _ userData: [String : Any]?) -> ()) throws {
+        forEachIndex { index, value in
+            let tileSize = tileMapNode.tileSize
+            let wrongPoint = point(by: index, tileSize, geometry)
+            let point = CGPoint(x: wrongPoint.x + 0.5 * tileSize.width, y: wrongPoint.y - 0.5 * tileSize.height)
+            let row = tileMapNode.tileRowIndex(fromPosition: point)
+            let column = tileMapNode.tileColumnIndex(fromPosition: point)
+            let userData = tileMapNode.tileDefinition(atColumn: column, row: row)?.userData as? [String : Any]
+            block(&value, userData)
         }
     }
     

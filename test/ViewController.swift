@@ -51,9 +51,26 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let scene = MyScene(size: CGSize(width: 160.0, height: 160.0))
-        scene.scaleMode = .aspectFit
+        // let scene = MyScene(size: CGSize(width: 160.0, height: 160.0))
+        let scene = TestScene(fileNamed: "MyScene")!
+        scene.scaleMode = .aspectFill
         skView.presentScene(scene)
+    }
+}
+
+class TestScene: SKScene {
+    override func didMove(to view: SKView) {
+        super.didMove(to: view)
+        guard let map = childNode(withName: "map1") as? SKTileMapNode else {
+            return
+        }
+        let matrix = Matrix<Cell>(m: map.numberOfRows, n: map.numberOfColumns, repeating: Cell())
+        try? matrix.sync(with: map, .plane) { value, userData in
+            let isEmpty = userData?["isEmpty"] as? Bool ?? true
+            value = isEmpty ? Cell() : Wall()
+        }
+        print("========")
+        print(matrix)
     }
 }
 
@@ -78,9 +95,11 @@ class Wall: Cell {
 class MyScene: SKScene, MovableDelegate {
     var matrix: Matrix<Cell>!
     
-    let cellSize = CGSize(width: 16.0, height: 16.0)
+    let tileSize = CGSize(width: 16.0, height: 16.0)
     
     var main: Main!
+    
+    var targetIndex: Index?
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
@@ -118,6 +137,7 @@ class MyScene: SKScene, MovableDelegate {
     
     func nodeDidFinishMove(_ node: SKNode) {
         print("finish move");
+        targetIndex = nil
     }
     
     func p(_ a: [Index]?) {
@@ -137,26 +157,35 @@ class MyScene: SKScene, MovableDelegate {
             let location = touch.location(in: self)
             let indexA = index(by: main.position)
             let indexB = index(by: location)
-            let route = matrix.searchRoute(from: indexA, to: indexB)
+            if let targetIndex = targetIndex, targetIndex == indexB {
+                return
+            }
+            targetIndex = indexB
+            var route = matrix.searchRoute(from: indexA, to: indexB)
+            if main.hasActions() {
+                route.removeFirst()
+            }
             let points = route.map { point(by: $0) }
-            main.move(with: points)
+            main.move(with: points) { _ in
+                
+            }
         }
     }
     
     let geometry = Geometry.plane
     
     func point(by index: Index) -> CGPoint {
-        return matrix.point(by: index, cellSize: cellSize, geometry: geometry)
+        return matrix.point(by: index, tileSize, geometry)
     }
     
     func index(by point: CGPoint) -> Index {
-        return matrix.index(by: point, cellSize: cellSize, geometry: geometry)
+        return matrix.index(by: point, tileSize, geometry)
     }
 }
 
 public class Main: SKShapeNode, Movable {
     public var duration: TimeInterval {
-        return 0.2
+        return 0.8
     }
     
     public var lenght: CGFloat {

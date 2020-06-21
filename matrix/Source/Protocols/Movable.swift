@@ -17,8 +17,9 @@ public protocol Movable: SKNode {
     
     func duration(from pointA: CGPoint, to pointB: CGPoint) -> TimeInterval
     
-    func move(to point: CGPoint)
-    func move(with points: [CGPoint])
+    func move(to point: CGPoint, _ block: ((_ node: SKNode) -> ())?)
+    
+    func move(with points: [CGPoint], _ block: ((_ node: SKNode) -> ())?)
 }
 
 public extension Movable {
@@ -34,11 +35,11 @@ public extension Movable {
         return TimeInterval(result)
     }
     
-    func move(to point: CGPoint) {
-        move(with: [point])
+    func move(to point: CGPoint, _ block: ((_ node: SKNode) -> ())? = nil) {
+        move(with: [point], block)
     }
     
-    func move(with points: [CGPoint]) {
+    func move(with points: [CGPoint], _ block: ((_ node: SKNode) -> ())? = nil) {
         if hasActions() {
             removeAllActions()
         }
@@ -53,6 +54,7 @@ public extension Movable {
             guard let self = self else {
                 return
             }
+            block?(self)
             self.movableDelegate?.nodeDidFinishMove(self)
         }
     }

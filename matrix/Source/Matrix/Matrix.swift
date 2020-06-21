@@ -20,10 +20,10 @@ public class Matrix<T> {
     
     // MARK: - Init
     
-    public init(m: Int, n: Int) {
+    public init(m: Int, n: Int, repeating: T? = nil) {
         self.m = m
         self.n = n
-        self.array = [T?](repeating: nil, count: m * n)
+        self.array = [T?](repeating: repeating, count: m * n)
     }
     
     public convenience init(m: Int, n: Int, array: [T?]) {
@@ -96,23 +96,23 @@ public class Matrix<T> {
     
     // MARK: - Public
     
-    public func forEach(block: (_ i: Int, _ j: Int, _ value: T?) -> ()) {
+    public func forEach(block: (_ i: Int, _ j: Int, _ value: inout T?) -> ()) {
         for i in 0..<m {
             for j in 0..<n {
-                block(i, j, self[i, j])
+                block(i, j, &self[i, j])
             }
         }
     }
     
-    public func forEachTuple(block: (_ tuple: (i: Int, j: Int), _ value: T?) -> ()) {
+    public func forEachTuple(block: (_ tuple: (i: Int, j: Int), _ value: inout T?) -> ()) {
         forEach { i, j, value in
-            block((i, j), value)
+            block((i, j), &value)
         }
     }
     
-    public func forEachIndex(block: (_ index: Index, _ value: T?) -> ())  {
+    public func forEachIndex(block: (_ index: Index, _ value: inout T?) -> ())  {
         forEachTuple { tuple, value in
-            block(Index(tuple: tuple), value)
+            block(Index(tuple: tuple), &value)
         }
     }
     
