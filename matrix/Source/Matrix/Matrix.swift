@@ -2,7 +2,7 @@
 //  Matrix.swift
 //  Matrix
 //
-//  Created by Vladimir Psyukalov on 20.01.2020.
+//  Created by Vladimir Psyukalov on 01.01.2020.
 //  Copyright © 2020 Vladimir Psyukalov. All rights reserved.
 //
 
@@ -50,25 +50,25 @@ public class Matrix<T> {
     
     // MARK: - Subscript
     
-    public subscript(index: Index?) -> T? {
+    public subscript(index: Index) -> T? {
         get {
-            return self[index?.tuple]
+            return self[index.tuple]
         }
         set {
-            self[index?.tuple] = newValue
+            self[index.tuple] = newValue
         }
     }
     
-    public subscript(tuple: (i: Int, j: Int)?) -> T? {
+    public subscript(tuple: (i: Int, j: Int)) -> T? {
         get {
-            return self[tuple?.i, tuple?.j]
+            return self[tuple.i, tuple.j]
         }
         set {
-            self[tuple?.i, tuple?.j] = newValue
+            self[tuple.i, tuple.j] = newValue
         }
     }
     
-    public subscript(i: Int?, j: Int?) -> T? {
+    public subscript(i: Int, j: Int) -> T? {
         get {
             if let index = index(i, j) {
                 return array[index]
@@ -118,14 +118,14 @@ public class Matrix<T> {
     
     // MARK: - Private
     
-    private func index(_ i: Int?, _ j: Int?) -> Int? {
-        guard let i = i, let j = j, isValid(i, j) else {
-            return nil
+    private func index(_ i: Int, _ j: Int) -> Int? {
+        if isValid(i, j) {
+            return i + j * m
         }
-        return i + j * m
+        return nil
     }
     
     private func isValid(_ i: Int, _ j: Int) -> Bool {
-        return i >= 0 && i < m && j >= 0 && j < n
+        return 0 <= i && i < m && 0 <= j && j < n
     }
 }

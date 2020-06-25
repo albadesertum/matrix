@@ -2,7 +2,7 @@
 //  Matrix+Routable.swift
 //  Matrix+Routable
 //
-//  Created by Vladimir Psyukalov on 20.01.2020.
+//  Created by Vladimir Psyukalov on 01.01.2020.
 //  Copyright © 2020 Vladimir Psyukalov. All rights reserved.
 //
 
@@ -24,7 +24,7 @@ public extension Matrix where T: Routable {
             if current == nodeB {
                 return restoredRoute(from: current)
             }
-            var childs = [Node]();
+            var childs = [Node]()
             let indices = nearestEmptyIndices(from: current.index)
             for index in indices {
                 let deltaA = index - current.index
@@ -84,7 +84,7 @@ public extension Matrix where T: Routable {
         }
     }
     
-    func sync(with tileMapNode: SKTileMapNode, _ geometry: Geometry, _ block: (_ value: inout T?, _ userData: [String : Any]?) -> ()) throws {
+    func sync(with tileMapNode: SKTileMapNode, _ geometry: Geometry, _ block: (_ value: inout T?, _ userData: [String : Any]?) -> ()) {
         forEachIndex { index, value in
             let tileSize = tileMapNode.tileSize
             let wrongPoint = point(by: index, tileSize, geometry)

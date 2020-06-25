@@ -36,8 +36,8 @@
 		C74C4280248194D400C5113E /* CGPoint+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74C427F248194D400C5113E /* CGPoint+Common.swift */; };
 		C74C4285248196D400C5113E /* MovableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74C4284248196D400C5113E /* MovableDelegate.swift */; };
 		C7680456245D74A600861156 /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C768DB932423571900F6B4EE /* Classes.swift */; };
-		C77AC034249F6B2E0088B846 /* MyTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = C77AC033249F6B2E0088B846 /* MyTileSet.sks */; };
 		C77AC036249F6B9C0088B846 /* MyScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C77AC035249F6B9C0088B846 /* MyScene.sks */; };
+		C77AC03A249FCE0C0088B846 /* TileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = C77AC039249FCE0C0088B846 /* TileSet.sks */; };
 		C7802515244BA1B1002AF191 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7802514244BA1B1002AF191 /* Geometry.swift */; };
 		C7DF0FEA2422491D006EF23E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF0FE92422491D006EF23E /* AppDelegate.swift */; };
 		C7DF0FEE2422491D006EF23E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF0FED2422491D006EF23E /* ViewController.swift */; };
@@ -100,8 +100,8 @@
 		C768045F245D7B7900861156 /* Itemable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Itemable.swift; sourceTree = "<group>"; };
 		C768046E245D8F6800861156 /* ItemableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemableError.swift; sourceTree = "<group>"; };
 		C768DB932423571900F6B4EE /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
-		C77AC033249F6B2E0088B846 /* MyTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyTileSet.sks; sourceTree = "<group>"; };
 		C77AC035249F6B9C0088B846 /* MyScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyScene.sks; sourceTree = "<group>"; };
+		C77AC039249FCE0C0088B846 /* TileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TileSet.sks; sourceTree = "<group>"; };
 		C7802514244BA1B1002AF191 /* Geometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 		C7DF0FE72422491D006EF23E /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DF0FE92422491D006EF23E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -314,8 +314,8 @@
 				C7DF0FF424224921006EF23E /* LaunchScreen.storyboard */,
 				C7DF0FEF2422491D006EF23E /* Main.storyboard */,
 				C7DF0FED2422491D006EF23E /* ViewController.swift */,
-				C77AC033249F6B2E0088B846 /* MyTileSet.sks */,
 				C77AC035249F6B9C0088B846 /* MyScene.sks */,
+				C77AC039249FCE0C0088B846 /* TileSet.sks */,
 			);
 			path = test;
 			sourceTree = "<group>";
@@ -420,7 +420,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C77AC034249F6B2E0088B846 /* MyTileSet.sks in Resources */,
+				C77AC03A249FCE0C0088B846 /* TileSet.sks in Resources */,
 				C7DF0FF624224921006EF23E /* LaunchScreen.storyboard in Resources */,
 				C77AC036249F6B9C0088B846 /* MyScene.sks in Resources */,
 				C7DF0FF324224921006EF23E /* Assets.xcassets in Resources */,
