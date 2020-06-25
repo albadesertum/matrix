@@ -15,6 +15,8 @@ public protocol Itemable: class {
     
     var isEnoughtSpace: Bool { get }
     
+    var emptySpaceCount: Int { get }
+    
     subscript(index: Int) -> Item? { get set }
     
     func append(_ item: Item?) throws
