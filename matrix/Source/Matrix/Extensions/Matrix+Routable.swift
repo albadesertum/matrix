@@ -88,7 +88,14 @@ public extension Matrix where T: Routable {
         forEachIndex { index, value in
             let tileSize = tileMapNode.tileSize
             let wrongPoint = point(by: index, tileSize, geometry)
-            let point = CGPoint(x: wrongPoint.x + 0.5 * tileSize.width, y: wrongPoint.y - 0.5 * tileSize.height)
+            var point: CGPoint
+            switch geometry {
+            case .plane:
+                point = CGPoint(x: wrongPoint.x + 0.5 * tileSize.width, y: wrongPoint.y - 0.5 * tileSize.height)
+            case .isometry:
+                // TODO:
+                point = .zero
+            }
             let row = tileMapNode.tileRowIndex(fromPosition: point)
             let column = tileMapNode.tileColumnIndex(fromPosition: point)
             let userData = tileMapNode.tileDefinition(atColumn: column, row: row)?.userData as? [String : Any]
