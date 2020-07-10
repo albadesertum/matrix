@@ -13,7 +13,11 @@ public extension Array {
         return !isEmpty
     }
     
-    func check(_ index: Int) -> Bool {
+    func isExist(_ index: Int) -> Bool {
         return 0 <= index && index < count
+    }
+    
+    func isNotExist(_ index: Int) -> Bool {
+        return !isExist(index)
     }
 }

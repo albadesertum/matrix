@@ -21,11 +21,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         
         let v1 = Version(string: "2.1.4")!
         let v2 = Version(string: "2.1.3")!
-        _ = Version(string: "")!
-        _ = Version(string: "213")!
-        _ = Version(string: "2dsd")!
-        _ = Version(string: "2.1.3.ewrfg")!
-        _ = Version(string: "2.1.sdfsd.3")!
         print("v1 == v2 \(v1 == v2)")
         print("v1 != v2 \(v1 != v2)")
         print("v1 < v2 \(v1 < v2)")
