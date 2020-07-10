@@ -77,8 +77,8 @@ public extension Itemable {
         for item in items {
             do {
                 try append(item)
-            } catch ItemableError.notEnoughSpace(let items) {
-                array.append(contentsOf: items)
+            } catch {
+                array.append(item)
             }
         }
         if array.isNotEmpty {
@@ -102,8 +102,8 @@ public extension Itemable {
         for index in indices {
             do {
                 try remove(at: index)
-            } catch ItemableError.notFound(_, let indices) {
-                array.append(contentsOf: indices)
+            } catch {
+                array.append(index)
             }
         }
         if array.isNotEmpty {
@@ -127,8 +127,8 @@ public extension Itemable {
         for item in items {
             do {
                 try remove(item)
-            } catch ItemableError.notFound(let items, _) {
-                array.append(contentsOf: items)
+            } catch {
+                array.append(item)
             }
         }
         if array.isNotEmpty {
@@ -141,24 +141,25 @@ public extension Itemable {
     }
     
     func move(_ item: Item, to itemable: Itemable) throws {
-        try remove(item)
-        try itemable.append(item)
+        do {
+            try remove(item)
+            try itemable.append(item)
+        } catch {
+            throw ItemableError.notMove([item], [])
+        }
     }
     
     func move(_ items: [Item], to itemable: Itemable) throws {
-        var array: [Item]?
-        do {
-            try remove(items)
-        } catch ItemableError.notFound(let items, _) {
-            array = items
+        var array = [Item]()
+        for item in items {
+            do {
+                try move(item, to: itemable)
+            } catch {
+                array.append(item)
+            }
         }
-        if let array = array {
-            let setA = Set(items)
-            let setB = Set(array)
-            let difference = Array(setA.symmetricDifference(setB))
-            try itemable.append(difference)
-        } else {
-            try itemable.append(items)
+        if array.isNotEmpty {
+            throw ItemableError.notMove(array, [])
         }
     }
     
@@ -168,21 +169,26 @@ public extension Itemable {
     
     func move(at index: Int, to itemable: Itemable) throws {
         let item = self[index]
-        try remove(at: index)
-        if let item = item {
-            try itemable.append(item)
+        do {
+            try remove(at: index)
+            try itemable.append(item!)
+        } catch {
+            throw ItemableError.notMove([], [index])
         }
     }
     
     func move(at indices: [Int], to itemable: Itemable) throws {
-        var items = [Item]()
+        var array = [Int]()
         for index in indices {
-            if let item = self[index] {
-                try! remove(at: index)
-                items.append(item)
+            do {
+                try move(at: index, to: itemable)
+            } catch {
+                array.append(index)
             }
         }
-        try itemable.append(items)
+        if array.isNotEmpty {
+            throw ItemableError.notMove([], array)
+        }
     }
     
     func move(at indices: Int..., to itemable: Itemable) throws {
