@@ -9,5 +9,6 @@
 import Foundation
 
 public enum ItemableError: Error {
-    case notEnoughSpace(_ items: [Item]), notFound(_ items: [Item])
+    case notEnoughSpace(_ items: [Item])
+    case notFound(_ items: [Item]?, _ indices: [Int]?)
 }

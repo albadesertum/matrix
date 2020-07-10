@@ -25,12 +25,12 @@ public protocol Movable: SKNode {
 public extension Movable {
     func duration(from pointA: CGPoint, to pointB: CGPoint) -> TimeInterval {
         let distance = pointA.distance(to: pointB)
-        let duration = CGFloat(self.duration)
+        let durationValue = CGFloat(duration)
         var result: CGFloat
         if distance <= lenght {
-            result = duration * distance / lenght
+            result = durationValue * distance / lenght
         } else {
-            result = duration + (duration - duration * (distance - lenght) / lenght)
+            result = durationValue + (durationValue - durationValue * (distance - lenght) / lenght)
         }
         return TimeInterval(result)
     }
@@ -46,8 +46,8 @@ public extension Movable {
         var actions = [SKAction]()
         var previousPoint = position
         for point in points {
-            let duration = self.duration(from: previousPoint, to: point)
-            actions.append(.move(to: point, duration: duration))
+            let durationValue = duration(from: previousPoint, to: point)
+            actions.append(.move(to: point, duration: durationValue))
             previousPoint = point
         }
         run(.sequence(actions)) { [weak self] in

@@ -25,6 +25,12 @@ public protocol Itemable: class {
     
     func append(_ items: Item...) throws
     
+    func remove(at index: Int?) throws
+    
+    func remove(at indices: [Int]?) throws
+    
+    func remove(at indices: Int...) throws
+    
     func remove(_ item: Item?) throws
     
     func remove(_ items: [Item]?) throws
@@ -49,13 +55,13 @@ public extension Itemable {
     
     subscript(_ index: Int) -> Item? {
         get {
-            if isValid(index) {
+            if items.check(index) {
                 return items[index]
             }
             return nil
         }
         set {
-            if let item = newValue, isValid(index) {
+            if let item = newValue, items.check(index) {
                 items[index] = item
             }
         }
@@ -75,18 +81,52 @@ public extension Itemable {
         guard let items = items else {
             return
         }
-        let count = emptySpaceCount
-        if count < items.count {
-            let added = Array(items[0..<count])
-            let rejected = Array(items[count..<items.count])
-            self.items.append(contentsOf: added)
-            throw ItemableError.notEnoughSpace(rejected)
+        var array = [Item]()
+        for item in items {
+            do {
+                try append(item)
+            } catch ItemableError.notEnoughSpace(let items) {
+                array.append(contentsOf: items)
+            }
         }
-        self.items.append(contentsOf: items)
+        if array.isNotEmpty {
+            throw ItemableError.notEnoughSpace(array)
+        }
     }
     
     func append(_ items: Item...) throws {
         try append(items)
+    }
+    
+    func remove(at index: Int?) throws {
+        guard let index = index else {
+            return
+        }
+        if !items.check(index) {
+            throw ItemableError.notFound(nil, [index])
+        }
+        items.remove(at: index)
+    }
+    
+    func remove(at indices: [Int]?) throws {
+        guard let indices = indices else {
+            return
+        }
+        var array = [Int]()
+        for index in indices {
+            do {
+                try remove(at: index)
+            } catch ItemableError.notFound(_, let indices) {
+                array.append(contentsOf: indices ?? [])
+            }
+        }
+        if array.isNotEmpty {
+            throw ItemableError.notFound(nil, array)
+        }
+    }
+    
+    func remove(at indices: Int...) throws {
+        try remove(at: indices)
     }
     
     func remove(_ item: Item?) throws {
@@ -94,7 +134,7 @@ public extension Itemable {
             return
         }
         guard let index = items.firstIndex(of: item) else {
-            throw ItemableError.notFound([item])
+            throw ItemableError.notFound([item], nil)
         }
         items.remove(at: index)
     }
@@ -107,12 +147,12 @@ public extension Itemable {
         for item in items {
             do {
                 try remove(item)
-            } catch ItemableError.notFound {
-                array.append(item)
+            } catch ItemableError.notFound(let items, _) {
+                array.append(contentsOf: items ?? [])
             }
         }
-        if !array.isEmpty {
-            throw ItemableError.notFound(array)
+        if array.isNotEmpty {
+            throw ItemableError.notFound(array, nil)
         }
     }
     
@@ -132,11 +172,5 @@ public extension Itemable {
     
     func move(_ items: Item..., to itemable: Itemable) throws {
         try move(items, to: itemable)
-    }
-    
-    // MARK: - Private
-    
-    private func isValid(_ index: Int) -> Bool {
-        return 0 <= index && index < items.count
     }
 }

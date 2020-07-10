@@ -13,7 +13,6 @@
 		C745FB1F24221EDF009F6405 /* Index+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C745FB0A24221EDF009F6405 /* Index+Equatable.swift */; };
 		C745FB2024221EDF009F6405 /* Index+Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C745FB0B24221EDF009F6405 /* Index+Hashable.swift */; };
 		C745FB2124221EDF009F6405 /* Index+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = C745FB0C24221EDF009F6405 /* Index+CustomStringConvertible.swift */; };
-		C745FB2224221EDF009F6405 /* MatrixError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C745FB0E24221EDF009F6405 /* MatrixError.swift */; };
 		C745FB2324221EDF009F6405 /* Node+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C745FB1124221EDF009F6405 /* Node+Equatable.swift */; };
 		C745FB2424221EDF009F6405 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = C745FB1224221EDF009F6405 /* Node.swift */; };
 		C745FB2524221EDF009F6405 /* Matrix+Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C745FB1524221EDF009F6405 /* Matrix+Routable.swift */; };
@@ -25,7 +24,6 @@
 		C745FB2B24221EDF009F6405 /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C745FB1C24221EDF009F6405 /* Routable.swift */; };
 		C74C426B24817C3F00C5113E /* matrix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C745FAFA24221D4F009F6405 /* matrix.framework */; };
 		C74C426C24817C3F00C5113E /* matrix.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C745FAFA24221D4F009F6405 /* matrix.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C74C42702481887700C5113E /* ItemableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C768046E245D8F6800861156 /* ItemableError.swift */; };
 		C74C42712481887E00C5113E /* Datable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70D83B7246F1103007E97B0 /* Datable.swift */; };
 		C74C42722481887E00C5113E /* Storable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70D83BB246F1D67007E97B0 /* Storable.swift */; };
 		C74C42732481887E00C5113E /* Itemable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C768045F245D7B7900861156 /* Itemable.swift */; };
@@ -34,11 +32,17 @@
 		C74C427924818A9500C5113E /* Item+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74C427724818A9500C5113E /* Item+Equatable.swift */; };
 		C74C427B24818C1B00C5113E /* Movable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74C427A24818C1B00C5113E /* Movable.swift */; };
 		C74C4280248194D400C5113E /* CGPoint+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74C427F248194D400C5113E /* CGPoint+Common.swift */; };
-		C74C4285248196D400C5113E /* MovableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74C4284248196D400C5113E /* MovableDelegate.swift */; };
 		C7680456245D74A600861156 /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C768DB932423571900F6B4EE /* Classes.swift */; };
 		C77AC036249F6B9C0088B846 /* MyScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C77AC035249F6B9C0088B846 /* MyScene.sks */; };
 		C77AC03A249FCE0C0088B846 /* TileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = C77AC039249FCE0C0088B846 /* TileSet.sks */; };
-		C7802515244BA1B1002AF191 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7802514244BA1B1002AF191 /* Geometry.swift */; };
+		C7BE6C9924B8DE1C0005216F /* Array+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BE6C9824B8DE1C0005216F /* Array+Common.swift */; };
+		C7BE6C9E24B8EA580005216F /* Version+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BE6C9D24B8EA580005216F /* Version+CustomStringConvertible.swift */; };
+		C7BE6CA124B8EABA0005216F /* Version+Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BE6CA024B8EABA0005216F /* Version+Comparable.swift */; };
+		C7BE6CA424B8EB680005216F /* MatrixError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BE6CA224B8EB680005216F /* MatrixError.swift */; };
+		C7BE6CA524B8EB680005216F /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BE6CA324B8EB680005216F /* Geometry.swift */; };
+		C7BE6CAB24B8EBD90005216F /* ItemableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BE6CAA24B8EBD90005216F /* ItemableError.swift */; };
+		C7BE6CB024B8F1B80005216F /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BE6CAF24B8F1B80005216F /* Version.swift */; };
+		C7BE6CB224B8F1D50005216F /* MovableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BE6CB124B8F1D40005216F /* MovableDelegate.swift */; };
 		C7DF0FEA2422491D006EF23E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF0FE92422491D006EF23E /* AppDelegate.swift */; };
 		C7DF0FEE2422491D006EF23E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF0FED2422491D006EF23E /* ViewController.swift */; };
 		C7DF0FF12422491D006EF23E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DF0FEF2422491D006EF23E /* Main.storyboard */; };
@@ -81,7 +85,6 @@
 		C745FB0A24221EDF009F6405 /* Index+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Index+Equatable.swift"; sourceTree = "<group>"; };
 		C745FB0B24221EDF009F6405 /* Index+Hashable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Index+Hashable.swift"; sourceTree = "<group>"; };
 		C745FB0C24221EDF009F6405 /* Index+CustomStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Index+CustomStringConvertible.swift"; sourceTree = "<group>"; };
-		C745FB0E24221EDF009F6405 /* MatrixError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixError.swift; sourceTree = "<group>"; };
 		C745FB1124221EDF009F6405 /* Node+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Node+Equatable.swift"; sourceTree = "<group>"; };
 		C745FB1224221EDF009F6405 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		C745FB1524221EDF009F6405 /* Matrix+Routable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Matrix+Routable.swift"; sourceTree = "<group>"; };
@@ -96,13 +99,18 @@
 		C74C427724818A9500C5113E /* Item+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+Equatable.swift"; sourceTree = "<group>"; };
 		C74C427A24818C1B00C5113E /* Movable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movable.swift; sourceTree = "<group>"; };
 		C74C427F248194D400C5113E /* CGPoint+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Common.swift"; sourceTree = "<group>"; };
-		C74C4284248196D400C5113E /* MovableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovableDelegate.swift; sourceTree = "<group>"; };
 		C768045F245D7B7900861156 /* Itemable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Itemable.swift; sourceTree = "<group>"; };
-		C768046E245D8F6800861156 /* ItemableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemableError.swift; sourceTree = "<group>"; };
 		C768DB932423571900F6B4EE /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
 		C77AC035249F6B9C0088B846 /* MyScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyScene.sks; sourceTree = "<group>"; };
 		C77AC039249FCE0C0088B846 /* TileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TileSet.sks; sourceTree = "<group>"; };
-		C7802514244BA1B1002AF191 /* Geometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
+		C7BE6C9824B8DE1C0005216F /* Array+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Common.swift"; sourceTree = "<group>"; };
+		C7BE6C9D24B8EA580005216F /* Version+CustomStringConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Version+CustomStringConvertible.swift"; path = "../Version+CustomStringConvertible.swift"; sourceTree = "<group>"; };
+		C7BE6CA024B8EABA0005216F /* Version+Comparable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Version+Comparable.swift"; sourceTree = "<group>"; };
+		C7BE6CA224B8EB680005216F /* MatrixError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MatrixError.swift; path = ../MatrixError.swift; sourceTree = "<group>"; };
+		C7BE6CA324B8EB680005216F /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geometry.swift; path = ../Geometry.swift; sourceTree = "<group>"; };
+		C7BE6CAA24B8EBD90005216F /* ItemableError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemableError.swift; path = ../ItemableError.swift; sourceTree = "<group>"; };
+		C7BE6CAF24B8F1B80005216F /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
+		C7BE6CB124B8F1D40005216F /* MovableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovableDelegate.swift; path = ../MovableDelegate.swift; sourceTree = "<group>"; };
 		C7DF0FE72422491D006EF23E /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DF0FE92422491D006EF23E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7DF0FED2422491D006EF23E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -164,13 +172,12 @@
 			isa = PBXGroup;
 			children = (
 				C74C4281248194FF00C5113E /* Common */,
-				C74C4283248196D400C5113E /* Delegate */,
-				C745FB0D24221EDF009F6405 /* Enums */,
 				C745FB0624221EDF009F6405 /* Index */,
 				C768045B245D7A8400861156 /* Item */,
 				C745FB1324221EDF009F6405 /* Matrix */,
 				C745FB0F24221EDF009F6405 /* Node */,
 				C745FB1B24221EDF009F6405 /* Protocols */,
+				C7BE6C9C24B8E9B50005216F /* Version */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -195,16 +202,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		C745FB0D24221EDF009F6405 /* Enums */ = {
-			isa = PBXGroup;
-			children = (
-				C7802514244BA1B1002AF191 /* Geometry.swift */,
-				C768046E245D8F6800861156 /* ItemableError.swift */,
-				C745FB0E24221EDF009F6405 /* MatrixError.swift */,
-			);
-			path = Enums;
-			sourceTree = "<group>";
-		};
 		C745FB0F24221EDF009F6405 /* Node */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				C745FB1A24221EDF009F6405 /* Matrix.swift */,
+				C7BE6CA624B8EB6E0005216F /* Enums */,
 				C745FB1424221EDF009F6405 /* Extensions */,
 			);
 			path = Matrix;
@@ -251,6 +249,8 @@
 				C74C427A24818C1B00C5113E /* Movable.swift */,
 				C745FB1C24221EDF009F6405 /* Routable.swift */,
 				C70D83BB246F1D67007E97B0 /* Storable.swift */,
+				C7BE6CB324B8F1D90005216F /* Delegates */,
+				C7BE6CAC24B8EBDE0005216F /* Enums */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -273,17 +273,10 @@
 		C74C42822481950600C5113E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C7BE6C9824B8DE1C0005216F /* Array+Common.swift */,
 				C74C427F248194D400C5113E /* CGPoint+Common.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		C74C4283248196D400C5113E /* Delegate */ = {
-			isa = PBXGroup;
-			children = (
-				C74C4284248196D400C5113E /* MovableDelegate.swift */,
-			);
-			path = Delegate;
 			sourceTree = "<group>";
 		};
 		C768045B245D7A8400861156 /* Item */ = {
@@ -302,6 +295,49 @@
 				C74C427724818A9500C5113E /* Item+Equatable.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C7BE6C9C24B8E9B50005216F /* Version */ = {
+			isa = PBXGroup;
+			children = (
+				C7BE6CAF24B8F1B80005216F /* Version.swift */,
+				C7BE6C9F24B8EA5D0005216F /* Extensions */,
+			);
+			path = Version;
+			sourceTree = "<group>";
+		};
+		C7BE6C9F24B8EA5D0005216F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C7BE6CA024B8EABA0005216F /* Version+Comparable.swift */,
+				C7BE6C9D24B8EA580005216F /* Version+CustomStringConvertible.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C7BE6CA624B8EB6E0005216F /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				C7BE6CA324B8EB680005216F /* Geometry.swift */,
+				C7BE6CA224B8EB680005216F /* MatrixError.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		C7BE6CAC24B8EBDE0005216F /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				C7BE6CAA24B8EBD90005216F /* ItemableError.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		C7BE6CB324B8F1D90005216F /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				C7BE6CB124B8F1D40005216F /* MovableDelegate.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 		C7DF0FE82422491D006EF23E /* test */ = {
@@ -435,31 +471,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C745FB2224221EDF009F6405 /* MatrixError.swift in Sources */,
 				C745FB1D24221EDF009F6405 /* Index.swift in Sources */,
 				C745FB2124221EDF009F6405 /* Index+CustomStringConvertible.swift in Sources */,
 				C74C42722481887E00C5113E /* Storable.swift in Sources */,
 				C74C42752481899A00C5113E /* Item.swift in Sources */,
+				C7BE6CA524B8EB680005216F /* Geometry.swift in Sources */,
 				C745FB1F24221EDF009F6405 /* Index+Equatable.swift in Sources */,
 				C74C427B24818C1B00C5113E /* Movable.swift in Sources */,
 				C745FB2024221EDF009F6405 /* Index+Hashable.swift in Sources */,
+				C7BE6CA124B8EABA0005216F /* Version+Comparable.swift in Sources */,
 				C745FB1E24221EDF009F6405 /* Index+Operation.swift in Sources */,
 				C74C427824818A9500C5113E /* Item+CustomStringConvertible.swift in Sources */,
-				C7802515244BA1B1002AF191 /* Geometry.swift in Sources */,
 				C745FB2A24221EDF009F6405 /* Matrix.swift in Sources */,
 				C74C4280248194D400C5113E /* CGPoint+Common.swift in Sources */,
 				C745FB2724221EDF009F6405 /* Matrix+CustomStringConvertible.swift in Sources */,
 				C74C427924818A9500C5113E /* Item+Equatable.swift in Sources */,
 				C74C42712481887E00C5113E /* Datable.swift in Sources */,
+				C7BE6CB024B8F1B80005216F /* Version.swift in Sources */,
+				C7BE6CB224B8F1D50005216F /* MovableDelegate.swift in Sources */,
 				C745FB2624221EDF009F6405 /* Matrix+Double.swift in Sources */,
 				C74C42732481887E00C5113E /* Itemable.swift in Sources */,
-				C74C42702481887700C5113E /* ItemableError.swift in Sources */,
+				C7BE6CAB24B8EBD90005216F /* ItemableError.swift in Sources */,
 				C745FB2924221EDF009F6405 /* Matrix+Equatable.swift in Sources */,
+				C7BE6CA424B8EB680005216F /* MatrixError.swift in Sources */,
 				C745FB2824221EDF009F6405 /* Matrix+Float.swift in Sources */,
 				C745FB2524221EDF009F6405 /* Matrix+Routable.swift in Sources */,
+				C7BE6C9924B8DE1C0005216F /* Array+Common.swift in Sources */,
 				C745FB2424221EDF009F6405 /* Node.swift in Sources */,
-				C74C4285248196D400C5113E /* MovableDelegate.swift in Sources */,
 				C745FB2324221EDF009F6405 /* Node+Equatable.swift in Sources */,
+				C7BE6C9E24B8EA580005216F /* Version+CustomStringConvertible.swift in Sources */,
 				C745FB2B24221EDF009F6405 /* Routable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

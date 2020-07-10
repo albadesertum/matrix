@@ -20,7 +20,7 @@ public class Node {
         return g + h
     }
         
-    public init(index: Index, parent: Node?, g: Float, h: Float) {
+    public init(index: Index, parent: Node? = nil, g: Float, h: Float) {
         self.index = index
         self.parent = parent
         self.g = g

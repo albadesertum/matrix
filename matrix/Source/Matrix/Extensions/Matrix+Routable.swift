@@ -12,10 +12,10 @@ public extension Matrix where T: Routable {
     func searchRoute(from indexA: Index, to indexB: Index) -> [Index] {
         var opened = [Node]()
         var closed = [Node]()
-        let nodeA = Node(index: indexA, parent: nil, g: 0.0, h: 0.0)
-        let nodeB = Node(index: indexB, parent: nil, g: 0.0, h: 0.0)
+        let nodeA = Node(index: indexA, g: 0.0, h: 0.0)
+        let nodeB = Node(index: indexB, g: 0.0, h: 0.0)
         opened.append(nodeA)
-        while !opened.isEmpty {
+        while opened.isNotEmpty {
             let current = opened.min { $0.f < $1.f }!
             if let index = opened.firstIndex(of: current) {
                 opened.remove(at: index)

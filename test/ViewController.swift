@@ -18,36 +18,50 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        tap = UITapGestureRecognizer(target: self, action: #selector(tapHandle(_:)))
-//        dTap = UITapGestureRecognizer(target: self, action: #selector(dTapHandle(_:)))
-//        dTap.numberOfTapsRequired = 2
-//        tap.delegate = self
-//        dTap.delegate = self
-//        view.addGestureRecognizer(tap)
-//        view.addGestureRecognizer(dTap)
-//        let a = ["a", "b", "c", "d", "e", "f", "g"]
-//        let mx = Matrix<Int>(m: 3, n: 3, elements: 0, 1, 2, 3, 4, 5, 6, 7, 8)
-//        let x = mx[0...3, 0...0]
-//        print(x)
-//
-//        print(a[0...3])
-//        print(a.reduce("_", { $0 + $1 }))
+        
+        let v1 = Version(string: "2.1.4")!
+        let v2 = Version(string: "2.1.3")!
+        _ = Version(string: "")!
+        _ = Version(string: "213")!
+        _ = Version(string: "2dsd")!
+        _ = Version(string: "2.1.3.ewrfg")!
+        _ = Version(string: "2.1.sdfsd.3")!
+        print("v1 == v2 \(v1 == v2)")
+        print("v1 != v2 \(v1 != v2)")
+        print("v1 < v2 \(v1 < v2)")
+        print("v1 > v2 \(v1 > v2)")
+        print("v1 <= v2 \(v1 <= v2)")
+        print("v1 >= v2 \(v1 >= v2)")
+        //        tap = UITapGestureRecognizer(target: self, action: #selector(tapHandle(_:)))
+        //        dTap = UITapGestureRecognizer(target: self, action: #selector(dTapHandle(_:)))
+        //        dTap.numberOfTapsRequired = 2
+        //        tap.delegate = self
+        //        dTap.delegate = self
+        //        view.addGestureRecognizer(tap)
+        //        view.addGestureRecognizer(dTap)
+        //        let a = ["a", "b", "c", "d", "e", "f", "g"]
+        //        let mx = Matrix<Int>(m: 3, n: 3, elements: 0, 1, 2, 3, 4, 5, 6, 7, 8)
+        //        let x = mx[0...3, 0...0]
+        //        print(x)
+        //
+        //        print(a[0...3])
+        //        print(a.reduce("_", { $0 + $1 }))
     }
     
-//    @objc func tapHandle(_ sender: AnyObject?) {
-//        print("1")
-//    }
+    //    @objc func tapHandle(_ sender: AnyObject?) {
+    //        print("1")
+    //    }
     
-//    @objc func dTapHandle(_ sender: AnyObject?) {
-//        print("2")
-//    }
+    //    @objc func dTapHandle(_ sender: AnyObject?) {
+    //        print("2")
+    //    }
     
-//    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-//        if gestureRecognizer == tap && otherGestureRecognizer == dTap {
-//            return true
-//        }
-//        return false
-//    }
+    //    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    //        if gestureRecognizer == tap && otherGestureRecognizer == dTap {
+    //            return true
+    //        }
+    //        return false
+    //    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -93,18 +107,18 @@ class TestScene: SKScene, MovableDelegate {
         }
         print("========")
         print(matrix)
-//        let x = SKShapeNode(circleOfRadius: 8.0)
-//        x.strokeColor = .yellow
-//        x.position = CGPoint(x: 0, y: 0)
-//        addChild(x)
-//        matrix.forEachIndex { index, value in
-//            if value?.isEmpty ?? false == false {
-//                let a = SKShapeNode(circleOfRadius: 8.0)
-//                a.position = point(by: index)
-//                a.fillColor = .blue
-//                addChild(a)
-//            }
-//        }
+        //        let x = SKShapeNode(circleOfRadius: 8.0)
+        //        x.strokeColor = .yellow
+        //        x.position = CGPoint(x: 0, y: 0)
+        //        addChild(x)
+        //        matrix.forEachIndex { index, value in
+        //            if value?.isEmpty ?? false == false {
+        //                let a = SKShapeNode(circleOfRadius: 8.0)
+        //                a.position = point(by: index)
+        //                a.fillColor = .blue
+        //                addChild(a)
+        //            }
+        //        }
         main = Main(circleOfRadius: 8.0)
         main.strokeColor = .red
         main.movableDelegate = self

@@ -24,8 +24,7 @@ public extension Index {
     }
     
     static func += (lhs: inout Index, rhs: Index) {
-        lhs.i = (lhs + rhs).i
-        lhs.j = (lhs + rhs).j
+        lhs = lhs + rhs
     }
     
     static func += (lhs: inout Index, rhs: (i: Int, j: Int)) {
@@ -49,8 +48,7 @@ public extension Index {
     }
     
     static func -= (lhs: inout Index, rhs: Index) {
-        lhs.i = (lhs - rhs).i
-        lhs.j = (lhs - rhs).j
+        lhs = lhs - rhs
     }
     
     static func -= (lhs: inout Index, rhs: (i: Int, j: Int)) {
