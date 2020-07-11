@@ -19,7 +19,15 @@ public class Matrix<T> {
     }
     
     public var isEmpty: Bool {
-        return size == array.filter { $0 == nil }.count
+        return size == empty
+    }
+    
+    public var filled: Int {
+        return size - empty
+    }
+    
+    public var empty: Int {
+        return array.filter { $0 == nil }.count
     }
     
     // MARK: - Init
