@@ -65,6 +65,8 @@ public extension Itemable {
         }
     }
     
+    // MARK: - Append
+    
     func append(_ item: Item) throws {
         if isNotEnoughtSpace {
             throw ItemableError.notEnoughSpace([item])
@@ -90,6 +92,8 @@ public extension Itemable {
         try append(items)
     }
     
+    // MARK: - Remove at
+    
     func remove(at index: Int) throws {
         if items.isNotExist(index) {
             throw ItemableError.notFound([], [index])
@@ -98,14 +102,16 @@ public extension Itemable {
     }
     
     func remove(at indices: [Int]) throws {
+        var items = [Item]()
         var array = [Int]()
         for index in indices {
-            do {
-                try remove(at: index)
-            } catch {
+            if let item = self[index] {
+                items.append(item)
+            } else {
                 array.append(index)
             }
         }
+        try remove(items)
         if array.isNotEmpty {
             throw ItemableError.notFound([], array)
         }
@@ -114,6 +120,8 @@ public extension Itemable {
     func remove(at indices: Int...) throws {
         try remove(at: indices)
     }
+    
+    // MARK: - Remove
     
     func remove(_ item: Item) throws {
         guard let index = items.firstIndex(of: item) else {
@@ -140,26 +148,34 @@ public extension Itemable {
         try remove(items)
     }
     
+    // MARK: - Move
+    
     func move(_ item: Item, to itemable: Itemable) throws {
+        try remove(item)
         do {
-            try remove(item)
             try itemable.append(item)
         } catch {
-            throw ItemableError.notMove([item], [])
+            try append(item)
+            throw ItemableError.notEnoughSpace([item])
         }
     }
     
     func move(_ items: [Item], to itemable: Itemable) throws {
-        var array = [Item]()
-        for item in items {
-            do {
-                try move(item, to: itemable)
-            } catch {
-                array.append(item)
+        do {
+            try remove(items)
+            try itemable.append(items)
+        } catch ItemableError.notFound(let array, _) {
+            if items.count == array.count {
+                throw ItemableError.notFound(array, [])
             }
-        }
-        if array.isNotEmpty {
-            throw ItemableError.notMove(array, [])
+            let result = items.difference(with: array)
+            do {
+                try itemable.append(result)
+            } catch ItemableError.notEnoughSpace(let array) {
+                try append(array)
+            }
+        } catch ItemableError.notEnoughSpace(let array) {
+            try append(array)
         }
     }
     
@@ -167,27 +183,37 @@ public extension Itemable {
         try move(items, to: itemable)
     }
     
+    // MARK: - Mave at
+    
     func move(at index: Int, to itemable: Itemable) throws {
         let item = self[index]
+        try remove(at: index)
         do {
-            try remove(at: index)
             try itemable.append(item!)
         } catch {
-            throw ItemableError.notMove([], [index])
+            try append(item!)
+            throw ItemableError.notEnoughSpace([item!])
         }
     }
     
     func move(at indices: [Int], to itemable: Itemable) throws {
-        var array = [Int]()
-        for index in indices {
-            do {
-                try move(at: index, to: itemable)
-            } catch {
-                array.append(index)
+        do {
+            try remove(at: indices)
+        } catch ItemableError.notFound(_, let array) {
+            if indices.count == array.count {
+                throw ItemableError.notFound([], array)
             }
-        }
-        if array.isNotEmpty {
-            throw ItemableError.notMove([], array)
+            let difference = indices.difference(with: array)
+            var result = [Item]()
+            for index in difference {
+                result.append(items[index])
+            }
+            do {
+                try itemable.append(result)
+            } catch ItemableError.notEnoughSpace(let array) {
+                try append(array)
+                throw ItemableError.notEnoughSpace(array)
+            }
         }
     }
     

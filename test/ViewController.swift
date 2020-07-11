@@ -19,6 +19,20 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let chest1 = Chest(size: 4, items: [Item(id: "0"), Item(id: "1"), Item(id: "2"), Item(id: "3")])
+        let chest2 = Chest(size: 4, items: [Item(id: "4")])
+        
+        do {
+            try chest1.move(at: [0, 1, 2], to: chest2)
+        }  catch ItemableError.notEnoughSpace(let items) {
+            print("test! er 1 \(items)")
+        } catch ItemableError.notFound(let items, let indices) {
+            print("test! er 0 \(items) \(indices)")
+        } catch {
+            
+        }
+        print("test! 0 \(chest1.items) \(chest2.items)")
+        
         let v1 = Version(string: "2.1.4")!
         let v2 = Version(string: "2.1.3")!
         print("v1 == v2 \(v1 == v2)")

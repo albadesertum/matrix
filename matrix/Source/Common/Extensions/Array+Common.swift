@@ -21,3 +21,12 @@ public extension Array {
         return !isExist(index)
     }
 }
+
+public extension Array where Element: Hashable {
+    func difference(with array: Array<Element>) -> Array<Element> {
+        let setA = Set(self)
+        let setB = Set(array)
+        let difference = setA.symmetricDifference(setB)
+        return Array(difference)
+    }
+}
