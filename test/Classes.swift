@@ -9,12 +9,9 @@
 import matrix
 
 public class Chest: Itemable {
-    public var size: Int
+    public var items: Matrix<Item>
     
-    public var items: [Item]
-    
-    public init(size: Int, items: [Item]) {
-        self.size = size
-        self.items = items
+    public init(m: Int, n: Int, items: [Item]) {
+        self.items = Matrix<Item>(m: m, n: n, array: items)
     }
 }

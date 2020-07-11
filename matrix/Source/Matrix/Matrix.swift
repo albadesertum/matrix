@@ -18,6 +18,10 @@ public class Matrix<T> {
         return m * n
     }
     
+    public var isEmpty: Bool {
+        return size == array.filter { $0 == nil }.count
+    }
+    
     // MARK: - Init
     
     public init(m: Int, n: Int, repeating: T? = nil) {
@@ -29,12 +33,11 @@ public class Matrix<T> {
     public convenience init(m: Int, n: Int, array: [T?]) {
         self.init(m: m, n: n)
         var index = 0
-        forEach { i, j, _ in
-            var value: T?
-            if index < array.count {
-                value = array[index]
+        self.forEach { _, _, value in
+            if index == array.count {
+                return
             }
-            self[i, j] = value
+            value = array[index]
             index = index + 1
         }
     }
@@ -44,6 +47,9 @@ public class Matrix<T> {
     }
     
     public convenience init(m: Int, n: Int, transposed: [T?]) {
+        if m * n != transposed.count {
+            fatalError("Transposed array count is not equal to matrix size")
+        }
         self.init(m: m, n: n)
         self.array = transposed
     }
