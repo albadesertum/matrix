@@ -15,28 +15,59 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var tap: UITapGestureRecognizer!
     var dTap: UITapGestureRecognizer!
+//    @IBOutlet weak var p: ProgressView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var mat = Matrix<Float>.init(m: 2, n: 2, transposed: [2.0, 3.0, 4.0, 6.0])
-        mat = mat * 2.0
-        print(mat)
-        print(mat[0...1, 1...1] * 3.0)
-        let chest1 = Chest(m: 2, n: 2, items: [Item(id: "0"), Item(id: "1"), Item(id: "2"), Item(id: "3")])
-        let chest2 = Chest(m: 2, n: 1, items: [Item(id: "4")])
+//        var mat = Matrix<Float>.init(m: 2, n: 2, transposed: [2.0, 3.0, 4.0, 6.0])
+//        mat = mat * 2.0
+//        print(mat)
+//        print(mat[0...1, 1...1] * 3.0)
+//        let chest1 = Chest(m: 2, n: 2, items: [Item(id: "0"), Item(id: "1"), Item(id: "2"), Item(id: "3")])
+//        let chest2 = Chest(m: 2, n: 1, items: [Item(id: "4")])
+//
+//        print(chest1.items)
+//        print(chest2.items)
+//
+//        let v1 = Version(string: "2.1.4")!
+//        let v2 = Version(string: "2.1.3")!
+//        print("v1 == v2 \(v1 == v2)")
+//        print("v1 != v2 \(v1 != v2)")
+//        print("v1 < v2 \(v1 < v2)")
+//        print("v1 > v2 \(v1 > v2)")
+//        print("v1 <= v2 \(v1 <= v2)")
+//        print("v1 >= v2 \(v1 >= v2)")
+//        queue.start()
         
-        print(chest1.items)
-        print(chest2.items)
+//        let work1 = DispatchWorkItem {
+//            self.p.set(progress: 0.5)
+//        }
+//        let work2 = DispatchWorkItem {
+//            self.p.set(progress: 0.6)
+//        }
+//        let work3 = DispatchWorkItem {
+//            self.p.set(progress: 0.0)
+//        }
+//        let work4 = DispatchWorkItem {
+////            self.p.showDownloadButton()
+//        }
+//        let work5 = DispatchWorkItem {
+//            self.p.set(progress: 0.9)
+//        }
+//        let work6 = DispatchWorkItem {
+////            self.p.showPlayButton()
+//        }
+//
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: work1)
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: work2)
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: work3)
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: work4)
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: work5)
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: work6)
         
-        let v1 = Version(string: "2.1.4")!
-        let v2 = Version(string: "2.1.3")!
-        print("v1 == v2 \(v1 == v2)")
-        print("v1 != v2 \(v1 != v2)")
-        print("v1 < v2 \(v1 < v2)")
-        print("v1 > v2 \(v1 > v2)")
-        print("v1 <= v2 \(v1 <= v2)")
-        print("v1 >= v2 \(v1 >= v2)")
+        
+        
         //        tap = UITapGestureRecognizer(target: self, action: #selector(tapHandle(_:)))
         //        dTap = UITapGestureRecognizer(target: self, action: #selector(dTapHandle(_:)))
         //        dTap.numberOfTapsRequired = 2
@@ -74,6 +105,15 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         scene.scaleMode = .aspectFill
         skView.presentScene(scene)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        present(TestAA(), animated: true, completion: nil)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+    }
 }
 
 class Cell: Routable {
@@ -110,20 +150,6 @@ class TestScene: SKScene, MovableDelegate {
             let isEmpty = userData?["isEmpty"] as? Bool ?? true
             value = isEmpty ? Cell() : Wall()
         }
-        print("========")
-        print(matrix)
-        //        let x = SKShapeNode(circleOfRadius: 8.0)
-        //        x.strokeColor = .yellow
-        //        x.position = CGPoint(x: 0, y: 0)
-        //        addChild(x)
-        //        matrix.forEachIndex { index, value in
-        //            if value?.isEmpty ?? false == false {
-        //                let a = SKShapeNode(circleOfRadius: 8.0)
-        //                a.position = point(by: index)
-        //                a.fillColor = .blue
-        //                addChild(a)
-        //            }
-        //        }
         main = Main(circleOfRadius: 8.0)
         main.strokeColor = .red
         main.movableDelegate = self
@@ -175,4 +201,38 @@ public class Main: SKShapeNode, Movable {
     }
     
     public weak var movableDelegate: MovableDelegate?
+}
+
+public class Queue {
+    public private(set) var delay: Double
+    
+    public private(set) var isActive = false
+    
+    public private(set) var items = [DispatchWorkItem]()
+    
+    init(_ delay: Double = 0.2) {
+        self.delay = delay
+    }
+    
+    public func add(_ block: @escaping () -> Void) {
+        let item = DispatchWorkItem {
+            block()
+            if !self.items.isEmpty {
+                self.items.remove(at: 0)
+                self.start(true)
+            } else {
+                self.isActive = false
+            }
+        }
+        items.append(item)
+        start(false)
+    }
+    
+    private func start(_ force: Bool) {
+        let isStart = force ? true : !isActive
+        if isStart, let item = items.first {
+            isActive = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: item)
+        }
+    }
 }
