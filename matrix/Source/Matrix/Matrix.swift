@@ -50,7 +50,7 @@ public class Matrix<T> {
         }
     }
     
-    public convenience init(m: Int, n: Int, elements: T...) {
+    public convenience init(m: Int, n: Int, elements: T?...) {
         self.init(m: m, n: n, array: elements)
     }
     
