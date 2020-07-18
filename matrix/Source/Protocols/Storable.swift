@@ -14,28 +14,16 @@ public protocol Storable: Datable {
     func save()
     
     func load()
-    
-    func saveData(_ data: Data?)
-    
-    func loadData() -> Data?
 }
 
 public extension Storable {
     func save() {
-        saveData(data)
-    }
-    
-    func load() {
-        data = loadData()
-    }
-    
-    func saveData(_ data: Data?) {
         let userDefaults = UserDefaults.standard
         userDefaults.set(data, forKey: key)
         userDefaults.synchronize()
     }
     
-    func loadData() -> Data? {
-        return UserDefaults.standard.data(forKey: key)
+    func load() {
+        data = UserDefaults.standard.data(forKey: key)
     }
 }

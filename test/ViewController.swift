@@ -19,9 +19,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let saveLoad = SaveLoad("my-save")
-//        saveLoad.load()
-//        print(saveLoad.list ?? ["nil" : "nil"])
+        let saveLoad = SaveLoad("my-save")
+        saveLoad.load()
+        print(saveLoad.list ?? ["nil" : "nil"])
 //        saveLoad.list = ["some options" : 0]
 //        saveLoad.save()
 //        var mat = Matrix<Float>.init(m: 2, n: 2, transposed: [2.0, 3.0, 4.0, 6.0])
@@ -132,7 +132,7 @@ class Wall: Cell {
     }
 }
 
-class TestScene: SKScene, MovableDelegate {
+class TestScene: SKScene, MovableDelegate, DestroyableDelegate {
     var matrix: Matrix<Cell>!
     
     let tileSize = CGSize(width: 16.0, height: 16.0)
@@ -159,11 +159,19 @@ class TestScene: SKScene, MovableDelegate {
         main.movableDelegate = self
         addChild(main)
         main.position = point(by: Index(i: 1, j: 1))
+        let chest = Chest(m: 2, n: 2, items: [])
+        chest.destroyableDelegate = self
+        chest.applyRecovery(1000)
+        chest.applyDamage(101)
     }
     
     func nodeDidFinishMove(_ node: SKNode) {
         print("finish move")
         targetIndex = nil
+    }
+    
+    func nodeDidDestroy(_ node: SKNode) {
+        print("CHEST DESTROYED!!!")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

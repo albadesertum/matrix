@@ -41,6 +41,11 @@
 		C790A96724C37A87001EB04E /* Set+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A96624C37A87001EB04E /* Set+Common.swift */; };
 		C790A96924C37B5A001EB04E /* BoolOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A96824C37B5A001EB04E /* BoolOperation.swift */; };
 		C790A96C24C37D62001EB04E /* BoolOperable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A96B24C37D62001EB04E /* BoolOperable.swift */; };
+		C790A96F24C39357001EB04E /* Destroyable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A96E24C39357001EB04E /* Destroyable.swift */; };
+		C790A97124C39402001EB04E /* Variable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A97024C39402001EB04E /* Variable.swift */; };
+		C790A97424C39468001EB04E /* VariableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A97324C39468001EB04E /* VariableDelegate.swift */; };
+		C790A97724C39854001EB04E /* DestroyableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A97624C39854001EB04E /* DestroyableDelegate.swift */; };
+		C790A97924C39CE0001EB04E /* Variable+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A97824C39CE0001EB04E /* Variable+CustomStringConvertible.swift */; };
 		C7963DC524C1EC4C006FA73D /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7963DC424C1EC4B006FA73D /* ProgressView.swift */; };
 		C79CA18724BCD9A400A25A26 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79CA18624BCD9A400A25A26 /* MenuViewController.swift */; };
 		C79CA18A24BCE55700A25A26 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79CA18824BCE55700A25A26 /* MenuTableViewCell.swift */; };
@@ -118,6 +123,11 @@
 		C790A96624C37A87001EB04E /* Set+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+Common.swift"; sourceTree = "<group>"; };
 		C790A96824C37B5A001EB04E /* BoolOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BoolOperation.swift; path = ../BoolOperation.swift; sourceTree = "<group>"; };
 		C790A96B24C37D62001EB04E /* BoolOperable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BoolOperable.swift; path = ../BoolOperable.swift; sourceTree = "<group>"; };
+		C790A96E24C39357001EB04E /* Destroyable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destroyable.swift; sourceTree = "<group>"; };
+		C790A97024C39402001EB04E /* Variable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Variable.swift; path = ../Variable.swift; sourceTree = "<group>"; };
+		C790A97324C39468001EB04E /* VariableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VariableDelegate.swift; path = ../VariableDelegate.swift; sourceTree = "<group>"; };
+		C790A97624C39854001EB04E /* DestroyableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestroyableDelegate.swift; sourceTree = "<group>"; };
+		C790A97824C39CE0001EB04E /* Variable+CustomStringConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Variable+CustomStringConvertible.swift"; path = "../Variable+CustomStringConvertible.swift"; sourceTree = "<group>"; };
 		C7963DC424C1EC4B006FA73D /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		C79CA18424BCD68F00A25A26 /* UITableView+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Common.swift"; sourceTree = "<group>"; };
 		C79CA18624BCD9A400A25A26 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +208,7 @@
 				C745FB0F24221EDF009F6405 /* Node */,
 				C745FB1B24221EDF009F6405 /* Protocols */,
 				C790A96024C3694F001EB04E /* SaveLoad */,
+				C790A97224C39412001EB04E /* Variable */,
 				C7BE6C9C24B8E9B50005216F /* Version */,
 			);
 			path = Source;
@@ -266,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				C70D83B7246F1103007E97B0 /* Datable.swift */,
+				C790A96E24C39357001EB04E /* Destroyable.swift */,
 				C768045F245D7B7900861156 /* Itemable.swift */,
 				C74C427A24818C1B00C5113E /* Movable.swift */,
 				C745FB1C24221EDF009F6405 /* Routable.swift */,
@@ -345,6 +357,32 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		C790A97224C39412001EB04E /* Variable */ = {
+			isa = PBXGroup;
+			children = (
+				C790A97024C39402001EB04E /* Variable.swift */,
+				C790A97524C3946C001EB04E /* Delegates */,
+				C790A97A24C39D45001EB04E /* Extensions */,
+			);
+			path = Variable;
+			sourceTree = "<group>";
+		};
+		C790A97524C3946C001EB04E /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				C790A97324C39468001EB04E /* VariableDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		C790A97A24C39D45001EB04E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C790A97824C39CE0001EB04E /* Variable+CustomStringConvertible.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C7BE6C9C24B8E9B50005216F /* Version */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,6 +414,7 @@
 		C7BE6CB324B8F1D90005216F /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
+				C790A97624C39854001EB04E /* DestroyableDelegate.swift */,
 				C7BE6CB124B8F1D40005216F /* MovableDelegate.swift */,
 			);
 			path = Delegates;
@@ -536,10 +575,14 @@
 				C745FB2A24221EDF009F6405 /* Matrix.swift in Sources */,
 				C74C4280248194D400C5113E /* CGPoint+Common.swift in Sources */,
 				C745FB2724221EDF009F6405 /* Matrix+CustomStringConvertible.swift in Sources */,
+				C790A96F24C39357001EB04E /* Destroyable.swift in Sources */,
 				C74C427924818A9500C5113E /* Item+Equatable.swift in Sources */,
+				C790A97724C39854001EB04E /* DestroyableDelegate.swift in Sources */,
 				C74C42712481887E00C5113E /* Datable.swift in Sources */,
 				C7BE6CB024B8F1B80005216F /* Version.swift in Sources */,
+				C790A97124C39402001EB04E /* Variable.swift in Sources */,
 				C790A95F24C36943001EB04E /* SaveLoad.swift in Sources */,
+				C790A97424C39468001EB04E /* VariableDelegate.swift in Sources */,
 				C7BE6CB224B8F1D50005216F /* MovableDelegate.swift in Sources */,
 				C745FB2624221EDF009F6405 /* Matrix+Double.swift in Sources */,
 				C74C42732481887E00C5113E /* Itemable.swift in Sources */,
@@ -547,6 +590,7 @@
 				C7BE6CA424B8EB680005216F /* MatrixError.swift in Sources */,
 				C745FB2824221EDF009F6405 /* Matrix+Float.swift in Sources */,
 				C745FB2524221EDF009F6405 /* Matrix+Routable.swift in Sources */,
+				C790A97924C39CE0001EB04E /* Variable+CustomStringConvertible.swift in Sources */,
 				C790A96324C36BBD001EB04E /* Version+Hashable.swift in Sources */,
 				C7BE6C9924B8DE1C0005216F /* Array+Common.swift in Sources */,
 				C745FB2424221EDF009F6405 /* Node.swift in Sources */,
