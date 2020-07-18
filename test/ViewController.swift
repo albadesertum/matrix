@@ -19,7 +19,11 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        let saveLoad = SaveLoad("my-save")
+//        saveLoad.load()
+//        print(saveLoad.list ?? ["nil" : "nil"])
+//        saveLoad.list = ["some options" : 0]
+//        saveLoad.save()
 //        var mat = Matrix<Float>.init(m: 2, n: 2, transposed: [2.0, 3.0, 4.0, 6.0])
 //        mat = mat * 2.0
 //        print(mat)

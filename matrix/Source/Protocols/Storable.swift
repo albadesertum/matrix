@@ -8,21 +8,34 @@
 
 import Foundation
 
-public protocol Storable: class {
+public protocol Storable: Datable {
     var key: String { get }
     
-    func save(_ data: Data?)
-    func load() -> Data?
+    func save()
+    
+    func load()
+    
+    func saveData(_ data: Data?)
+    
+    func loadData() -> Data?
 }
 
 public extension Storable {
-    func save(_ data: Data?) {
+    func save() {
+        saveData(data)
+    }
+    
+    func load() {
+        data = loadData()
+    }
+    
+    func saveData(_ data: Data?) {
         let userDefaults = UserDefaults.standard
         userDefaults.set(data, forKey: key)
         userDefaults.synchronize()
     }
     
-    func load() -> Data? {
+    func loadData() -> Data? {
         return UserDefaults.standard.data(forKey: key)
     }
 }

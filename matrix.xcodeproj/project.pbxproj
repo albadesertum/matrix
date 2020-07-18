@@ -35,8 +35,13 @@
 		C7680456245D74A600861156 /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C768DB932423571900F6B4EE /* Classes.swift */; };
 		C77AC036249F6B9C0088B846 /* MyScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C77AC035249F6B9C0088B846 /* MyScene.sks */; };
 		C77AC03A249FCE0C0088B846 /* TileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = C77AC039249FCE0C0088B846 /* TileSet.sks */; };
+		C790A95F24C36943001EB04E /* SaveLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A95E24C36943001EB04E /* SaveLoad.swift */; };
+		C790A96324C36BBD001EB04E /* Version+Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A96224C36BBD001EB04E /* Version+Hashable.swift */; };
+		C790A96524C375B4001EB04E /* UITableView+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79CA18424BCD68F00A25A26 /* UITableView+Common.swift */; };
+		C790A96724C37A87001EB04E /* Set+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A96624C37A87001EB04E /* Set+Common.swift */; };
+		C790A96924C37B5A001EB04E /* BoolOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A96824C37B5A001EB04E /* BoolOperation.swift */; };
+		C790A96C24C37D62001EB04E /* BoolOperable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A96B24C37D62001EB04E /* BoolOperable.swift */; };
 		C7963DC524C1EC4C006FA73D /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7963DC424C1EC4B006FA73D /* ProgressView.swift */; };
-		C79CA18524BCD68F00A25A26 /* UITableView+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79CA18424BCD68F00A25A26 /* UITableView+Common.swift */; };
 		C79CA18724BCD9A400A25A26 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79CA18624BCD9A400A25A26 /* MenuViewController.swift */; };
 		C79CA18A24BCE55700A25A26 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79CA18824BCE55700A25A26 /* MenuTableViewCell.swift */; };
 		C79CA18B24BCE55700A25A26 /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C79CA18924BCE55700A25A26 /* MenuTableViewCell.xib */; };
@@ -108,6 +113,11 @@
 		C768DB932423571900F6B4EE /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
 		C77AC035249F6B9C0088B846 /* MyScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyScene.sks; sourceTree = "<group>"; };
 		C77AC039249FCE0C0088B846 /* TileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TileSet.sks; sourceTree = "<group>"; };
+		C790A95E24C36943001EB04E /* SaveLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SaveLoad.swift; path = ../SaveLoad.swift; sourceTree = "<group>"; };
+		C790A96224C36BBD001EB04E /* Version+Hashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Version+Hashable.swift"; sourceTree = "<group>"; };
+		C790A96624C37A87001EB04E /* Set+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+Common.swift"; sourceTree = "<group>"; };
+		C790A96824C37B5A001EB04E /* BoolOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BoolOperation.swift; path = ../BoolOperation.swift; sourceTree = "<group>"; };
+		C790A96B24C37D62001EB04E /* BoolOperable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BoolOperable.swift; path = ../BoolOperable.swift; sourceTree = "<group>"; };
 		C7963DC424C1EC4B006FA73D /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		C79CA18424BCD68F00A25A26 /* UITableView+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Common.swift"; sourceTree = "<group>"; };
 		C79CA18624BCD9A400A25A26 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -187,6 +197,7 @@
 				C745FB1324221EDF009F6405 /* Matrix */,
 				C745FB0F24221EDF009F6405 /* Node */,
 				C745FB1B24221EDF009F6405 /* Protocols */,
+				C790A96024C3694F001EB04E /* SaveLoad */,
 				C7BE6C9C24B8E9B50005216F /* Version */,
 			);
 			path = Source;
@@ -274,7 +285,9 @@
 		C74C4281248194FF00C5113E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C790A96A24C37B5D001EB04E /* Enums */,
 				C74C42822481950600C5113E /* Extensions */,
+				C790A96D24C37D67001EB04E /* Protocols */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -284,7 +297,7 @@
 			children = (
 				C7BE6C9824B8DE1C0005216F /* Array+Common.swift */,
 				C74C427F248194D400C5113E /* CGPoint+Common.swift */,
-				C79CA18424BCD68F00A25A26 /* UITableView+Common.swift */,
+				C790A96624C37A87001EB04E /* Set+Common.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -308,6 +321,30 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		C790A96024C3694F001EB04E /* SaveLoad */ = {
+			isa = PBXGroup;
+			children = (
+				C790A95E24C36943001EB04E /* SaveLoad.swift */,
+			);
+			path = SaveLoad;
+			sourceTree = "<group>";
+		};
+		C790A96A24C37B5D001EB04E /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				C790A96824C37B5A001EB04E /* BoolOperation.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		C790A96D24C37D67001EB04E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C790A96B24C37D62001EB04E /* BoolOperable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		C7BE6C9C24B8E9B50005216F /* Version */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,6 +359,7 @@
 			children = (
 				C7BE6CA024B8EABA0005216F /* Version+Comparable.swift */,
 				C7BE6C9D24B8EA580005216F /* Version+CustomStringConvertible.swift */,
+				C790A96224C36BBD001EB04E /* Version+Hashable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -359,6 +397,7 @@
 				C77AC035249F6B9C0088B846 /* MyScene.sks */,
 				C77AC039249FCE0C0088B846 /* TileSet.sks */,
 				C7DF0FED2422491D006EF23E /* ViewController.swift */,
+				C79CA18424BCD68F00A25A26 /* UITableView+Common.swift */,
 			);
 			path = test;
 			sourceTree = "<group>";
@@ -482,22 +521,25 @@
 				C745FB1D24221EDF009F6405 /* Index.swift in Sources */,
 				C7BE6CB524B914F70005216F /* Item+Hashable.swift in Sources */,
 				C745FB2124221EDF009F6405 /* Index+CustomStringConvertible.swift in Sources */,
-				C79CA18524BCD68F00A25A26 /* UITableView+Common.swift in Sources */,
 				C74C42722481887E00C5113E /* Storable.swift in Sources */,
 				C74C42752481899A00C5113E /* Item.swift in Sources */,
 				C7BE6CA524B8EB680005216F /* Geometry.swift in Sources */,
 				C745FB1F24221EDF009F6405 /* Index+Equatable.swift in Sources */,
+				C790A96724C37A87001EB04E /* Set+Common.swift in Sources */,
 				C74C427B24818C1B00C5113E /* Movable.swift in Sources */,
+				C790A96C24C37D62001EB04E /* BoolOperable.swift in Sources */,
 				C745FB2024221EDF009F6405 /* Index+Hashable.swift in Sources */,
 				C7BE6CA124B8EABA0005216F /* Version+Comparable.swift in Sources */,
 				C745FB1E24221EDF009F6405 /* Index+Operation.swift in Sources */,
 				C74C427824818A9500C5113E /* Item+CustomStringConvertible.swift in Sources */,
+				C790A96924C37B5A001EB04E /* BoolOperation.swift in Sources */,
 				C745FB2A24221EDF009F6405 /* Matrix.swift in Sources */,
 				C74C4280248194D400C5113E /* CGPoint+Common.swift in Sources */,
 				C745FB2724221EDF009F6405 /* Matrix+CustomStringConvertible.swift in Sources */,
 				C74C427924818A9500C5113E /* Item+Equatable.swift in Sources */,
 				C74C42712481887E00C5113E /* Datable.swift in Sources */,
 				C7BE6CB024B8F1B80005216F /* Version.swift in Sources */,
+				C790A95F24C36943001EB04E /* SaveLoad.swift in Sources */,
 				C7BE6CB224B8F1D50005216F /* MovableDelegate.swift in Sources */,
 				C745FB2624221EDF009F6405 /* Matrix+Double.swift in Sources */,
 				C74C42732481887E00C5113E /* Itemable.swift in Sources */,
@@ -505,6 +547,7 @@
 				C7BE6CA424B8EB680005216F /* MatrixError.swift in Sources */,
 				C745FB2824221EDF009F6405 /* Matrix+Float.swift in Sources */,
 				C745FB2524221EDF009F6405 /* Matrix+Routable.swift in Sources */,
+				C790A96324C36BBD001EB04E /* Version+Hashable.swift in Sources */,
 				C7BE6C9924B8DE1C0005216F /* Array+Common.swift in Sources */,
 				C745FB2424221EDF009F6405 /* Node.swift in Sources */,
 				C745FB2324221EDF009F6405 /* Node+Equatable.swift in Sources */,
@@ -521,6 +564,7 @@
 				C7DF0FEA2422491D006EF23E /* AppDelegate.swift in Sources */,
 				C7680456245D74A600861156 /* Classes.swift in Sources */,
 				C79CA18724BCD9A400A25A26 /* MenuViewController.swift in Sources */,
+				C790A96524C375B4001EB04E /* UITableView+Common.swift in Sources */,
 				C79CA18A24BCE55700A25A26 /* MenuTableViewCell.swift in Sources */,
 				C7963DC524C1EC4C006FA73D /* ProgressView.swift in Sources */,
 			);

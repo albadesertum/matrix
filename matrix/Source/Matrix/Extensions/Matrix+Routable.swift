@@ -117,9 +117,7 @@ public extension Matrix where T: Routable {
             arrayA.append(indexA + neighbor)
             arrayB.append(indexB + neighbor)
         }
-        let setA = Set(arrayA)
-        let setB = Set(arrayB)
-        let intersections = Array(setA.intersection(setB))
+        let intersections = arrayA.applyOperation(.intersection, with: arrayB)
         let valueA = self[intersections[0]]?.isEmpty ?? true
         let valueB = self[intersections[1]]?.isEmpty ?? true
         return valueA && valueB

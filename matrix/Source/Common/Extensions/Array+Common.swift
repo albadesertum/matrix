@@ -22,11 +22,16 @@ public extension Array {
     }
 }
 
-public extension Array where Element: Hashable {
-    func difference(with array: Array<Element>) -> Array<Element> {
-        let setA = Set(self)
-        let setB = Set(array)
-        let difference = setA.symmetricDifference(setB)
-        return Array(difference)
+extension Array where Element: Hashable {
+    var set: Set<Element> {
+        return Set(self)
+    }
+}
+
+extension Array: BoolOperable where Element: Hashable {
+    public typealias T = Array<Element>
+    
+    public func applyOperation(_ operation: BoolOperation, with sequence: Array<Element>) -> Array<Element> {
+        return set.applyOperation(operation, with: sequence.set).array
     }
 }
