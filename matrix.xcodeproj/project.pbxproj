@@ -11,13 +11,21 @@
 		C74C426B24817C3F00C5113E /* matrix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C745FAFA24221D4F009F6405 /* matrix.framework */; };
 		C74C426C24817C3F00C5113E /* matrix.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C745FAFA24221D4F009F6405 /* matrix.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7680456245D74A600861156 /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C768DB932423571900F6B4EE /* Classes.swift */; };
+		C774CDF324CD942800C40FAB /* Resources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C774CDF224CD942800C40FAB /* Resources.xcassets */; };
+		C774CDF524CD98CF00C40FAB /* GameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774CDF424CD98CF00C40FAB /* GameButton.swift */; };
+		C774CDF824CDA1A800C40FAB /* SingleGameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774CDF724CDA1A800C40FAB /* SingleGameButton.swift */; };
+		C774CDFA24CDA31900C40FAB /* RedSingleGameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774CDF924CDA31900C40FAB /* RedSingleGameButton.swift */; };
+		C774CDFC24CDA32900C40FAB /* BlueSingleGameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774CDFB24CDA32900C40FAB /* BlueSingleGameButton.swift */; };
+		C774CE0024CDACF600C40FAB /* SingleGameButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774CDFF24CDACF600C40FAB /* SingleGameButtonDelegate.swift */; };
+		C774CE0324CDADF700C40FAB /* DirectionsGameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774CE0224CDADF700C40FAB /* DirectionsGameButton.swift */; };
+		C774CE0624CDB79400C40FAB /* DirectionsGameButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774CE0524CDB79400C40FAB /* DirectionsGameButtonDelegate.swift */; };
+		C774CE0924CDB85F00C40FAB /* StandartDirectionsGameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774CE0824CDB85F00C40FAB /* StandartDirectionsGameButton.swift */; };
 		C77AC036249F6B9C0088B846 /* MyScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C77AC035249F6B9C0088B846 /* MyScene.sks */; };
 		C77AC03A249FCE0C0088B846 /* TileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = C77AC039249FCE0C0088B846 /* TileSet.sks */; };
 		C790A96524C375B4001EB04E /* UITableView+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79CA18424BCD68F00A25A26 /* UITableView+Common.swift */; };
 		C790A9B924C3A642001EB04E /* SaveLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A97D24C3A642001EB04E /* SaveLoad.swift */; };
 		C790A9BA24C3A642001EB04E /* Variable+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A98024C3A642001EB04E /* Variable+CustomStringConvertible.swift */; };
 		C790A9BB24C3A642001EB04E /* Variable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A98124C3A642001EB04E /* Variable.swift */; };
-		C790A9BC24C3A642001EB04E /* VariableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A98324C3A642001EB04E /* VariableDelegate.swift */; };
 		C790A9BD24C3A642001EB04E /* BoolOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A98624C3A642001EB04E /* BoolOperation.swift */; };
 		C790A9BE24C3A642001EB04E /* CGPoint+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A98824C3A642001EB04E /* CGPoint+Common.swift */; };
 		C790A9BF24C3A642001EB04E /* Array+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A98924C3A642001EB04E /* Array+Common.swift */; };
@@ -94,12 +102,20 @@
 		C745FAFD24221D4F009F6405 /* matrix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = matrix.h; sourceTree = "<group>"; };
 		C745FAFE24221D4F009F6405 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C768DB932423571900F6B4EE /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
+		C774CDF224CD942800C40FAB /* Resources.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resources.xcassets; sourceTree = "<group>"; };
+		C774CDF424CD98CF00C40FAB /* GameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameButton.swift; sourceTree = "<group>"; };
+		C774CDF724CDA1A800C40FAB /* SingleGameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleGameButton.swift; sourceTree = "<group>"; };
+		C774CDF924CDA31900C40FAB /* RedSingleGameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedSingleGameButton.swift; sourceTree = "<group>"; };
+		C774CDFB24CDA32900C40FAB /* BlueSingleGameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueSingleGameButton.swift; sourceTree = "<group>"; };
+		C774CDFF24CDACF600C40FAB /* SingleGameButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SingleGameButtonDelegate.swift; path = ../SingleGameButtonDelegate.swift; sourceTree = "<group>"; };
+		C774CE0224CDADF700C40FAB /* DirectionsGameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DirectionsGameButton.swift; path = ../DirectionsGameButton.swift; sourceTree = "<group>"; };
+		C774CE0524CDB79400C40FAB /* DirectionsGameButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DirectionsGameButtonDelegate.swift; path = ../DirectionsGameButtonDelegate.swift; sourceTree = "<group>"; };
+		C774CE0824CDB85F00C40FAB /* StandartDirectionsGameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandartDirectionsGameButton.swift; sourceTree = "<group>"; };
 		C77AC035249F6B9C0088B846 /* MyScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyScene.sks; sourceTree = "<group>"; };
 		C77AC039249FCE0C0088B846 /* TileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TileSet.sks; sourceTree = "<group>"; };
 		C790A97D24C3A642001EB04E /* SaveLoad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveLoad.swift; sourceTree = "<group>"; };
 		C790A98024C3A642001EB04E /* Variable+CustomStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Variable+CustomStringConvertible.swift"; sourceTree = "<group>"; };
 		C790A98124C3A642001EB04E /* Variable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Variable.swift; sourceTree = "<group>"; };
-		C790A98324C3A642001EB04E /* VariableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VariableDelegate.swift; sourceTree = "<group>"; };
 		C790A98624C3A642001EB04E /* BoolOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolOperation.swift; sourceTree = "<group>"; };
 		C790A98824C3A642001EB04E /* CGPoint+Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Common.swift"; sourceTree = "<group>"; };
 		C790A98924C3A642001EB04E /* Array+Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Common.swift"; sourceTree = "<group>"; };
@@ -205,6 +221,62 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C774CDF624CD98D700C40FAB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C774CDFB24CDA32900C40FAB /* BlueSingleGameButton.swift */,
+				C774CDF924CDA31900C40FAB /* RedSingleGameButton.swift */,
+				C774CE0824CDB85F00C40FAB /* StandartDirectionsGameButton.swift */,
+				C774CDF224CD942800C40FAB /* Resources.xcassets */,
+				C774CE0424CDADFA00C40FAB /* DirectionsGameButton */,
+				C774CDFD24CDACB300C40FAB /* GameButton */,
+				C774CDFE24CDACD400C40FAB /* SingleGameButton */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C774CDFD24CDACB300C40FAB /* GameButton */ = {
+			isa = PBXGroup;
+			children = (
+				C774CDF424CD98CF00C40FAB /* GameButton.swift */,
+			);
+			path = GameButton;
+			sourceTree = "<group>";
+		};
+		C774CDFE24CDACD400C40FAB /* SingleGameButton */ = {
+			isa = PBXGroup;
+			children = (
+				C774CDF724CDA1A800C40FAB /* SingleGameButton.swift */,
+				C774CE0124CDACFA00C40FAB /* Protocols */,
+			);
+			path = SingleGameButton;
+			sourceTree = "<group>";
+		};
+		C774CE0124CDACFA00C40FAB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C774CDFF24CDACF600C40FAB /* SingleGameButtonDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		C774CE0424CDADFA00C40FAB /* DirectionsGameButton */ = {
+			isa = PBXGroup;
+			children = (
+				C774CE0224CDADF700C40FAB /* DirectionsGameButton.swift */,
+				C774CE0724CDB7B200C40FAB /* Protocols */,
+			);
+			path = DirectionsGameButton;
+			sourceTree = "<group>";
+		};
+		C774CE0724CDB7B200C40FAB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C774CE0524CDB79400C40FAB /* DirectionsGameButtonDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		C790A97B24C3A642001EB04E /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,7 +306,6 @@
 			children = (
 				C790A98124C3A642001EB04E /* Variable.swift */,
 				C790A97F24C3A642001EB04E /* Extensions */,
-				C790A98224C3A642001EB04E /* Protocols */,
 			);
 			path = Variable;
 			sourceTree = "<group>";
@@ -245,14 +316,6 @@
 				C790A98024C3A642001EB04E /* Variable+CustomStringConvertible.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		C790A98224C3A642001EB04E /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				C790A98324C3A642001EB04E /* VariableDelegate.swift */,
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		C790A98424C3A642001EB04E /* Common */ = {
@@ -437,6 +500,7 @@
 				C77AC039249FCE0C0088B846 /* TileSet.sks */,
 				C7DF0FED2422491D006EF23E /* ViewController.swift */,
 				C79CA18424BCD68F00A25A26 /* UITableView+Common.swift */,
+				C774CDF624CD98D700C40FAB /* Controller */,
 			);
 			path = test;
 			sourceTree = "<group>";
@@ -544,6 +608,7 @@
 				C79CA18B24BCE55700A25A26 /* MenuTableViewCell.xib in Resources */,
 				C77AC03A249FCE0C0088B846 /* TileSet.sks in Resources */,
 				C7DF0FF624224921006EF23E /* LaunchScreen.storyboard in Resources */,
+				C774CDF324CD942800C40FAB /* Resources.xcassets in Resources */,
 				C77AC036249F6B9C0088B846 /* MyScene.sks in Resources */,
 				C7DF0FF324224921006EF23E /* Assets.xcassets in Resources */,
 				C7DF0FF12422491D006EF23E /* Main.storyboard in Resources */,
@@ -579,7 +644,6 @@
 				C790A9CE24C3A642001EB04E /* Index+CustomStringConvertible.swift in Sources */,
 				C790A9CB24C3A642001EB04E /* Index+Operation.swift in Sources */,
 				C790A9DF24C3A642001EB04E /* DestroyableDelegate.swift in Sources */,
-				C790A9BC24C3A642001EB04E /* VariableDelegate.swift in Sources */,
 				C790A9BA24C3A642001EB04E /* Variable+CustomStringConvertible.swift in Sources */,
 				C790A9C224C3A642001EB04E /* Version.swift in Sources */,
 				C790A9BD24C3A642001EB04E /* BoolOperation.swift in Sources */,
@@ -604,13 +668,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C774CE0324CDADF700C40FAB /* DirectionsGameButton.swift in Sources */,
+				C774CDF824CDA1A800C40FAB /* SingleGameButton.swift in Sources */,
+				C774CE0924CDB85F00C40FAB /* StandartDirectionsGameButton.swift in Sources */,
+				C774CDFA24CDA31900C40FAB /* RedSingleGameButton.swift in Sources */,
 				C7DF0FEE2422491D006EF23E /* ViewController.swift in Sources */,
+				C774CDF524CD98CF00C40FAB /* GameButton.swift in Sources */,
 				C7DF0FEA2422491D006EF23E /* AppDelegate.swift in Sources */,
 				C7680456245D74A600861156 /* Classes.swift in Sources */,
 				C79CA18724BCD9A400A25A26 /* MenuViewController.swift in Sources */,
+				C774CE0624CDB79400C40FAB /* DirectionsGameButtonDelegate.swift in Sources */,
 				C790A96524C375B4001EB04E /* UITableView+Common.swift in Sources */,
+				C774CE0024CDACF600C40FAB /* SingleGameButtonDelegate.swift in Sources */,
 				C79CA18A24BCE55700A25A26 /* MenuTableViewCell.swift in Sources */,
 				C7963DC524C1EC4C006FA73D /* ProgressView.swift in Sources */,
+				C774CDFC24CDA32900C40FAB /* BlueSingleGameButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

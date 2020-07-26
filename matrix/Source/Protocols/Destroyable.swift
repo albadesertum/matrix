@@ -11,22 +11,17 @@ import SpriteKit
 public protocol Destroyable: SKNode {
     var health: Variable { get }
     
-    var destroyableDelegate: DestroyableDelegate? { get }
+    func makeDamage(_ damage: Int)
     
-    func applyDamage(_ damage: Int)
-    
-    func applyRecovery(_ recovery: Int)
+    func makeRecovery(_ recovery: Int)
 }
 
 public extension Destroyable {
-    func applyDamage(_ damage: Int) {
+    func makeDamage(_ damage: Int) {
         health.decrease(by: damage)
-        if health.isMinimum {
-            destroyableDelegate?.nodeDidDestroy(self)
-        }
     }
     
-    func applyRecovery(_ recovery: Int) {
+    func makeRecovery(_ recovery: Int) {
         health.increase(by: recovery)
     }
 }

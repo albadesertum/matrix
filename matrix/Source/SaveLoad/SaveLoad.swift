@@ -24,7 +24,7 @@ public class SaveLoad: Storable {
     
     public var list: [String : Any]?
     
-    public init(_ key: String) {
+    public init(key: String) {
         self.key = key
     }
 }

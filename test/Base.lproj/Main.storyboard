@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -13,32 +13,62 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="test" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <skView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="apn-sh-glF">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="kes-2y-3JI"/>
                                 </connections>
                             </skView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xKE-GS-HSy" customClass="RedSingleGameButton" customModule="test" customModuleProvider="target">
+                                <rect key="frame" x="504" y="256" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" placeholder="YES" id="M0a-bm-Ma9"/>
+                                    <constraint firstAttribute="height" constant="64" placeholder="YES" id="nMU-TQ-CyG"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ngb-ct-tFc" customClass="RedSingleGameButton" customModule="test" customModuleProvider="target">
+                                <rect key="frame" x="440" y="256" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" placeholder="YES" id="ceP-Xm-ZlR"/>
+                                    <constraint firstAttribute="width" constant="64" placeholder="YES" id="f9G-uW-TwN"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1GE-QK-JMa" customClass="StandartDirectionsGameButton" customModule="test" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="256" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" placeholder="YES" id="LXD-p5-jHf"/>
+                                    <constraint firstAttribute="width" constant="64" placeholder="YES" id="gdY-On-ynQ"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xKE-GS-HSy" secondAttribute="bottom" id="D4e-SB-Fam"/>
                             <constraint firstItem="apn-sh-glF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ezn-jY-1x4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="apn-sh-glF" secondAttribute="trailing" id="Kzn-d0-VqX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="apn-sh-glF" secondAttribute="bottom" id="lra-2R-fE0"/>
+                            <constraint firstItem="xKE-GS-HSy" firstAttribute="leading" secondItem="Ngb-ct-tFc" secondAttribute="trailing" id="ovG-iA-pE7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1GE-QK-JMa" secondAttribute="bottom" id="qv7-JP-pr3"/>
+                            <constraint firstItem="Ngb-ct-tFc" firstAttribute="centerY" secondItem="xKE-GS-HSy" secondAttribute="centerY" id="rBA-Ji-uTB"/>
+                            <constraint firstItem="1GE-QK-JMa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vtA-pb-I5n"/>
                             <constraint firstItem="apn-sh-glF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="z8x-nM-J3q"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xKE-GS-HSy" secondAttribute="trailing" id="zPa-ot-i9Q"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="blueButton" destination="xKE-GS-HSy" id="57X-7Z-Obd"/>
+                        <outlet property="directionButton" destination="1GE-QK-JMa" id="WdD-Bb-VIi"/>
+                        <outlet property="redButton" destination="Ngb-ct-tFc" id="5wK-xW-Ibn"/>
                         <outlet property="skView" destination="apn-sh-glF" id="5JB-F5-dDx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="138"/>
+            <point key="canvasLocation" x="130.98591549295776" y="136.875"/>
         </scene>
     </scenes>
 </document>

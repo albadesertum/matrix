@@ -10,18 +10,66 @@ import UIKit
 import SpriteKit
 import matrix
 
-class ViewController: UIViewController, UIGestureRecognizerDelegate {
+class ViewController: UIViewController, UIGestureRecognizerDelegate, SingleGameButtonDelegate, DirectionsGameButtonDelegate {
+    @IBOutlet weak var redButton: RedSingleGameButton!
+    
+    @IBOutlet weak var blueButton: BlueSingleGameButton!
+    
     @IBOutlet weak var skView: SKView!
+    
+    @IBOutlet weak var directionButton: StandartDirectionsGameButton!
     
     var tap: UITapGestureRecognizer!
     var dTap: UITapGestureRecognizer!
 //    @IBOutlet weak var p: ProgressView!
     
+    func didPress(_ button: SingleGameButton) {
+        if button == redButton {
+            print("PRESS RED")
+        }
+        if button == blueButton {
+            print("PRESS BLUE")
+        }
+    }
+    
+    func didRelease(_ button: SingleGameButton) {
+        if button == redButton {
+            print("RELEASE RED")
+        }
+        if button == blueButton {
+            print("RELEASE BLUE")
+        }
+    }
+    
+    func didPress(_ button: DirectionsGameButton, at direction: DirectionsGameButton.Direction) {
+        var str: String
+        switch direction {
+        case .none:
+            str = "NONE"
+        case .up:
+            str = "UP"
+        case .right:
+            str = "RIGHT"
+        case .down:
+            str = "DOWN"
+        case .left:
+            str = "LEFT"
+        }
+        print("PRESS " + str)
+    }
+    
+    func didRelease(_ button: DirectionsGameButton) {
+        print("RELEASE DIR")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let saveLoad = SaveLoad("my-save")
-        saveLoad.load()
-        print(saveLoad.list ?? ["nil" : "nil"])
+        redButton.delegate = self
+        blueButton.delegate = self
+        directionButton.delegate = self
+//        let saveLoad = SaveLoad("my-save")
+//        saveLoad.load()
+//        print(saveLoad.list ?? ["nil" : "nil"])
 //        saveLoad.list = ["some options" : 0]
 //        saveLoad.save()
 //        var mat = Matrix<Float>.init(m: 2, n: 2, transposed: [2.0, 3.0, 4.0, 6.0])
@@ -112,7 +160,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        present(TestAA(), animated: true, completion: nil)
+//        let x = MenuViewController()
+//        let nc = UINavigationController(rootViewController: x)
+//        nc.modalPresentationStyle = .fullScreen
+//        present(nc, animated: true, completion: nil)
     }
     
     override func viewDidLayoutSubviews() {
@@ -160,9 +211,10 @@ class TestScene: SKScene, MovableDelegate, DestroyableDelegate {
         addChild(main)
         main.position = point(by: Index(i: 1, j: 1))
         let chest = Chest(m: 2, n: 2, items: [])
-        chest.destroyableDelegate = self
-        chest.applyRecovery(1000)
-        chest.applyDamage(101)
+//        chest.destroyableDelegate = self
+        chest.makeRecovery(1000)
+        chest.makeDamage(100)
+        print(chest.health)
     }
     
     func nodeDidFinishMove(_ node: SKNode) {
