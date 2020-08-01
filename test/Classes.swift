@@ -48,20 +48,24 @@ public class Chest: SKNode, Itemable, Destroyable {
 //}
 
 
-public class Hero: Destroyable {
+public class Hero: Treatable, Effectable {
     public var health = Variable<Int>(identifier: "healt", minimum: 0, maximum: 200, variable: 200)
     
     public var defence = Variable<Float>(identifier: "defence", minimum: 0.0, maximum: 1.0, variable: 0.0)
     
-    public var medicine = Variable<Float>.init(identifier: "medecine", minimum: 0.0, maximum: 1.0, variable: 1.0)
+    public var treatable = Variable<Float>.init(identifier: "treatable", minimum: 0.0, maximum: 1.0, variable: 1.0)
+    
+    public var effects = [Effect]()
 }
 
-public class Enemy: Destroyable {
+public class Enemy: Treatable, Effectable  {
     public var health = Variable<Int>(identifier: "healt", minimum: 0, maximum: 400, variable: 400)
     
     public var defence = Variable<Float>(identifier: "defence", minimum: 0.0, maximum: 1.0, variable: 0.0)
     
-    public var medicine = Variable<Float>.init(identifier: "medecine", minimum: 0.0, maximum: 1.0, variable: 1.0)
+    public var treatable = Variable<Float>.init(identifier: "treatable", minimum: 0.0, maximum: 1.0, variable: 1.0)
+
+    public var effects = [Effect]()
 }
 
 public class Battle {
@@ -69,61 +73,83 @@ public class Battle {
     public var enemy = Enemy()
     
     public init() {
+        
+    }
+    
+    public func test() {
         let actions: [Action] = [
-            Attack(owner: hero, targets: [enemy]),
-            Attack(owner: hero, targets: [enemy]),
-            Defence(owner: enemy),
-            Attack(owner: hero, targets: [enemy]),
-            Clear(owner: enemy),
-            Attack(owner: hero, targets: [enemy]),
-            Attack(owner: hero, targets: [enemy])
+            Apply<Poison>(owner: hero, targets: [enemy])
         ]
+        doActions(actions)
+    }
+    
+    public func test2() {
+        let actions: [Action] = [
+            Undo<Poison>(owner: enemy)
+        ]
+        doActions(actions)
+    }
+    
+    func doActions(_ actions: [Action]) {
         for action in actions {
             action.doAction()
-            print("hero \(hero.health)")
-            print("enemy \(enemy.health)")
+            print("hero act \(hero.health)")
+            print("enemy act \(enemy.health)")
             print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
         }
     }
-}
-
-public class Action {
-    public let owner: Any
     
-    public let targets: [Any]
-    
-    // MARK: - Init
-        
-    public init(owner: Any, targets: [Any] = []) {
-        self.owner = owner
-        self.targets = targets
-    }
-    
-    public func doAction() {
-        /* Abstract. */
-    }
-}
-
-public class Defence: Action {
-    override public func doAction() {
-        (owner as? Destroyable)?.defence.variable = 0.5
-    }
-}
-
-public class Attack: Action {
-    override public func doAction() {
-        let damage = 20
-        for target in targets {
-            (target as? Destroyable)?.makeDamage(damage)
+    public func apply() {
+        for unit in [hero, enemy] as [Any] {
+            if let effectable = unit as? Effectable {
+                for e in effectable.effects {
+                    e.doEffect()
+                }
+                effectable.effects = effectable.effects.filter { !$0.isCompleted }
+            }
         }
+        print("hero eff \(hero.health)")
+        print("enemy eff \(enemy.health)")
+        print("============================================")
     }
 }
 
-public class Clear: Action {
-    override public func doAction() {
-        (owner as? Destroyable)?.defence.variable = 0.0
-    }
-}
+//public class Defence: Action {
+//    override public func doAction() {
+//        (owner as? Destroyable)?.defence.variable = 0.5
+//    }
+//}
+//
+//public class Attack: Action {
+//    override public func doAction() {
+//        let damage = 20
+//        for target in targets {
+//            (target as? Destroyable)?.makeDamage(damage)
+//        }
+//    }
+//}
+//
+//public class Poison: Action {
+//    override public func doAction() {
+//        for target in targets {
+//            if let effectable = target as? Effectable {
+//                effectable.effects.append(PoisonEffect(owner: effectable))
+//            }
+//        }
+//    }
+//}
+//
+//public class Clear: Action {
+//    override public func doAction() {
+//        (owner as? Destroyable)?.defence.variable = 0.0
+//    }
+//}
+
+//public class PoisonEffect: Effect {
+//    override public func doEffect() {
+//        owner?.makeDamage(6)
+//    }
+//}
 
 //extension Action: Equatable {
 //    public static func == (lhs: Action, rhs: Action) -> Bool {

@@ -64,7 +64,19 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, SingleGameB
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        _ = Battle()
+        let battle = Battle()
+        battle.test()
+        battle.apply()
+        battle.apply()
+        battle.apply()
+        battle.apply()
+        battle.apply()
+        battle.apply()
+        battle.test2()
+        battle.apply()
+        battle.apply()
+        battle.apply()
+        battle.apply()
         view.setupGameButtons()
         redButton.delegate = self
         blueButton.delegate = self
@@ -213,8 +225,7 @@ class TestScene: SKScene, MovableDelegate, DestroyableDelegate {
         addChild(main)
         main.position = point(by: Index(i: 1, j: 1))
         let chest = Chest(m: 2, n: 2, items: [])
-//        chest.destroyableDelegate = self
-        chest.makeRecovery(1000)
+// chest.destroyableDelegate = self
         chest.makeDamage(100)
         print(chest.health)
     }

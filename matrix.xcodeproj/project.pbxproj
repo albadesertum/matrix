@@ -11,6 +11,12 @@
 		C74C426B24817C3F00C5113E /* matrix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C745FAFA24221D4F009F6405 /* matrix.framework */; };
 		C74C426C24817C3F00C5113E /* matrix.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C745FAFA24221D4F009F6405 /* matrix.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C767E15524D5AC9D00F8215E /* Treatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767E15424D5AC9D00F8215E /* Treatable.swift */; };
+		C767E15B24D5CDF400F8215E /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767E15A24D5CDF400F8215E /* Action.swift */; };
+		C767E15E24D5CF3D00F8215E /* Apply.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767E15D24D5CF3D00F8215E /* Apply.swift */; };
+		C767E16024D5CF4800F8215E /* Undo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767E15F24D5CF4800F8215E /* Undo.swift */; };
+		C767E16224D5CF9300F8215E /* Effectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767E16124D5CF9300F8215E /* Effectable.swift */; };
+		C767E16424D5CFCA00F8215E /* Effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767E16324D5CFCA00F8215E /* Effect.swift */; };
+		C767E16B24D5E90400F8215E /* Poison.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767E16A24D5E90400F8215E /* Poison.swift */; };
 		C7680456245D74A600861156 /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C768DB932423571900F6B4EE /* Classes.swift */; };
 		C774CDF324CD942800C40FAB /* Resources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C774CDF224CD942800C40FAB /* Resources.xcassets */; };
 		C774CDF524CD98CF00C40FAB /* GameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774CDF424CD98CF00C40FAB /* GameButton.swift */; };
@@ -104,6 +110,12 @@
 		C745FAFD24221D4F009F6405 /* matrix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = matrix.h; sourceTree = "<group>"; };
 		C745FAFE24221D4F009F6405 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C767E15424D5AC9D00F8215E /* Treatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Treatable.swift; sourceTree = "<group>"; };
+		C767E15A24D5CDF400F8215E /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		C767E15D24D5CF3D00F8215E /* Apply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apply.swift; sourceTree = "<group>"; };
+		C767E15F24D5CF4800F8215E /* Undo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Undo.swift; sourceTree = "<group>"; };
+		C767E16124D5CF9300F8215E /* Effectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effectable.swift; sourceTree = "<group>"; };
+		C767E16324D5CFCA00F8215E /* Effect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effect.swift; sourceTree = "<group>"; };
+		C767E16A24D5E90400F8215E /* Poison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poison.swift; sourceTree = "<group>"; };
 		C768DB932423571900F6B4EE /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
 		C774CDF224CD942800C40FAB /* Resources.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resources.xcassets; sourceTree = "<group>"; };
 		C774CDF424CD98CF00C40FAB /* GameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameButton.swift; sourceTree = "<group>"; };
@@ -225,6 +237,41 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C767E15824D5CDF400F8215E /* Action */ = {
+			isa = PBXGroup;
+			children = (
+				C767E15A24D5CDF400F8215E /* Action.swift */,
+				C767E15924D5CDF400F8215E /* Subclasses */,
+			);
+			path = Action;
+			sourceTree = "<group>";
+		};
+		C767E15924D5CDF400F8215E /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				C767E15D24D5CF3D00F8215E /* Apply.swift */,
+				C767E15F24D5CF4800F8215E /* Undo.swift */,
+			);
+			path = Subclasses;
+			sourceTree = "<group>";
+		};
+		C767E15C24D5CE7500F8215E /* Effect */ = {
+			isa = PBXGroup;
+			children = (
+				C767E16324D5CFCA00F8215E /* Effect.swift */,
+				C767E16924D5E8F700F8215E /* Subclasses */,
+			);
+			path = Effect;
+			sourceTree = "<group>";
+		};
+		C767E16924D5E8F700F8215E /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				C767E16A24D5E90400F8215E /* Poison.swift */,
+			);
+			path = Subclasses;
+			sourceTree = "<group>";
+		};
 		C774CDF624CD98D700C40FAB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,7 +340,9 @@
 		C790A97B24C3A642001EB04E /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				C767E15824D5CDF400F8215E /* Action */,
 				C790A98424C3A642001EB04E /* Common */,
+				C767E15C24D5CE7500F8215E /* Effect */,
 				C790A99924C3A642001EB04E /* Index */,
 				C790A99324C3A642001EB04E /* Item */,
 				C790A9A424C3A642001EB04E /* Matrix */,
@@ -478,6 +527,7 @@
 			children = (
 				C790A9B224C3A642001EB04E /* Datable.swift */,
 				C790A9B424C3A642001EB04E /* Destroyable.swift */,
+				C767E16124D5CF9300F8215E /* Effectable.swift */,
 				C790A9B524C3A642001EB04E /* Itemable.swift */,
 				C790A9B024C3A642001EB04E /* Movable.swift */,
 				C790A9B124C3A642001EB04E /* Routable.swift */,
@@ -638,6 +688,9 @@
 			files = (
 				C790A9DE24C3A642001EB04E /* Itemable.swift in Sources */,
 				C790A9C824C3A642001EB04E /* Item+Hashable.swift in Sources */,
+				C767E15E24D5CF3D00F8215E /* Apply.swift in Sources */,
+				C767E16024D5CF4800F8215E /* Undo.swift in Sources */,
+				C767E16224D5CF9300F8215E /* Effectable.swift in Sources */,
 				C790A9DD24C3A642001EB04E /* Destroyable.swift in Sources */,
 				C790A9D424C3A642001EB04E /* Matrix+Double.swift in Sources */,
 				C790A9C524C3A642001EB04E /* Version+Hashable.swift in Sources */,
@@ -646,6 +699,7 @@
 				C790A9BF24C3A642001EB04E /* Array+Common.swift in Sources */,
 				C790A9BB24C3A642001EB04E /* Variable.swift in Sources */,
 				C790A9D524C3A642001EB04E /* Matrix+CustomStringConvertible.swift in Sources */,
+				C767E16B24D5E90400F8215E /* Poison.swift in Sources */,
 				C790A9C624C3A642001EB04E /* Item.swift in Sources */,
 				C790A9DC24C3A642001EB04E /* Storable.swift in Sources */,
 				C790A9C724C3A642001EB04E /* Item+CustomStringConvertible.swift in Sources */,
@@ -663,11 +717,13 @@
 				C790A9BD24C3A642001EB04E /* BooleanOperation.swift in Sources */,
 				C790A9DB24C3A642001EB04E /* Datable.swift in Sources */,
 				C790A9CF24C3A642001EB04E /* Node+Equatable.swift in Sources */,
+				C767E16424D5CFCA00F8215E /* Effect.swift in Sources */,
 				C790A9C924C3A642001EB04E /* Item+Equatable.swift in Sources */,
 				C790A9CD24C3A642001EB04E /* Index+Hashable.swift in Sources */,
 				C790A9CA24C3A642001EB04E /* Index.swift in Sources */,
 				C767E15524D5AC9D00F8215E /* Treatable.swift in Sources */,
 				C790A9D724C3A642001EB04E /* Matrix+Equatable.swift in Sources */,
+				C767E15B24D5CDF400F8215E /* Action.swift in Sources */,
 				C790A9C124C3A642001EB04E /* BooleanOperable.swift in Sources */,
 				C790A9C324C3A642001EB04E /* Version+Comparable.swift in Sources */,
 				C790A9D924C3A642001EB04E /* Movable.swift in Sources */,
