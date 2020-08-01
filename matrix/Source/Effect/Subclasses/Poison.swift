@@ -15,7 +15,7 @@ public class Poison: Effect {
     
     override public func doEffect() {
         super.doEffect()
-        // FIXME: - Change damage.
+        // FIXME:
         (owner as? Treatable)?.makeDamage(0)
     }
 }
