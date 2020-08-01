@@ -16,11 +16,11 @@ public class Version {
         return 0
     }
     
-    public private(set) var string: String
+    public let string: String
     
-    public private(set) var major: Int
-    public private(set) var minor: Int
-    public private(set) var patch: Int
+    public let major: Int
+    public let minor: Int
+    public let patch: Int
     
     public init?(string: String) {
         let array = string.split(separator: ".").compactMap { Int(String($0)) }

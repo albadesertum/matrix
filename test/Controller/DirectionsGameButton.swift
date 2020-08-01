@@ -58,16 +58,12 @@ public class DirectionsGameButton: GameButton {
     }
     
     override public func cancelDidChange(at point: CGPoint) -> Bool {
-        let isCancelled = super.cancelDidChange(at: point)
-        if !isCancelled {
-            if direction(by: point) == .none {
-                didRelease(at: point)
-            } else {
-                didPress(at: point)
-            }
-            return false
+        if direction(by: point) == .none {
+            didRelease(at: point)
+        } else {
+            didPress(at: point)
         }
-        return true
+        return super.cancelDidChange(at: point)
     }
     
     override public func didRelease(at point: CGPoint) {

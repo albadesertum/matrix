@@ -64,6 +64,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, SingleGameB
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        _ = Battle()
+        view.setupGameButtons()
         redButton.delegate = self
         blueButton.delegate = self
         directionButton.delegate = self

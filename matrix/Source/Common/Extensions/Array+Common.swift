@@ -28,10 +28,10 @@ extension Array where Element: Hashable {
     }
 }
 
-extension Array: BoolOperable where Element: Hashable {
+extension Array: BooleanOperable where Element: Hashable {
     public typealias T = Array<Element>
     
-    public func applyOperation(_ operation: BoolOperation, with sequence: Array<Element>) -> Array<Element> {
+    public func applyOperation(_ operation: BooleanOperation, with sequence: Array<Element>) -> Array<Element> {
         return set.applyOperation(operation, with: sequence.set).array
     }
 }

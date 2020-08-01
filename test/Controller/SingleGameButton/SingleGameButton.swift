@@ -20,16 +20,12 @@ public class SingleGameButton: GameButton {
     }
     
     override public func cancelDidChange(at point: CGPoint) -> Bool {
-        let isCancelled = super.cancelDidChange(at: point)
-        if !isCancelled {
-            if bounds.contains(point) {
-                didPress(at: point)
-            } else {
-                didRelease(at: point)
-            }
-            return false
+        if bounds.contains(point) {
+            didPress(at: point)
+        } else {
+            didRelease(at: point)
         }
-        return true
+        return super.cancelDidChange(at: point)
     }
     
     override public func didRelease(at point: CGPoint) {

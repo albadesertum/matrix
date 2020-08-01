@@ -11,16 +11,11 @@ import UIKit
 public class GameButton: UIImageView {
     public private(set) var isPressed: Bool = false
     
-    public var isBounded = false
-    
     // MARK: - Override
     
     override public func awakeFromNib() {
         super.awakeFromNib()
         isUserInteractionEnabled = true
-        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressGestureRecognizerAction(_:)))
-        longPressGestureRecognizer.minimumPressDuration = 0.0
-        addGestureRecognizer(longPressGestureRecognizer)
     }
     
     // MARK: - Public
@@ -30,20 +25,20 @@ public class GameButton: UIImageView {
     }
     
     public func cancelDidChange(at point: CGPoint) -> Bool {
-        return isBounded ? !bounds.contains(point) : false
+        return false
     }
     
     public func didRelease(at point: CGPoint) {
         isPressed = false
     }
     
-    // MARK: - Action
-    
-    @objc private func longPressGestureRecognizerAction(_ sender: UITapGestureRecognizer) {
+    @objc public func longPressGestureRecognizerAction(_ sender: UITapGestureRecognizer) {
         let point = sender.location(in: self)
         switch sender.state {
         case .began:
-            didPress(at: point)
+            if bounds.contains(point) {
+                didPress(at: point)
+            }
         case .changed:
             if cancelDidChange(at: point) {
                 sender.state = .cancelled

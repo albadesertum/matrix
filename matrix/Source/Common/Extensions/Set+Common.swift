@@ -14,10 +14,10 @@ public extension Set where Element: Hashable {
     }
 }
 
-extension Set: BoolOperable where Element: Hashable {
+extension Set: BooleanOperable where Element: Hashable {
     public typealias T = Set<Element>
     
-    public func applyOperation(_ operation: BoolOperation, with elements: Set<Element>) -> Set<Element> {
+    public func applyOperation(_ operation: BooleanOperation, with elements: Set<Element>) -> Set<Element> {
         var result: Set<Element>
         switch operation {
         case .symmetricDifference:

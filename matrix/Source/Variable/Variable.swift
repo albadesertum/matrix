@@ -8,13 +8,15 @@
 
 import Foundation
 
-public class Variable {
-    public private(set) var identifier: String
+public typealias Numberable = Numeric & Comparable
+
+public class Variable<T: Numberable> {
+    public let identifier: String
     
-    public var maximum: Int
-    public var minimum: Int
+    public var maximum: T
+    public var minimum: T
     
-    public private(set) var variable: Int {
+    public var variable: T {
         didSet {
             if variable < minimum {
                 variable = minimum
@@ -33,18 +35,18 @@ public class Variable {
         return variable == maximum
     }
     
-    public init(identifier: String, minimum: Int, maximum: Int, variable: Int) {
+    public init(identifier: String, minimum: T, maximum: T, variable: T) {
         self.identifier = identifier
         self.minimum = minimum
         self.maximum = maximum
         self.variable = variable
     }
     
-    func increase(by value: Int) {
+    func increase(by value: T) {
         variable = variable + value
     }
     
-    func decrease(by value: Int) {
+    func decrease(by value: T) {
         variable = variable - value
     }
 }

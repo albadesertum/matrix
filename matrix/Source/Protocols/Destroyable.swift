@@ -8,20 +8,16 @@
 
 import SpriteKit
 
-public protocol Destroyable: SKNode {
-    var health: Variable { get }
+public protocol Destroyable: class {
+    var health: Variable<Int> { get }
+    
+    var defence: Variable<Float> { get }
     
     func makeDamage(_ damage: Int)
-    
-    func makeRecovery(_ recovery: Int)
 }
 
 public extension Destroyable {
     func makeDamage(_ damage: Int) {
-        health.decrease(by: damage)
-    }
-    
-    func makeRecovery(_ recovery: Int) {
-        health.increase(by: recovery)
+        health.decrease(by: Int(Float(damage) * (1.0 - defence.variable)))
     }
 }
