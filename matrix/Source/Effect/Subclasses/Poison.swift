@@ -8,11 +8,7 @@
 
 import Foundation
 
-public class Poison: Effect {
-    override public var time: Time {
-        return .permanently
-    }
-    
+public class Poison: Effect {    
     override public func doEffect() {
         super.doEffect()
         guard let sender = sender as? Leveling, let receiver = receiver as? Leveling & Treatable else {
