@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C71A690224D8A8E9003DE2D6 /* Talent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71A690124D8A8E9003DE2D6 /* Talent.swift */; };
+		C71A690424D8A945003DE2D6 /* Leveling.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71A690324D8A945003DE2D6 /* Leveling.swift */; };
 		C745FAFF24221D4F009F6405 /* matrix.h in Headers */ = {isa = PBXBuildFile; fileRef = C745FAFD24221D4F009F6405 /* matrix.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C74C426B24817C3F00C5113E /* matrix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C745FAFA24221D4F009F6405 /* matrix.framework */; };
 		C74C426C24817C3F00C5113E /* matrix.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C745FAFA24221D4F009F6405 /* matrix.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -106,6 +108,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C71A690124D8A8E9003DE2D6 /* Talent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Talent.swift; sourceTree = "<group>"; };
+		C71A690324D8A945003DE2D6 /* Leveling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leveling.swift; sourceTree = "<group>"; };
 		C745FAFA24221D4F009F6405 /* matrix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = matrix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C745FAFD24221D4F009F6405 /* matrix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = matrix.h; sourceTree = "<group>"; };
 		C745FAFE24221D4F009F6405 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -201,6 +205,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C71A690024D8A8D9003DE2D6 /* Talent */ = {
+			isa = PBXGroup;
+			children = (
+				C71A690124D8A8E9003DE2D6 /* Talent.swift */,
+			);
+			path = Talent;
+			sourceTree = "<group>";
+		};
 		C745FAF024221D4F009F6405 = {
 			isa = PBXGroup;
 			children = (
@@ -349,6 +361,7 @@
 				C790A9A024C3A642001EB04E /* Node */,
 				C790A9AF24C3A642001EB04E /* Protocols */,
 				C790A97C24C3A642001EB04E /* SaveLoad */,
+				C71A690024D8A8D9003DE2D6 /* Talent */,
 				C790A97E24C3A642001EB04E /* Variable */,
 				C790A98D24C3A642001EB04E /* Version */,
 			);
@@ -529,6 +542,7 @@
 				C790A9B424C3A642001EB04E /* Destroyable.swift */,
 				C767E16124D5CF9300F8215E /* Effectable.swift */,
 				C790A9B524C3A642001EB04E /* Itemable.swift */,
+				C71A690324D8A945003DE2D6 /* Leveling.swift */,
 				C790A9B024C3A642001EB04E /* Movable.swift */,
 				C790A9B124C3A642001EB04E /* Routable.swift */,
 				C790A9B324C3A642001EB04E /* Storable.swift */,
@@ -711,6 +725,7 @@
 				C790A9D624C3A642001EB04E /* Matrix+Float.swift in Sources */,
 				C790A9CE24C3A642001EB04E /* Index+CustomStringConvertible.swift in Sources */,
 				C790A9CB24C3A642001EB04E /* Index+Operation.swift in Sources */,
+				C71A690224D8A8E9003DE2D6 /* Talent.swift in Sources */,
 				C790A9DF24C3A642001EB04E /* DestroyableDelegate.swift in Sources */,
 				C790A9BA24C3A642001EB04E /* Variable+CustomStringConvertible.swift in Sources */,
 				C790A9C224C3A642001EB04E /* Version.swift in Sources */,
@@ -732,6 +747,7 @@
 				C790A9D324C3A642001EB04E /* Matrix+Routable.swift in Sources */,
 				C790A9BE24C3A642001EB04E /* CGPoint+Common.swift in Sources */,
 				C790A9D124C3A642001EB04E /* Geometry.swift in Sources */,
+				C71A690424D8A945003DE2D6 /* Leveling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

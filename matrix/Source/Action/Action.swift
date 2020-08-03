@@ -9,15 +9,15 @@
 import Foundation
 
 public class Action {
-    public let owner: Any
+    public let sender: AnyObject
     
-    public let targets: [Any]
+    public let receivers: [AnyObject]
     
     // MARK: - Init
     
-    public init(owner: Any, targets: [Any] = []) {
-        self.owner = owner
-        self.targets = targets.isEmpty ? [owner] : targets
+    public init(sender: AnyObject, receivers: [AnyObject] = []) {
+        self.sender = sender
+        self.receivers = receivers.isEmpty ? [sender] : receivers
     }
     
     public func doAction() {

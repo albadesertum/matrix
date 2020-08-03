@@ -10,9 +10,9 @@ import Foundation
 
 public class Apply<T: Effect>: Action {
     override public func doAction() {
-        for target in targets {
-            if let effectable = target as? Effectable {
-                effectable.effects.append(T(owner: effectable))
+        for receiver in receivers {
+            if let receiver = receiver as? Effectable {
+                receiver.effects.append(T(sender: sender, receiver: receiver))
             }
         }
     }

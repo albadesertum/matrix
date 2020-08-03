@@ -9,13 +9,11 @@
 import Foundation
 
 public protocol Treatable: Destroyable {
-    var treatable: Variable<Float> { get }
-    
     func makeHeal(_ heal: Int)
 }
 
 public extension Treatable {
     func makeHeal(_ heal: Int) {
-        health.increase(by: Int(Float(heal) * treatable.variable))
+        health.increase(by: heal)
     }
 }

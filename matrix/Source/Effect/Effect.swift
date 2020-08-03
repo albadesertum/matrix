@@ -13,13 +13,15 @@ public class Effect {
         case permanently, during(count: Int)
     }
     
-    internal weak var owner: Effectable?
+    private var count: Int
+    
+    internal weak var sender: AnyObject?
+    
+    internal weak var receiver: AnyObject?
     
     public var time: Time {
         return .permanently
     }
-    
-    private var count: Int
     
     public var isCompleted: Bool {
         switch time {
@@ -32,9 +34,10 @@ public class Effect {
     
     // MARK: - Init
     
-    public required init(owner: Effectable?) {
-        self.owner = owner
+    public required init(sender: AnyObject?, receiver: AnyObject?) {
         self.count = 0
+        self.sender = sender
+        self.receiver = receiver
     }
     
     // MARK: - Public

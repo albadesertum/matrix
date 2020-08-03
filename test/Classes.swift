@@ -64,55 +64,111 @@ public class Enemy: Treatable, Effectable  {
     public var defence = Variable<Float>(identifier: "defence", minimum: 0.0, maximum: 1.0, variable: 0.0)
     
     public var treatable = Variable<Float>.init(identifier: "treatable", minimum: 0.0, maximum: 1.0, variable: 1.0)
-
+    
     public var effects = [Effect]()
 }
 
-public class Battle {
-    public var hero = Hero()
-    public var enemy = Enemy()
-    
-    public init() {
-        
-    }
-    
-    public func test() {
-        let actions: [Action] = [
-            Apply<Poison>(owner: hero, targets: [enemy])
-        ]
-        doActions(actions)
-    }
-    
-    public func test2() {
-        let actions: [Action] = [
-            Undo<Poison>(owner: enemy)
-        ]
-        doActions(actions)
-    }
-    
-    func doActions(_ actions: [Action]) {
-        for action in actions {
-            action.doAction()
-            print("hero act \(hero.health)")
-            print("enemy act \(enemy.health)")
-            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
-        }
-    }
-    
-    public func apply() {
-        for unit in [hero, enemy] as [Any] {
-            if let effectable = unit as? Effectable {
-                for e in effectable.effects {
-                    e.doEffect()
+//public class Battle2 {
+//    public var hero = Hero()
+//    public var enemy = Enemy()
+//
+//    public init() {
+//
+//    }
+//
+//    public func test() {
+//        let actions: [Action] = [
+//            Apply<Poison>(owner: hero, targets: [enemy])
+//        ]
+//        doActions(actions)
+//    }
+//
+//    public func test2() {
+//        let actions: [Action] = [
+//            Undo<Poison>(owner: enemy)
+//        ]
+//        doActions(actions)
+//    }
+//
+//    func doActions(_ actions: [Action]) {
+//        for action in actions {
+//            action.doAction()
+//            print("hero act \(hero.health)")
+//            print("enemy act \(enemy.health)")
+//            print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
+//        }
+//    }
+//
+//    public func apply() {
+//        for unit in [hero, enemy] as [Any] {
+//            if let effectable = unit as? Effectable {
+//                for e in effectable.effects {
+//                    e.doEffect()
+//                }
+//                effectable.effects = effectable.effects.filter { !$0.isCompleted }
+//            }
+//        }
+//        print("hero eff \(hero.health)")
+//        print("enemy eff \(enemy.health)")
+//        print("============================================")
+//    }
+//}
+
+//public class Battle {
+//    public var characters: [Any]
+//    public var enemies: [Any]
+//
+//    public var units: [Any] {
+//        var result = [Any]()
+//        result.append(contentsOf: characters)
+//        result.append(contentsOf: enemies)
+//        return result
+//    }
+//
+//    public init(characters: [Any], enemies: [Any]) {
+//        self.characters = characters
+//        self.enemies = enemies
+//    }
+//}
+
+public class Logic {
+    public static func applyEffects(to units: [AnyObject]) {
+        for unit in units {
+            if let unit = unit as? Effectable {
+                for effect in unit.effects {
+                    effect.doEffect()
                 }
-                effectable.effects = effectable.effects.filter { !$0.isCompleted }
+                unit.effects = unit.effects.filter { !$0.isCompleted }
             }
         }
-        print("hero eff \(hero.health)")
-        print("enemy eff \(enemy.health)")
-        print("============================================")
+    }
+    
+    public static func makeMove(with actions: [Action]) {
+        for action in actions {
+            action.doAction()
+        }
     }
 }
+
+//class TestAAA {
+//    public var battle: Battle
+//    
+//    public init(battle: Battle) {
+//        self.battle = battle
+//    }
+//    
+//    public func make2(_ actions: [Action]) {
+//        applyEffects()
+//        for action in actions {
+//            action.doAction()
+//        }
+//    }
+//    
+//    public func applyEffects() {
+//        
+//    }
+//}
+
 
 //public class Defence: Action {
 //    override public func doAction() {
