@@ -9,18 +9,25 @@
 import Foundation
 
 public class Talent {
+    public enum Compare {
+        case equally, better(difference: Int), worse(difference: Int)
+    }
+    
     public private(set) var used: Int
+    
+    private var divider: Int
     
     private var counter: Int
     
     public var level: Int {
-        return Int(0.1 * Float(used)) + 1
+        return used / divider + 1
     }
     
     // MARK: - Init
     
-    public init(used: Int) {
+    public init(used: Int, divider: Int) {
         self.used = used
+        self.divider = divider
         self.counter = 0
     }
     
@@ -33,5 +40,16 @@ public class Talent {
     public func apply() {
         used = counter
         counter = 0
+    }
+    
+    public func compare(with talent: Talent) -> Compare {
+        let difference = level - talent.level
+        if difference > 0 {
+            return .better(difference: difference)
+        }
+        if difference < 0 {
+            return .worse(difference: abs(difference))
+        }
+        return .equally
     }
 }

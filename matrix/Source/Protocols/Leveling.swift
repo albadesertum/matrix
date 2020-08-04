@@ -12,6 +12,8 @@ public protocol Leveling {
     var level: Int { get }
     
     var poison: Talent { get }
+    
+    var healing: Talent { get }
 }
 
 public extension Leveling {

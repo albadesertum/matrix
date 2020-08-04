@@ -8,9 +8,9 @@
 
 import Foundation
 
-public typealias Numberable = Numeric & Comparable
+public typealias Numerable = Numeric & Comparable
 
-public class Variable<T: Numberable> {
+public class Variable<T: Numerable> {
     public let identifier: String
     
     public var maximum: T
