@@ -10,10 +10,6 @@ import Foundation
 
 public protocol Leveling {
     var level: Int { get }
-    
-    var poison: Talent { get }
-    
-    var healing: Talent { get }
 }
 
 public extension Leveling {
@@ -29,6 +25,6 @@ public extension Leveling {
     // MARK: - Private
     
     private var talents: [Talent] {
-        return [poison]
+        return []
     }
 }

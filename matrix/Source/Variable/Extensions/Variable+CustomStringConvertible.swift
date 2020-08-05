@@ -10,6 +10,6 @@ import Foundation
 
 extension Variable: CustomStringConvertible {
     public var description: String {
-        return "\(identifier) = \(variable)"
+        return "\(variable)"
     }
 }

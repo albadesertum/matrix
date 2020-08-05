@@ -11,8 +11,6 @@ import Foundation
 public typealias Numerable = Numeric & Comparable
 
 public class Variable<T: Numerable> {
-    public let identifier: String
-    
     public var maximum: T
     public var minimum: T
     
@@ -35,8 +33,7 @@ public class Variable<T: Numerable> {
         return variable == maximum
     }
     
-    public init(identifier: String, minimum: T, maximum: T, variable: T) {
-        self.identifier = identifier
+    public init(minimum: T, maximum: T, variable: T) {
         self.minimum = minimum
         self.maximum = maximum
         self.variable = variable

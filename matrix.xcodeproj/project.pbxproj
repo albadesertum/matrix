@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		C71A690224D8A8E9003DE2D6 /* Talent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71A690124D8A8E9003DE2D6 /* Talent.swift */; };
 		C71A690424D8A945003DE2D6 /* Leveling.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71A690324D8A945003DE2D6 /* Leveling.swift */; };
-		C73CC56C24D9E71C00872E03 /* Healing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73CC56B24D9E71C00872E03 /* Healing.swift */; };
 		C745FAFF24221D4F009F6405 /* matrix.h in Headers */ = {isa = PBXBuildFile; fileRef = C745FAFD24221D4F009F6405 /* matrix.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C74C426B24817C3F00C5113E /* matrix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C745FAFA24221D4F009F6405 /* matrix.framework */; };
 		C74C426C24817C3F00C5113E /* matrix.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C745FAFA24221D4F009F6405 /* matrix.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -19,7 +18,6 @@
 		C767E16024D5CF4800F8215E /* Undo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767E15F24D5CF4800F8215E /* Undo.swift */; };
 		C767E16224D5CF9300F8215E /* Effectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767E16124D5CF9300F8215E /* Effectable.swift */; };
 		C767E16424D5CFCA00F8215E /* Effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767E16324D5CFCA00F8215E /* Effect.swift */; };
-		C767E16B24D5E90400F8215E /* Poison.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767E16A24D5E90400F8215E /* Poison.swift */; };
 		C7680456245D74A600861156 /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C768DB932423571900F6B4EE /* Classes.swift */; };
 		C774CDF324CD942800C40FAB /* Resources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C774CDF224CD942800C40FAB /* Resources.xcassets */; };
 		C774CDF524CD98CF00C40FAB /* GameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774CDF424CD98CF00C40FAB /* GameButton.swift */; };
@@ -69,11 +67,9 @@
 		C790A9DB24C3A642001EB04E /* Datable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A9B224C3A642001EB04E /* Datable.swift */; };
 		C790A9DC24C3A642001EB04E /* Storable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A9B324C3A642001EB04E /* Storable.swift */; };
 		C790A9DD24C3A642001EB04E /* Destroyable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A9B424C3A642001EB04E /* Destroyable.swift */; };
-		C790A9DE24C3A642001EB04E /* Itemable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A9B524C3A642001EB04E /* Itemable.swift */; };
 		C790A9DF24C3A642001EB04E /* DestroyableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A9B724C3A642001EB04E /* DestroyableDelegate.swift */; };
 		C790A9E024C3A642001EB04E /* MovableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A9B824C3A642001EB04E /* MovableDelegate.swift */; };
 		C7963DC524C1EC4C006FA73D /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7963DC424C1EC4B006FA73D /* ProgressView.swift */; };
-		C799B69124D9EEE3002A4AFE /* FullHealing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C799B69024D9EEE3002A4AFE /* FullHealing.swift */; };
 		C799B69A24D9F11A002A4AFE /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C799B69924D9F11A002A4AFE /* Dice.swift */; };
 		C79CA18724BCD9A400A25A26 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79CA18624BCD9A400A25A26 /* MenuViewController.swift */; };
 		C79CA18A24BCE55700A25A26 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79CA18824BCE55700A25A26 /* MenuTableViewCell.swift */; };
@@ -112,7 +108,6 @@
 /* Begin PBXFileReference section */
 		C71A690124D8A8E9003DE2D6 /* Talent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Talent.swift; sourceTree = "<group>"; };
 		C71A690324D8A945003DE2D6 /* Leveling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leveling.swift; sourceTree = "<group>"; };
-		C73CC56B24D9E71C00872E03 /* Healing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Healing.swift; sourceTree = "<group>"; };
 		C745FAFA24221D4F009F6405 /* matrix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = matrix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C745FAFD24221D4F009F6405 /* matrix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = matrix.h; sourceTree = "<group>"; };
 		C745FAFE24221D4F009F6405 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -122,7 +117,6 @@
 		C767E15F24D5CF4800F8215E /* Undo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Undo.swift; sourceTree = "<group>"; };
 		C767E16124D5CF9300F8215E /* Effectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effectable.swift; sourceTree = "<group>"; };
 		C767E16324D5CFCA00F8215E /* Effect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effect.swift; sourceTree = "<group>"; };
-		C767E16A24D5E90400F8215E /* Poison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poison.swift; sourceTree = "<group>"; };
 		C768DB932423571900F6B4EE /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
 		C774CDF224CD942800C40FAB /* Resources.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resources.xcassets; sourceTree = "<group>"; };
 		C774CDF424CD98CF00C40FAB /* GameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameButton.swift; sourceTree = "<group>"; };
@@ -171,11 +165,9 @@
 		C790A9B224C3A642001EB04E /* Datable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Datable.swift; sourceTree = "<group>"; };
 		C790A9B324C3A642001EB04E /* Storable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storable.swift; sourceTree = "<group>"; };
 		C790A9B424C3A642001EB04E /* Destroyable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Destroyable.swift; sourceTree = "<group>"; };
-		C790A9B524C3A642001EB04E /* Itemable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Itemable.swift; sourceTree = "<group>"; };
 		C790A9B724C3A642001EB04E /* DestroyableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestroyableDelegate.swift; sourceTree = "<group>"; };
 		C790A9B824C3A642001EB04E /* MovableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovableDelegate.swift; sourceTree = "<group>"; };
 		C7963DC424C1EC4B006FA73D /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
-		C799B69024D9EEE3002A4AFE /* FullHealing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullHealing.swift; sourceTree = "<group>"; };
 		C799B69924D9F11A002A4AFE /* Dice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dice.swift; sourceTree = "<group>"; };
 		C79CA18424BCD68F00A25A26 /* UITableView+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Common.swift"; sourceTree = "<group>"; };
 		C79CA18624BCD9A400A25A26 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -274,8 +266,6 @@
 		C767E15924D5CDF400F8215E /* Subclasses */ = {
 			isa = PBXGroup;
 			children = (
-				C799B69024D9EEE3002A4AFE /* FullHealing.swift */,
-				C73CC56B24D9E71C00872E03 /* Healing.swift */,
 				C73CC56D24D9E73800872E03 /* Effect */,
 			);
 			path = Subclasses;
@@ -293,7 +283,6 @@
 		C767E16924D5E8F700F8215E /* Subclasses */ = {
 			isa = PBXGroup;
 			children = (
-				C767E16A24D5E90400F8215E /* Poison.swift */,
 			);
 			path = Subclasses;
 			sourceTree = "<group>";
@@ -555,7 +544,6 @@
 				C790A9B224C3A642001EB04E /* Datable.swift */,
 				C790A9B424C3A642001EB04E /* Destroyable.swift */,
 				C767E16124D5CF9300F8215E /* Effectable.swift */,
-				C790A9B524C3A642001EB04E /* Itemable.swift */,
 				C71A690324D8A945003DE2D6 /* Leveling.swift */,
 				C790A9B024C3A642001EB04E /* Movable.swift */,
 				C790A9B124C3A642001EB04E /* Routable.swift */,
@@ -722,12 +710,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C790A9DE24C3A642001EB04E /* Itemable.swift in Sources */,
 				C790A9C824C3A642001EB04E /* Item+Hashable.swift in Sources */,
 				C767E15E24D5CF3D00F8215E /* Apply.swift in Sources */,
 				C767E16024D5CF4800F8215E /* Undo.swift in Sources */,
 				C767E16224D5CF9300F8215E /* Effectable.swift in Sources */,
-				C799B69124D9EEE3002A4AFE /* FullHealing.swift in Sources */,
 				C790A9DD24C3A642001EB04E /* Destroyable.swift in Sources */,
 				C790A9D424C3A642001EB04E /* Matrix+Double.swift in Sources */,
 				C790A9C524C3A642001EB04E /* Version+Hashable.swift in Sources */,
@@ -736,7 +722,6 @@
 				C790A9BF24C3A642001EB04E /* Array+Common.swift in Sources */,
 				C790A9BB24C3A642001EB04E /* Variable.swift in Sources */,
 				C790A9D524C3A642001EB04E /* Matrix+CustomStringConvertible.swift in Sources */,
-				C767E16B24D5E90400F8215E /* Poison.swift in Sources */,
 				C790A9C624C3A642001EB04E /* Item.swift in Sources */,
 				C790A9DC24C3A642001EB04E /* Storable.swift in Sources */,
 				C790A9C724C3A642001EB04E /* Item+CustomStringConvertible.swift in Sources */,
@@ -765,7 +750,6 @@
 				C767E15B24D5CDF400F8215E /* Action.swift in Sources */,
 				C790A9C124C3A642001EB04E /* BooleanOperable.swift in Sources */,
 				C790A9C324C3A642001EB04E /* Version+Comparable.swift in Sources */,
-				C73CC56C24D9E71C00872E03 /* Healing.swift in Sources */,
 				C790A9D924C3A642001EB04E /* Movable.swift in Sources */,
 				C790A9D224C3A642001EB04E /* MatrixError.swift in Sources */,
 				C790A9D824C3A642001EB04E /* Matrix.swift in Sources */,

@@ -6,7 +6,7 @@
 //  Copyright © 2020 Vladimir Psyukalov. All rights reserved.
 //
 
-import Foundation
+import matrix
 
 public class Healing: Action {
     override public func doAction() {

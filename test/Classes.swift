@@ -9,7 +9,7 @@
 import matrix
 import SpriteKit
 
-public class Chest: SKNode, Itemable, Destroyable {
+public class Chest: SKNode, Destroyable {
     public var isCanGive: Bool {
         return true
     }
@@ -20,11 +20,11 @@ public class Chest: SKNode, Itemable, Destroyable {
     
     public var items: Matrix<Item>
     
-    public var health = Variable<Int>(identifier: "h", minimum: 0, maximum: 0, variable: 99)
+    public var health = Variable<Int>(minimum: 0, maximum: 100, variable: 100)
     
-    public var defence = Variable<Float>(identifier: "d", minimum: 0.0, maximum: 1.0, variable: 0.0)
+    public var defence = Variable<Float>(minimum: 0.0, maximum: 1.0, variable: 0.0)
     
-    public var medicine = Variable<Float>(identifier: "m", minimum: 0.0, maximum: 1.0, variable: 0.0)
+    public var medicine = Variable<Float>(minimum: 0.0, maximum: 1.0, variable: 0.0)
     
     public init(m: Int, n: Int, items: [Item]) {
         self.items = Matrix<Item>(m: m, n: n, array: items)
@@ -49,21 +49,21 @@ public class Chest: SKNode, Itemable, Destroyable {
 
 
 public class Hero: Treatable, Effectable {
-    public var health = Variable<Int>(identifier: "healt", minimum: 0, maximum: 200, variable: 200)
+    public var health = Variable<Int>(minimum: 0, maximum: 200, variable: 200)
     
-    public var defence = Variable<Float>(identifier: "defence", minimum: 0.0, maximum: 1.0, variable: 0.0)
+    public var defence = Variable<Float>(minimum: 0.0, maximum: 1.0, variable: 0.0)
     
-    public var treatable = Variable<Float>.init(identifier: "treatable", minimum: 0.0, maximum: 1.0, variable: 1.0)
+    public var treatable = Variable<Float>(minimum: 0.0, maximum: 1.0, variable: 1.0)
     
     public var effects = [Effect]()
 }
 
 public class Enemy: Treatable, Effectable  {
-    public var health = Variable<Int>(identifier: "healt", minimum: 0, maximum: 400, variable: 400)
+    public var health = Variable<Int>(minimum: 0, maximum: 400, variable: 400)
     
-    public var defence = Variable<Float>(identifier: "defence", minimum: 0.0, maximum: 1.0, variable: 0.0)
+    public var defence = Variable<Float>(minimum: 0.0, maximum: 1.0, variable: 0.0)
     
-    public var treatable = Variable<Float>.init(identifier: "treatable", minimum: 0.0, maximum: 1.0, variable: 1.0)
+    public var treatable = Variable<Float>(minimum: 0.0, maximum: 1.0, variable: 1.0)
     
     public var effects = [Effect]()
 }
