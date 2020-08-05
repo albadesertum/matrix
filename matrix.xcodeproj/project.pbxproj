@@ -57,7 +57,6 @@
 		C790A9CE24C3A642001EB04E /* Index+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A99F24C3A642001EB04E /* Index+CustomStringConvertible.swift */; };
 		C790A9CF24C3A642001EB04E /* Node+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A9A224C3A642001EB04E /* Node+Equatable.swift */; };
 		C790A9D024C3A642001EB04E /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A9A324C3A642001EB04E /* Node.swift */; };
-		C790A9D124C3A642001EB04E /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A9A624C3A642001EB04E /* Geometry.swift */; };
 		C790A9D224C3A642001EB04E /* MatrixError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A9A724C3A642001EB04E /* MatrixError.swift */; };
 		C790A9D324C3A642001EB04E /* Matrix+Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A9A924C3A642001EB04E /* Matrix+Routable.swift */; };
 		C790A9D424C3A642001EB04E /* Matrix+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A9AA24C3A642001EB04E /* Matrix+Double.swift */; };
@@ -160,7 +159,6 @@
 		C790A99F24C3A642001EB04E /* Index+CustomStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Index+CustomStringConvertible.swift"; sourceTree = "<group>"; };
 		C790A9A224C3A642001EB04E /* Node+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Node+Equatable.swift"; sourceTree = "<group>"; };
 		C790A9A324C3A642001EB04E /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
-		C790A9A624C3A642001EB04E /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 		C790A9A724C3A642001EB04E /* MatrixError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixError.swift; sourceTree = "<group>"; };
 		C790A9A924C3A642001EB04E /* Matrix+Routable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Matrix+Routable.swift"; sourceTree = "<group>"; };
 		C790A9AA24C3A642001EB04E /* Matrix+Double.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Matrix+Double.swift"; sourceTree = "<group>"; };
@@ -534,7 +532,6 @@
 		C790A9A524C3A642001EB04E /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				C790A9A624C3A642001EB04E /* Geometry.swift */,
 				C790A9A724C3A642001EB04E /* MatrixError.swift */,
 			);
 			path = Enums;
@@ -774,7 +771,6 @@
 				C790A9D824C3A642001EB04E /* Matrix.swift in Sources */,
 				C790A9D324C3A642001EB04E /* Matrix+Routable.swift in Sources */,
 				C790A9BE24C3A642001EB04E /* CGPoint+Common.swift in Sources */,
-				C790A9D124C3A642001EB04E /* Geometry.swift in Sources */,
 				C71A690424D8A945003DE2D6 /* Leveling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

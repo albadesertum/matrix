@@ -9,6 +9,10 @@
 import SpriteKit
 
 public extension Matrix where T: Routable {
+    enum Geometry {
+        case plane, isometry
+    }
+    
     func searchRoute(from indexA: Index, to indexB: Index) -> [Index] {
         var opened = [Node]()
         var closed = [Node]()

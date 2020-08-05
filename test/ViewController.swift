@@ -244,7 +244,7 @@ class TestScene: SKScene, MovableDelegate, DestroyableDelegate {
         }
     }
     
-    let geometry = Geometry.plane
+    let geometry = Matrix<Cell>.Geometry.plane
     
     func point(by index: Index) -> CGPoint {
         return matrix.point(by: index, tileSize, geometry)
