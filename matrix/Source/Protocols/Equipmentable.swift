@@ -13,13 +13,3 @@ public protocol Equipmentable: class {
     var armor: Equipment { get }
     var aartefact: Equipment { get }
 }
-
-public protocol Attacking: class {
-    var power: Variable<Int> { get }
-    var accuracy: Variable<Int> { get }
-    var endurance: Variable<Int> { get }
-}
-
-public protocol Luckiness: Curable {
-    var luck: Variable<Int> { get }
-}
