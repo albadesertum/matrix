@@ -212,9 +212,6 @@ class TestScene: SKScene, MovableDelegate, DestroyableDelegate {
         addChild(main)
         main.position = point(by: Index(i: 1, j: 1))
         let chest = Chest(m: 2, n: 2, items: [])
-// chest.destroyableDelegate = self
-        chest.makeDamage(100)
-        print(chest.health)
     }
     
     func nodeDidFinishMove(_ node: SKNode) {

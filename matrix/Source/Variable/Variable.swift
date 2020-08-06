@@ -8,9 +8,7 @@
 
 import Foundation
 
-public typealias Numerable = Numeric & Comparable
-
-public class Variable<T: Numerable> {
+public class Variable<T: SignedNumeric & Comparable> {
     public var maximum: T
     public var minimum: T
     
@@ -39,11 +37,11 @@ public class Variable<T: Numerable> {
         self.variable = variable
     }
     
-    func increase(by value: T) {
+    public func increase(by value: T) {
         variable = variable + value
     }
     
-    func decrease(by value: T) {
+    public func decrease(by value: T) {
         variable = variable - value
     }
 }

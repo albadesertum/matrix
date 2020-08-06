@@ -9,13 +9,7 @@
 import SpriteKit
 
 public protocol Destroyable: class {
-    var health: Variable<Int> { get }
+    var strength: Variable<Int> { get }
     
-    func makeDamage(_ damage: Int)
-}
-
-public extension Destroyable {
-    func makeDamage(_ damage: Int) {
-        health.decrease(by: damage)
-    }
+    var defence: Variable<Float> { get }
 }

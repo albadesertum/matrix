@@ -20,7 +20,7 @@ public class Chest: SKNode, Destroyable {
     
     public var items: Matrix<Item>
     
-    public var health = Variable<Int>(minimum: 0, maximum: 100, variable: 100)
+    public var strength = Variable<Int>(minimum: 0, maximum: 100, variable: 100)
     
     public var defence = Variable<Float>(minimum: 0.0, maximum: 1.0, variable: 0.0)
     
@@ -48,24 +48,36 @@ public class Chest: SKNode, Destroyable {
 //}
 
 
-public class Hero: Treatable, Effectable {
-    public var health = Variable<Int>(minimum: 0, maximum: 200, variable: 200)
+public class Hero: Curable, Effectable {
+    public var strength = Variable<Int>(minimum: 0, maximum: 200, variable: 200)
     
     public var defence = Variable<Float>(minimum: 0.0, maximum: 1.0, variable: 0.0)
     
-    public var treatable = Variable<Float>(minimum: 0.0, maximum: 1.0, variable: 1.0)
+    public var сurability = Variable<Float>(minimum: 0.0, maximum: 1.0, variable: 1.0)
     
     public var effects = [Effect]()
 }
 
-public class Enemy: Treatable, Effectable  {
-    public var health = Variable<Int>(minimum: 0, maximum: 400, variable: 400)
+public class Enemy: Curable, Effectable  {
+    public var strength = Variable<Int>(minimum: 0, maximum: 400, variable: 400)
     
     public var defence = Variable<Float>(minimum: 0.0, maximum: 1.0, variable: 0.0)
     
-    public var treatable = Variable<Float>(minimum: 0.0, maximum: 1.0, variable: 1.0)
+    public var сurability = Variable<Float>(minimum: 0.0, maximum: 1.0, variable: 1.0)
     
     public var effects = [Effect]()
+    
+    func test() {
+        let d = defence - сurability
+        switch d {
+        case .better(let difference):
+            break
+        case .worse(let difference):
+            break
+        case .equally:
+            break
+        }
+    }
 }
 
 //public class Battle2 {

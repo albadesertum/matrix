@@ -8,8 +8,16 @@
 
 import Foundation
 
+infix operator >< // {A, B} >< {B, C, D} = {B}
+infix operator <> // {A, B} <> {B, C, D} = {A, C, D}
+infix operator <~ // {A, B} <~ {B, C, D} = {A}
+infix operator ~> // {A, B} ~> {B, C, D} = {C, D}
+
 public protocol BooleanOperable {
     associatedtype T
     
-    func applyOperation(_ operation: BooleanOperation, with sequence: T) -> T
+    static func >< (lhs: Self, rhs: Self) -> T
+    static func <> (lhs: Self, rhs: Self) -> T
+    static func <~ (lhs: Self, rhs: Self) -> T
+    static func ~> (lhs: Self, rhs: Self) -> T
 }

@@ -31,7 +31,19 @@ extension Array where Element: Hashable {
 extension Array: BooleanOperable where Element: Hashable {
     public typealias T = Array<Element>
     
-    public func applyOperation(_ operation: BooleanOperation, with sequence: Array<Element>) -> Array<Element> {
-        return set.applyOperation(operation, with: sequence.set).array
+    public static func >< (lhs: Array<Element>, rhs: Array<Element>) -> Array<Element> {
+        return (lhs.set >< rhs.set).array
+    }
+    
+    public static func <> (lhs: Array<Element>, rhs: Array<Element>) -> Array<Element> {
+        return (lhs.set <> rhs.set).array
+    }
+    
+    public static func <~ (lhs: Array<Element>, rhs: Array<Element>) -> Array<Element> {
+        return (lhs.set <~ rhs.set).array
+    }
+    
+    public static func ~> (lhs: Array<Element>, rhs: Array<Element>) -> Array<Element> {
+        return (lhs.set ~> rhs.set).array
     }
 }

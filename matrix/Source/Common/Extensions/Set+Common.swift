@@ -17,20 +17,19 @@ public extension Set where Element: Hashable {
 extension Set: BooleanOperable where Element: Hashable {
     public typealias T = Set<Element>
     
-    public func applyOperation(_ operation: BooleanOperation, with elements: Set<Element>) -> Set<Element> {
-        var result: Set<Element>
-        switch operation {
-        case .symmetricDifference:
-            result = symmetricDifference(elements)
-        case .leftDifference:
-            let difference = symmetricDifference(elements)
-            result = intersection(difference)
-        case .rightDifference:
-            let difference = symmetricDifference(elements)
-            result = elements.intersection(difference)
-        case .intersection:
-            result = intersection(elements)
-        }
-        return result
+    public static func >< (lhs: Set<Element>, rhs: Set<Element>) -> Set<Element> {
+        return lhs.intersection(rhs)
+    }
+    
+    public static func <> (lhs: Set<Element>, rhs: Set<Element>) -> Set<Element> {
+        return lhs.symmetricDifference(rhs)
+    }
+    
+    public static func <~ (lhs: Set<Element>, rhs: Set<Element>) -> Set<Element> {
+        return (lhs <> rhs) >< lhs
+    }
+    
+    public static func ~> (lhs: Set<Element>, rhs: Set<Element>) -> Set<Element> {
+        return (lhs <> rhs) >< rhs
     }
 }

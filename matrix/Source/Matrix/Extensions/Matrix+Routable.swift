@@ -121,7 +121,7 @@ public extension Matrix where T: Routable {
             arrayA.append(indexA + neighbor)
             arrayB.append(indexB + neighbor)
         }
-        let intersections = arrayA.applyOperation(.intersection, with: arrayB)
+        let intersections = arrayA >< arrayB
         let valueA = self[intersections[0]]?.isEmpty ?? true
         let valueB = self[intersections[1]]?.isEmpty ?? true
         return valueA && valueB
