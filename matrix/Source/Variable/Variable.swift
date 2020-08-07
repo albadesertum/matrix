@@ -12,36 +12,36 @@ public class Variable<T: SignedNumeric & Comparable> {
     public var maximum: T
     public var minimum: T
     
-    public var variable: T {
+    public var value: T {
         didSet {
-            if variable < minimum {
-                variable = minimum
+            if value < minimum {
+                value = minimum
             }
-            if variable > maximum {
-                variable = maximum
+            if value > maximum {
+                value = maximum
             }
         }
     }
     
     public var isMinimum: Bool {
-        return variable == minimum
+        return value == minimum
     }
     
     public var isMaximum: Bool {
-        return variable == maximum
+        return value == maximum
     }
     
-    public init(minimum: T, maximum: T, variable: T) {
+    public init(value: T, minimum: T, maximum: T) {
+        self.value = value
         self.minimum = minimum
         self.maximum = maximum
-        self.variable = variable
     }
     
     public func increase(by value: T) {
-        variable = variable + value
+        self.value = self.value + value
     }
     
     public func decrease(by value: T) {
-        variable = variable - value
+        self.value = self.value - value
     }
 }

@@ -20,11 +20,11 @@ public class Chest: SKNode, Destroyable {
     
     public var items: Matrix<Item>
     
-    public var strength = Variable<Int>(minimum: 0, maximum: 100, variable: 100)
+    public var hitPoints = Variable<Int>(value: 100, minimum: 0, maximum: 100)
     
-    public var defence = Variable<Float>(minimum: 0.0, maximum: 1.0, variable: 0.0)
+    public var defence = Variable<Float>(value: 0.0, minimum: 0.0, maximum: 1.0)
     
-    public var medicine = Variable<Float>(minimum: 0.0, maximum: 1.0, variable: 0.0)
+    public var medicine = Variable<Float>(value: 0.0 ,minimum: 0.0, maximum: 1.0)
     
     public init(m: Int, n: Int, items: [Item]) {
         self.items = Matrix<Item>(m: m, n: n, array: items)
@@ -48,27 +48,27 @@ public class Chest: SKNode, Destroyable {
 //}
 
 
-public class Hero: Curable, Effectable {
-    public var strength = Variable<Int>(minimum: 0, maximum: 200, variable: 200)
+public class Hero: Medicable, Effectable {
+    public var hitPoints = Variable<Int>(value: 200, minimum: 0, maximum: 200)
     
-    public var defence = Variable<Float>(minimum: 0.0, maximum: 1.0, variable: 0.0)
+    public var defence = Variable<Float>(value: 0.0, minimum: 0.0, maximum: 1.0)
     
-    public var сurability = Variable<Float>(minimum: 0.0, maximum: 1.0, variable: 1.0)
+    public var medicine = Variable<Float>(value: 1.0, minimum: 0.0, maximum: 1.0)
     
     public var effects = [Effect]()
 }
 
-public class Enemy: Curable, Effectable  {
-    public var strength = Variable<Int>(minimum: 0, maximum: 400, variable: 400)
+public class Enemy: Medicable, Effectable  {
+    public var hitPoints = Variable<Int>(value: 400, minimum: 0, maximum: 400)
     
-    public var defence = Variable<Float>(minimum: 0.0, maximum: 1.0, variable: 0.0)
+    public var defence = Variable<Float>(value: 0.0, minimum: 0.0, maximum: 1.0)
     
-    public var сurability = Variable<Float>(minimum: 0.0, maximum: 1.0, variable: 1.0)
+    public var medicine = Variable<Float>(value: 1.0, minimum: 0.0, maximum: 1.0)
     
     public var effects = [Effect]()
     
     func test() {
-        let d = defence - сurability
+        let d = defence - medicine
         switch d {
         case .better(let difference):
             break

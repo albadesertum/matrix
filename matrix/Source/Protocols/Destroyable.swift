@@ -9,7 +9,15 @@
 import SpriteKit
 
 public protocol Destroyable: class {
-    var strength: Variable<Int> { get }
+    var hitPoints: Variable<Int> { get }
     
     var defence: Variable<Float> { get }
+    
+    func makeHit(_ hit: Int)
+}
+
+public extension Destroyable {
+    func makeHit(_ hit: Int) {
+        hitPoints.decrease(by: Int((1.0 - defence.value) * Float(hit)))
+    }
 }

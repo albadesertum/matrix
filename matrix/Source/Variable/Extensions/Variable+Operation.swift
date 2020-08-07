@@ -14,7 +14,7 @@ public extension Variable {
     }
     
     static func - (lhs: Variable, rhs: Variable) -> Difference {
-        let difference = lhs.variable - rhs.variable
+        let difference = lhs.value - rhs.value
         if difference > 0 {
             return .better(difference: difference)
         }
