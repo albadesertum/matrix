@@ -297,3 +297,13 @@ public class Queue {
         }
     }
 }
+
+class MainVC: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let item0 = UIBarButtonItem(image: UIImage(named: "icon_0"), style: .plain, target: nil, action: nil)
+        let item1 = UIBarButtonItem(image: UIImage(named: "icon_1"), style: .plain, target: nil, action: nil)
+        self.navigationItem.leftBarButtonItem = item0
+        self.navigationItem.rightBarButtonItem = item1
+    }
+}
