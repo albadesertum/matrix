@@ -9,7 +9,8 @@
 import Foundation
 
 public class Effect {
-    public enum Time {
+    
+    public enum Time {        
         case permanently, during(count: Int)
     }
     

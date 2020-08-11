@@ -9,12 +9,14 @@
 import Foundation
 
 public extension Set where Element: Hashable {
+    
     var array: Array<Element> {
         return Array(self)
     }
 }
 
 extension Set: BooleanOperable where Element: Hashable {
+    
     public typealias T = Set<Element>
     
     public static func >< (lhs: Set<Element>, rhs: Set<Element>) -> Set<Element> {

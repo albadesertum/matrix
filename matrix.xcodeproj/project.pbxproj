@@ -10,7 +10,7 @@
 		C745FAFF24221D4F009F6405 /* matrix.h in Headers */ = {isa = PBXBuildFile; fileRef = C745FAFD24221D4F009F6405 /* matrix.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C74C426B24817C3F00C5113E /* matrix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C745FAFA24221D4F009F6405 /* matrix.framework */; };
 		C74C426C24817C3F00C5113E /* matrix.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C745FAFA24221D4F009F6405 /* matrix.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C767E15524D5AC9D00F8215E /* Medicable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767E15424D5AC9D00F8215E /* Medicable.swift */; };
+		C767E15524D5AC9D00F8215E /* Living.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767E15424D5AC9D00F8215E /* Living.swift */; };
 		C767E15B24D5CDF400F8215E /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767E15A24D5CDF400F8215E /* Action.swift */; };
 		C767E15E24D5CF3D00F8215E /* Apply.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767E15D24D5CF3D00F8215E /* Apply.swift */; };
 		C767E16024D5CF4800F8215E /* Undo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767E15F24D5CF4800F8215E /* Undo.swift */; };
@@ -111,7 +111,7 @@
 		C745FAFA24221D4F009F6405 /* matrix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = matrix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C745FAFD24221D4F009F6405 /* matrix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = matrix.h; sourceTree = "<group>"; };
 		C745FAFE24221D4F009F6405 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C767E15424D5AC9D00F8215E /* Medicable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medicable.swift; sourceTree = "<group>"; };
+		C767E15424D5AC9D00F8215E /* Living.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Living.swift; sourceTree = "<group>"; };
 		C767E15A24D5CDF400F8215E /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		C767E15D24D5CF3D00F8215E /* Apply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apply.swift; sourceTree = "<group>"; };
 		C767E15F24D5CF4800F8215E /* Undo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Undo.swift; sourceTree = "<group>"; };
@@ -534,8 +534,8 @@
 				C790A9B424C3A642001EB04E /* Destroyable.swift */,
 				C767E16124D5CF9300F8215E /* Effectable.swift */,
 				C7910AC524DC840400221E86 /* Equipmentable.swift */,
+				C767E15424D5AC9D00F8215E /* Living.swift */,
 				C7910AD024DCB4C300221E86 /* Luckiness.swift */,
-				C767E15424D5AC9D00F8215E /* Medicable.swift */,
 				C790A9B024C3A642001EB04E /* Movable.swift */,
 				C790A9B124C3A642001EB04E /* Routable.swift */,
 				C790A9B324C3A642001EB04E /* Storable.swift */,
@@ -745,7 +745,7 @@
 				C790A9C924C3A642001EB04E /* Item+Equatable.swift in Sources */,
 				C790A9CD24C3A642001EB04E /* Index+Hashable.swift in Sources */,
 				C790A9CA24C3A642001EB04E /* Index.swift in Sources */,
-				C767E15524D5AC9D00F8215E /* Medicable.swift in Sources */,
+				C767E15524D5AC9D00F8215E /* Living.swift in Sources */,
 				C790A9D724C3A642001EB04E /* Matrix+Equatable.swift in Sources */,
 				C767E15B24D5CDF400F8215E /* Action.swift in Sources */,
 				C790A9C124C3A642001EB04E /* BooleanOperable.swift in Sources */,

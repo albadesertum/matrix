@@ -9,5 +9,8 @@
 import Foundation
 
 public class Equipment {
-    /* Empty. */
+    
+    public init() {
+        /* Empty. */
+    }
 }

@@ -10,6 +10,7 @@ import Foundation
 import Accelerate
 
 public extension Matrix where T == Float {
+    
     static func * (lhs: T, rhs: Matrix) -> Matrix {
         var array = rhs.array
         let count = Int32(array.count)

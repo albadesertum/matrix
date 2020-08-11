@@ -9,6 +9,7 @@
 import Foundation
 
 public class Item {
+    
     public var id: String
     
     public init(id: String) {

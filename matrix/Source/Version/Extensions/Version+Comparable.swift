@@ -9,6 +9,7 @@
 import Foundation
 
 extension Version: Comparable {
+    
     public static func == (lhs: Version, rhs: Version) -> Bool {
         return lhs.major == rhs.major && lhs.minor == rhs.minor && lhs.patch == rhs.patch
     }

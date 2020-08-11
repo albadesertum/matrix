@@ -9,6 +9,7 @@
 import UIKit
 
 public extension CGPoint {
+    
     func distance(to point: CGPoint) -> CGFloat {
         let deltaX = x - point.x
         let deltaY = y - point.y

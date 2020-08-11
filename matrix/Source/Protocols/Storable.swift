@@ -9,6 +9,7 @@
 import Foundation
 
 public protocol Storable: Datable {
+    
     var key: String { get }
     
     func save()
@@ -17,6 +18,7 @@ public protocol Storable: Datable {
 }
 
 public extension Storable {
+    
     func save() {
         let userDefaults = UserDefaults.standard
         userDefaults.set(data, forKey: key)

@@ -9,6 +9,7 @@
 import Foundation
 
 extension Item: Hashable {
+    
     public func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }

@@ -9,6 +9,7 @@
 import Foundation
 
 extension Item: Equatable {
+    
     public static func == (lhs: Item, rhs: Item) -> Bool {
         return lhs.id == rhs.id
     }

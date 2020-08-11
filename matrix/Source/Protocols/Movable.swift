@@ -9,6 +9,7 @@
 import SpriteKit
 
 public protocol Movable: SKNode {
+    
     var lenght: CGFloat { get }
     
     var duration: TimeInterval { get }
@@ -23,6 +24,7 @@ public protocol Movable: SKNode {
 }
 
 public extension Movable {
+    
     func duration(from pointA: CGPoint, to pointB: CGPoint) -> TimeInterval {
         let distance = pointA.distance(to: pointB)
         let durationValue = CGFloat(duration)

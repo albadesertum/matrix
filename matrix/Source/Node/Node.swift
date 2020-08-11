@@ -9,6 +9,7 @@
 import Foundation
 
 public class Node {
+    
     public var index: Index
     
     public var parent: Node?

@@ -9,6 +9,7 @@
 import Foundation
 
 public extension Index {
+    
     static func + (lhs: Index, rhs: Index) -> Index {
         let i = lhs.i + rhs.i
         let j = lhs.j + rhs.j

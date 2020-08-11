@@ -9,5 +9,6 @@
 import Foundation
 
 public protocol Routable {
+    
     var isEmpty: Bool { get }
 }

@@ -9,7 +9,10 @@
 import Foundation
 
 public protocol Equipmentable: class {
+    
     var weapon: Equipment { get }
+    
     var armor: Equipment { get }
+    
     var aartefact: Equipment { get }
 }

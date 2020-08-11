@@ -9,6 +9,7 @@
 import Foundation
 
 public extension Matrix where T: Equatable {
+    
     func firstIndex(of object: T?) -> Index? {
         if let tuple = firstTuple(of: object) {
             return Index(tuple: tuple)

@@ -9,7 +9,14 @@
 import Foundation
 
 public protocol Attacking: class {
+    
     var power: Variable<Int> { get }
+    
     var accuracy: Variable<Int> { get }
+    
     var endurance: Variable<Int> { get }
 }
+
+public typealias Inanimatable = Attacking & Destroyable & Effectable & Equipmentable
+
+public typealias Animatable = Inanimatable & Luckiness

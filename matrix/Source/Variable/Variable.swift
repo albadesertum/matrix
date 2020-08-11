@@ -9,6 +9,7 @@
 import Foundation
 
 public class Variable<T: SignedNumeric & Comparable> {
+    
     public var maximum: T
     public var minimum: T
     

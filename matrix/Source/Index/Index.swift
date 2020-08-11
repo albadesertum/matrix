@@ -9,6 +9,7 @@
 import Foundation
 
 public struct Index {
+    
     public static var zero: Index {
         return Index(i: 0, j: 0)
     }

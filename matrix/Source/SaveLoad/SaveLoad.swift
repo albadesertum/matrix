@@ -9,6 +9,7 @@
 import Foundation
 
 public class SaveLoad: Storable {
+    
     public var data: Data? {
         get {
             return try? PropertyListSerialization.data(fromPropertyList: list as Any, format: .binary, options: .zero)

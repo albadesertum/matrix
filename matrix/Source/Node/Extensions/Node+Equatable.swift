@@ -9,6 +9,7 @@
 import Foundation
 
 extension Node: Equatable {
+    
     public static func == (lhs: Node, rhs: Node) -> Bool {
         return lhs.index == rhs.index
     }

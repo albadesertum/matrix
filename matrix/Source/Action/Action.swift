@@ -9,6 +9,7 @@
 import Foundation
 
 public class Action {
+    
     public let sender: AnyObject
     
     public let receivers: [AnyObject]

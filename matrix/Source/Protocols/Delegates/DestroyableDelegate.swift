@@ -9,5 +9,6 @@
 import SpriteKit
 
 public protocol DestroyableDelegate: class {
+    
     func nodeDidDestroy(_ node: SKNode)
 }

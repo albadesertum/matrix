@@ -9,5 +9,6 @@
 import SpriteKit
 
 public protocol MovableDelegate: class {
+    
     func nodeDidFinishMove(_ node: SKNode)
 }

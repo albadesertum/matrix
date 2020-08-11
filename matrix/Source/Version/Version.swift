@@ -9,6 +9,7 @@
 import Foundation
 
 public class Version {
+    
     private static func value(at index: Int, in array: [Int]) -> Int {
         if index < array.count {
             return array[index]

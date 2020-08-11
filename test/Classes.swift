@@ -9,33 +9,59 @@
 import matrix
 import SpriteKit
 
-public class Chest: SKNode, Destroyable {
-    public var isCanGive: Bool {
-        return true
-    }
+public class Human: Animatable {
+    public var power = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
     
-    public var isCanTake: Bool {
-        return true
-    }
+    public var accuracy = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
     
-    public var items: Matrix<Item>
+    public var endurance = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
     
-    public var hitPoints = Variable<Int>(value: 100, minimum: 0, maximum: 100)
+    public var effects = [Effect]()
     
-    public var defence = Variable<Float>(value: 0.0, minimum: 0.0, maximum: 1.0)
+    public var weapon = Equipment()
     
-    public var medicine = Variable<Float>(value: 0.0 ,minimum: 0.0, maximum: 1.0)
+    public var armor = Equipment()
     
-    public init(m: Int, n: Int, items: [Item]) {
-        self.items = Matrix<Item>(m: m, n: n, array: items)
-        super.init()
-        //        self.health.delegate = self
-    }
+    public var aartefact = Equipment()
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    public var luck = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
+    
+    public var intelegence = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
+    
+    public var medicine = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
+    
+    public var hitPoints = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
+    
+    public var defence = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
 }
+
+//public class Chest: SKNode, Destroyable {
+//    public var isCanGive: Bool {
+//        return true
+//    }
+//
+//    public var isCanTake: Bool {
+//        return true
+//    }
+//
+//    public var items: Matrix<Item>
+//
+//    public var hitPoints = Variable<Int>(value: 100, minimum: 0, maximum: 100)
+//
+//    public var defence = Variable<Float>(value: 0.0, minimum: 0.0, maximum: 1.0)
+//
+//    public var medicine = Variable<Float>(value: 0.0 ,minimum: 0.0, maximum: 1.0)
+//
+//    public init(m: Int, n: Int, items: [Item]) {
+//        self.items = Matrix<Item>(m: m, n: n, array: items)
+//        super.init()
+//        //        self.health.delegate = self
+//    }
+//
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+//}
 
 //extension Chest: VariableDelegate {
 //    public func variableBecomeMinimum(_ identifier: String) {
@@ -48,37 +74,37 @@ public class Chest: SKNode, Destroyable {
 //}
 
 
-public class Hero: Medicable, Effectable {
-    public var hitPoints = Variable<Int>(value: 200, minimum: 0, maximum: 200)
-    
-    public var defence = Variable<Float>(value: 0.0, minimum: 0.0, maximum: 1.0)
-    
-    public var medicine = Variable<Float>(value: 1.0, minimum: 0.0, maximum: 1.0)
-    
-    public var effects = [Effect]()
-}
+//public class Hero: Living, Effectable {
+//    public var hitPoints = Variable<Int>(value: 200, minimum: 0, maximum: 200)
+//
+//    public var defence = Variable<Float>(value: 0.0, minimum: 0.0, maximum: 1.0)
+//
+//    public var medicine = Variable<Float>(value: 1.0, minimum: 0.0, maximum: 1.0)
+//
+//    public var effects = [Effect]()
+//}
 
-public class Enemy: Medicable, Effectable  {
-    public var hitPoints = Variable<Int>(value: 400, minimum: 0, maximum: 400)
-    
-    public var defence = Variable<Float>(value: 0.0, minimum: 0.0, maximum: 1.0)
-    
-    public var medicine = Variable<Float>(value: 1.0, minimum: 0.0, maximum: 1.0)
-    
-    public var effects = [Effect]()
-    
-    func test() {
-        let d = defence - medicine
-        switch d {
-        case .better(let difference):
-            break
-        case .worse(let difference):
-            break
-        case .equally:
-            break
-        }
-    }
-}
+//public class Enemy: Living, Effectable  {
+//    public var hitPoints = Variable<Int>(value: 400, minimum: 0, maximum: 400)
+//    
+//    public var defence = Variable<Float>(value: 0.0, minimum: 0.0, maximum: 1.0)
+//    
+//    public var medicine = Variable<Float>(value: 1.0, minimum: 0.0, maximum: 1.0)
+//    
+//    public var effects = [Effect]()
+//    
+//    func test() {
+//        let d = defence - medicine
+//        switch d {
+//        case .better(let difference):
+//            break
+//        case .worse(let difference):
+//            break
+//        case .equally:
+//            break
+//        }
+//    }
+//}
 
 //public class Battle2 {
 //    public var hero = Hero()

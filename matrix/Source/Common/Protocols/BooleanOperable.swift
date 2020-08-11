@@ -14,6 +14,7 @@ infix operator <~ // {A, B} <~ {B, C, D} = {A}
 infix operator ~> // {A, B} ~> {B, C, D} = {C, D}
 
 public protocol BooleanOperable {
+    
     associatedtype T
     
     static func >< (lhs: Self, rhs: Self) -> T

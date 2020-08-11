@@ -9,6 +9,7 @@
 import Foundation
 
 public class Matrix<T> {
+    
     public let m: Int
     public let n: Int
     

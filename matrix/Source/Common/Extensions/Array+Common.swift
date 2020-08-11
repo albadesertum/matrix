@@ -9,6 +9,7 @@
 import Foundation
 
 public extension Array {
+    
     var isNotEmpty: Bool {
         return !isEmpty
     }
@@ -23,12 +24,14 @@ public extension Array {
 }
 
 extension Array where Element: Hashable {
+    
     var set: Set<Element> {
         return Set(self)
     }
 }
 
 extension Array: BooleanOperable where Element: Hashable {
+    
     public typealias T = Array<Element>
     
     public static func >< (lhs: Array<Element>, rhs: Array<Element>) -> Array<Element> {

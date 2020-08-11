@@ -9,6 +9,7 @@
 import SpriteKit
 
 public extension Matrix where T: Routable {
+    
     enum Geometry {
         case plane, isometry
     }

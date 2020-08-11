@@ -9,6 +9,7 @@
 import Foundation
 
 public class Dice {
+    
     static public func roll(to percent: Float, attempts: Int = 10) -> Bool {
         guard attempts > 0 else {
             fatalError()

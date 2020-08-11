@@ -9,6 +9,7 @@
 import Foundation
 
 extension Version: CustomStringConvertible {
+    
     public var description: String {
         return string
     }

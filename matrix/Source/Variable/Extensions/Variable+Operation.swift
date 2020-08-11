@@ -9,6 +9,7 @@
 import Foundation
 
 public extension Variable {
+    
     enum Difference {
         case equally, better(difference: T), worse(difference: T)
     }

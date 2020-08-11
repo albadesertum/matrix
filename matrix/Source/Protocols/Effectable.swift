@@ -9,5 +9,6 @@
 import Foundation
 
 public protocol Effectable: class {
+    
     var effects: [Effect] { get set }
 }

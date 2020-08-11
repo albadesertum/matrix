@@ -9,5 +9,6 @@
 import Foundation
 
 public protocol Datable: class {
+    
     var data: Data? { get set }
 }

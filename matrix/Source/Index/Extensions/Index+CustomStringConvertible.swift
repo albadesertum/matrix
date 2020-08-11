@@ -9,6 +9,7 @@
 import Foundation
 
 extension Index: CustomStringConvertible {
+    
     public var description: String {
         return "(\(i), \(j))"
     }

@@ -8,6 +8,7 @@
 
 import Foundation
 
-public protocol Luckiness: Medicable {
+public protocol Luckiness: Living {
+    
     var luck: Variable<Int> { get }
 }

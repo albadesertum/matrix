@@ -9,6 +9,7 @@
 import Foundation
 
 extension Index: Hashable {
+    
     public func hash(into hasher: inout Hasher) {
         hasher.combine(i)
         hasher.combine(j)
