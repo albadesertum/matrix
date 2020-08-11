@@ -14,5 +14,5 @@ public protocol Equipmentable: class {
     
     var armor: Equipment { get }
     
-    var aartefact: Equipment { get }
+    var artefact: Equipment { get }
 }

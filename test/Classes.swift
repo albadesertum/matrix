@@ -9,7 +9,10 @@
 import matrix
 import SpriteKit
 
-public class Human: Animatable {
+typealias Personable = Attacking & Destroyable & Effectable & Equipmentable & Luckiness & Thinking
+
+public class Human: Personable {
+    
     public var power = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
     
     public var accuracy = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
@@ -22,17 +25,17 @@ public class Human: Animatable {
     
     public var armor = Equipment()
     
-    public var aartefact = Equipment()
+    public var artefact = Equipment()
     
     public var luck = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
     
     public var intelegence = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
     
-    public var medicine = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
-    
-    public var hitPoints = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
+    public var points = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
     
     public var defence = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
+    
+    public var restore = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
 }
 
 //public class Chest: SKNode, Destroyable {
@@ -74,7 +77,7 @@ public class Human: Animatable {
 //}
 
 
-//public class Hero: Living, Effectable {
+//public class Hero: Thinking, Effectable {
 //    public var hitPoints = Variable<Int>(value: 200, minimum: 0, maximum: 200)
 //
 //    public var defence = Variable<Float>(value: 0.0, minimum: 0.0, maximum: 1.0)
@@ -84,7 +87,7 @@ public class Human: Animatable {
 //    public var effects = [Effect]()
 //}
 
-//public class Enemy: Living, Effectable  {
+//public class Enemy: Thinking, Effectable  {
 //    public var hitPoints = Variable<Int>(value: 400, minimum: 0, maximum: 400)
 //    
 //    public var defence = Variable<Float>(value: 0.0, minimum: 0.0, maximum: 1.0)

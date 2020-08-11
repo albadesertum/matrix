@@ -16,7 +16,3 @@ public protocol Attacking: class {
     
     var endurance: Variable<Int> { get }
 }
-
-public typealias Inanimatable = Attacking & Destroyable & Effectable & Equipmentable
-
-public typealias Animatable = Inanimatable & Luckiness
