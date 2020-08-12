@@ -9,9 +9,9 @@
 import matrix
 import SpriteKit
 
-typealias Personable = Attacking & Destroyable & Effectable & Equipmentable & Luckiness & Thinking
+public typealias Charater = Attacking & Destroyable & Effectable & Equipmentable & Luckiness & Magical & Thinking & Artificial
 
-public class Human: Personable {
+public class Someone: Charater {
     
     public var power = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
     
@@ -29,13 +29,82 @@ public class Human: Personable {
     
     public var luck = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
     
-    public var intelegence = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
+    public var mana = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
     
     public var points = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
     
     public var defence = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
     
     public var restore = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
+    
+    public var intelegence = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
+    
+    public var aggression = Variable<Float>(value: 0.5, minimum: 0.0, maximum: 1.0)
+}
+
+public class Logic {
+    
+    public static func applyEffects(to units: [AnyObject]) {
+        for unit in units {
+            if let unit = unit as? Effectable {
+                for effect in unit.effects {
+                    effect.doEffect()
+                }
+                unit.effects = unit.effects.filter { !$0.isCompleted }
+            }
+        }
+    }
+    
+    public static func makeMove(with actions: [Action]) {
+        for action in actions {
+            action.doAction()
+        }
+    }
+}
+
+public protocol Artificial {
+    
+    var aggression: Variable<Float> { get }
+}
+
+public class ArtificialIntelligence {
+    
+    // MARK: - Public
+    
+    public func makeDesicion(by sender: Charater, and receivers: [Charater]) {
+        if receivers.isEmpty {
+            fatalError()
+        }
+        let receivers = getReceivers(for: sender, from: receivers)
+        if receivers.isEmpty {
+            
+        } else {
+            
+        }
+    }
+    
+    // MARK: - Private
+    
+    private func getReceivers(for sender: Charater, from receivers: [Charater]) -> [Charater] {
+        let receiver = getReceiver(for: sender, from: receivers)
+        let isAggression = Dice.roll(to: sender.aggression.ratio)
+        let isSenderNormal = sender.points.ratio >= 0.4
+        let isReceiverNormal = receiver.points.ratio >= 0.4
+        let isConcentration = sender.effects.filter { $0 is Concentration }.isNotEmpty
+        let percent = isConcentration ? (isReceiverNormal ? 0.6 : 0.9) : (isReceiverNormal ? 0.2 : 0.5)
+        let isAttack = isSenderNormal ? true : Dice.roll(to: percent)
+        if isAggression || isAttack {
+            return isConcentration ? receivers : [receiver]
+        }
+        return []
+    }
+    
+    private func getReceiver(for sender: Charater, from receivers: [Charater]) -> Charater {
+        if Dice.roll(to: sender.intelegence.ratio) {
+            return receivers.min { $0.points.value < $1.points.value }!
+        }
+        return receivers.randomElement()!
+    }
 }
 
 //public class Chest: SKNode, Destroyable {
@@ -171,25 +240,6 @@ public class Human: Personable {
 //        self.enemies = enemies
 //    }
 //}
-
-public class Logic {
-    public static func applyEffects(to units: [AnyObject]) {
-        for unit in units {
-            if let unit = unit as? Effectable {
-                for effect in unit.effects {
-                    effect.doEffect()
-                }
-                unit.effects = unit.effects.filter { !$0.isCompleted }
-            }
-        }
-    }
-    
-    public static func makeMove(with actions: [Action]) {
-        for action in actions {
-            action.doAction()
-        }
-    }
-}
 
 //class TestAAA {
 //    public var battle: Battle

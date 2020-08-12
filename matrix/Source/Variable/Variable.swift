@@ -46,3 +46,24 @@ public class Variable<T: SignedNumeric & Comparable> {
         self.value = self.value - value
     }
 }
+
+public extension Variable where T == Int {
+    
+    var ratio: Float {
+        return Float(value) / Float(maximum)
+    }
+}
+
+public extension Variable where T == Float {
+    
+    var ratio: T {
+        return value / maximum
+    }
+}
+
+public extension Variable where T == Double {
+    
+    var ratio: T {
+        return value / maximum
+    }
+}

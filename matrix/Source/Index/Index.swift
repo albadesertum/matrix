@@ -49,7 +49,7 @@ public struct Index {
     public var i: Int
     public var j: Int
     
-    public var isHaveZero: Bool {
+    public var isAxis: Bool {
         return i == 0 || j == 0
     }
     

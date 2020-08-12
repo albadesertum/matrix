@@ -13,7 +13,10 @@ public class Apply<T: Effect>: Action {
     override public func doAction() {
         for receiver in receivers {
             if let receiver = receiver as? Effectable {
-                receiver.effects.append(T(sender: sender, receiver: receiver))
+                let effect = T(sender: sender, receiver: receiver)
+                if effect.isApplied {
+                    receiver.effects.append(effect)
+                }
             }
         }
     }

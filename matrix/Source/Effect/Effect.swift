@@ -24,6 +24,10 @@ public class Effect {
         return .permanently
     }
     
+    public var isApplied: Bool {
+        return true
+    }
+    
     public var isCompleted: Bool {
         switch time {
         case .during(let count):
@@ -51,4 +55,8 @@ public class Effect {
             break
         }
     }
+}
+
+public class Concentration: Effect {
+    
 }

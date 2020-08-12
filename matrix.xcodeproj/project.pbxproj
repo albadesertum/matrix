@@ -81,6 +81,7 @@
 		C7DF0FF12422491D006EF23E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DF0FEF2422491D006EF23E /* Main.storyboard */; };
 		C7DF0FF324224921006EF23E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7DF0FF224224921006EF23E /* Assets.xcassets */; };
 		C7DF0FF624224921006EF23E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DF0FF424224921006EF23E /* LaunchScreen.storyboard */; };
+		C7EA170E24E30CEC003D0A01 /* Magical.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EA170D24E30CEC003D0A01 /* Magical.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -184,6 +185,7 @@
 		C7DF0FF224224921006EF23E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7DF0FF524224921006EF23E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7DF0FF724224921006EF23E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7EA170D24E30CEC003D0A01 /* Magical.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magical.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -535,6 +537,7 @@
 				C767E16124D5CF9300F8215E /* Effectable.swift */,
 				C7910AC524DC840400221E86 /* Equipmentable.swift */,
 				C7910AD024DCB4C300221E86 /* Luckiness.swift */,
+				C7EA170D24E30CEC003D0A01 /* Magical.swift */,
 				C790A9B024C3A642001EB04E /* Movable.swift */,
 				C790A9B124C3A642001EB04E /* Routable.swift */,
 				C790A9B324C3A642001EB04E /* Storable.swift */,
@@ -724,6 +727,7 @@
 				C790A9C624C3A642001EB04E /* Item.swift in Sources */,
 				C790A9DC24C3A642001EB04E /* Storable.swift in Sources */,
 				C7910ACB24DC86D100221E86 /* Equipment.swift in Sources */,
+				C7EA170E24E30CEC003D0A01 /* Magical.swift in Sources */,
 				C790A9C724C3A642001EB04E /* Item+CustomStringConvertible.swift in Sources */,
 				C790A9CC24C3A642001EB04E /* Index+Equatable.swift in Sources */,
 				C7910AC624DC840400221E86 /* Equipmentable.swift in Sources */,

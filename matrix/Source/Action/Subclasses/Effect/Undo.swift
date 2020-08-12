@@ -13,7 +13,7 @@ public class Undo<T: Effect>: Action {
     override public func doAction() {
         for receiver in receivers {
             if let receiver = receiver as? Effectable {
-                receiver.effects = receiver.effects.filter { !($0 is T) }
+                receiver.effects = receiver.effects.filter { $0 is T == false }
             }
         }
     }
