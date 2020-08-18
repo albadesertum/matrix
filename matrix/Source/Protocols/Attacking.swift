@@ -10,9 +10,7 @@ import Foundation
 
 public protocol Attacking: class {
     
-    var power: Variable<Int> { get }
+    var strength: Variable<Int> { get }
     
-    var accuracy: Variable<Int> { get }
-    
-    var endurance: Variable<Int> { get }
+    var agility: Variable<Int> { get }
 }

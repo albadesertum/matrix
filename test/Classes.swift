@@ -9,11 +9,14 @@
 import matrix
 import SpriteKit
 
-public typealias Charater = Attacking & Destroyable & Effectable & Equipmentable & Luckiness & Magical & Thinking & Artificial
+public typealias Charater = Attacking & Destroyable & Effectable & Equipmentable & Luckiness & Magical & Artificial
 
 public class Someone: Charater {
+    public var agility = Variable<Int>(value: 0, minimum: 0, maximum: 0)
     
-    public var power = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
+    public var health = Variable<Int>(value: 0, minimum: 0, maximum: 0)
+    
+    public var strength = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
     
     public var accuracy = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
     
@@ -30,6 +33,8 @@ public class Someone: Charater {
     public var luck = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
     
     public var mana = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
+    
+    public var wizdom = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
     
     public var points = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
     
@@ -86,23 +91,23 @@ public class ArtificialIntelligence {
     // MARK: - Private
     
     private func getReceivers(for sender: Charater, from receivers: [Charater]) -> [Charater] {
-        let receiver = getReceiver(for: sender, from: receivers)
-        let isAggression = Dice.roll(to: sender.aggression.ratio)
-        let isSenderNormal = sender.points.ratio >= 0.4
-        let isReceiverNormal = receiver.points.ratio >= 0.4
-        let isConcentration = sender.effects.filter { $0 is Concentration }.isNotEmpty
-        let percent = isConcentration ? (isReceiverNormal ? 0.6 : 0.9) : (isReceiverNormal ? 0.2 : 0.5)
-        let isAttack = isSenderNormal ? isAggression : Dice.roll(to: percent)
-        if isAttack {
-            return isConcentration ? receivers : [receiver]
-        }
+//        let receiver = getReceiver(for: sender, from: receivers)
+//        let isAggression = Dice.roll(to: sender.aggression.ratio)
+//        let isSenderNormal = sender.health.ratio >= 0.4
+//        let isReceiverNormal = receiver.health.ratio >= 0.4
+//        let isConcentration = sender.effects.filter { $0 is Concentration }.isNotEmpty
+//        let percent = isConcentration ? (isReceiverNormal ? 0.6 : 0.9) : (isReceiverNormal ? 0.2 : 0.5)
+//        let isAttack = isSenderNormal ? isAggression : Dice.roll(to: percent)
+//        if isAttack {
+//            return isConcentration ? receivers : [receiver]
+//        }
         return []
     }
     
     private func getReceiver(for sender: Charater, from receivers: [Charater]) -> Charater {
-        if Dice.roll(to: sender.intelegence.ratio) {
-            return receivers.min { $0.points.value < $1.points.value }!
-        }
+//        if Dice.roll(to: sender.intelegence.ratio) {
+//            return receivers.min { $0.hea.value < $1.points.value }!
+//        }
         return receivers.randomElement()!
     }
 }
@@ -111,10 +116,38 @@ class Cure: Action {
     override func doAction() {
         super.doAction()
         for receiver in receivers {
-            (receiver as? Destroyable)?.points.increase(by: Int.random(in: 10...20))
+            (receiver as? Destroyable)?.health.increase(by: Int.random(in: 10...20))
         }
     }
 }
+
+/*
+
+class Cure2: Action {
+    override func doAction() {
+        super.doAction()
+        if Dice.roll(to: 0.9) {
+            for receiver in receivers {
+                (receiver as? Destroyable)?.points.increase(by: Int.random(in: 60...80))
+            }
+        }
+    }
+}
+
+class Cure3: Action {
+    override func doAction() {
+        super.doAction()
+        if Dice.roll(to: 0.8) {
+            for receiver in receivers {
+                if let receiver = receiver as? Destroyable {
+                    receiver.points.increase(by: receiver.points.maximum)
+                }
+            }
+        }
+    }
+}
+
+*/
 
 public class Concentration: Effect {
     override public var time: Time {

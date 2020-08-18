@@ -11,4 +11,6 @@ import Foundation
 public protocol Magical: class {
     
     var mana: Variable<Int> { get }
+    
+    var wizdom: Variable<Int> { get }
 }

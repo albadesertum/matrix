@@ -202,7 +202,10 @@ class TestScene: SKScene, MovableDelegate, DestroyableDelegate {
         }
         self.map = map
         matrix = Matrix<Cell>(m: map.numberOfRows, n: map.numberOfColumns)
-        matrix.sync(with: map, .plane) { value, userData in
+        matrix.sync(with: map, geometry: .plane) { _, _ in
+            
+        }
+        matrix.sync(with: map, geometry: .plane) { value, userData in
             let isEmpty = userData?["isEmpty"] as? Bool ?? true
             value = isEmpty ? Cell() : Wall()
         }
@@ -244,11 +247,11 @@ class TestScene: SKScene, MovableDelegate, DestroyableDelegate {
     let geometry = Matrix<Cell>.Geometry.plane
     
     func point(by index: Index) -> CGPoint {
-        return matrix.point(by: index, tileSize, geometry)
+        return matrix.point(by: index, tileSize: tileSize, geometry: geometry)
     }
     
     func index(by point: CGPoint) -> Index {
-        return matrix.index(by: point, tileSize, geometry)
+        return matrix.index(by: point, tileSize: tileSize, geometry: geometry)
     }
 }
 

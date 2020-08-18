@@ -18,46 +18,45 @@ public protocol Movable: SKNode {
     
     func duration(from pointA: CGPoint, to pointB: CGPoint) -> TimeInterval
     
-    func move(to point: CGPoint, _ block: ((_ node: SKNode) -> ())?)
+    func move(to point: CGPoint, block: ((_ node: SKNode) -> ())?)
     
-    func move(with points: [CGPoint], _ block: ((_ node: SKNode) -> ())?)
+    func move(with points: [CGPoint], block: ((_ node: SKNode) -> ())?)
 }
 
 public extension Movable {
     
     func duration(from pointA: CGPoint, to pointB: CGPoint) -> TimeInterval {
         let distance = pointA.distance(to: pointB)
-        let durationValue = CGFloat(duration)
+        let duration = CGFloat(self.duration)
         var result: CGFloat
         if distance <= lenght {
-            result = durationValue * distance / lenght
+            result = duration * distance / lenght
         } else {
-            result = durationValue + (durationValue - durationValue * (distance - lenght) / lenght)
+            result = duration + (duration - duration * (distance - lenght) / lenght)
         }
         return TimeInterval(result)
     }
     
-    func move(to point: CGPoint, _ block: ((_ node: SKNode) -> ())? = nil) {
-        move(with: [point], block)
+    func move(to point: CGPoint, block: ((_ node: SKNode) -> ())? = nil) {
+        move(with: [point], block: block)
     }
     
-    func move(with points: [CGPoint], _ block: ((_ node: SKNode) -> ())? = nil) {
+    func move(with points: [CGPoint], block: ((_ node: SKNode) -> ())? = nil) {
         if hasActions() {
             removeAllActions()
         }
         var actions = [SKAction]()
         var previousPoint = position
         for point in points {
-            let durationValue = duration(from: previousPoint, to: point)
-            actions.append(.move(to: point, duration: durationValue))
+            let duration = self.duration(from: previousPoint, to: point)
+            actions.append(.move(to: point, duration: duration))
             previousPoint = point
         }
         run(.sequence(actions)) { [weak self] in
-            guard let self = self else {
-                return
+            if let self = self {
+                block?(self)
+                self.movableDelegate?.nodeDidFinishMove(self)
             }
-            block?(self)
-            self.movableDelegate?.nodeDidFinishMove(self)
         }
     }
 }

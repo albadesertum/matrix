@@ -65,7 +65,7 @@ public extension Matrix where T: Routable {
         return result
     }
     
-    func index(by point: CGPoint, _ tileSize: CGSize, _ geometry: Geometry) -> Index {
+    func index(by point: CGPoint, tileSize: CGSize, geometry: Geometry) -> Index {
         switch geometry {
         case .plane:
             let i = m - Int(round(point.y / tileSize.height))
@@ -77,7 +77,7 @@ public extension Matrix where T: Routable {
         }
     }
     
-    func point(by index: Index, _ tileSize: CGSize, _ geometry: Geometry) -> CGPoint {
+    func point(by index: Index, tileSize: CGSize, geometry: Geometry) -> CGPoint {
         switch geometry {
         case .plane:
             let x = CGFloat(index.j) * tileSize.width
@@ -89,10 +89,10 @@ public extension Matrix where T: Routable {
         }
     }
     
-    func sync(with tileMapNode: SKTileMapNode, _ geometry: Geometry, _ block: (_ value: inout T?, _ userData: [String : Any]?) -> ()) {
+    func sync(with tileMapNode: SKTileMapNode, geometry: Geometry, block: (_ value: inout T?, _ userData: [String : Any]?) -> ()) {
         forEachIndex { index, value in
             let tileSize = tileMapNode.tileSize
-            let wrongPoint = point(by: index, tileSize, geometry)
+            let wrongPoint = point(by: index, tileSize: tileSize, geometry: geometry)
             var point: CGPoint
             switch geometry {
             case .plane:
@@ -101,8 +101,8 @@ public extension Matrix where T: Routable {
                 // TODO:
                 point = .zero
             }
-            let row = tileMapNode.tileRowIndex(fromPosition: point)
             let column = tileMapNode.tileColumnIndex(fromPosition: point)
+            let row = tileMapNode.tileRowIndex(fromPosition: point)
             let userData = tileMapNode.tileDefinition(atColumn: column, row: row)?.userData as? [String : Any]
             block(&value, userData)
         }

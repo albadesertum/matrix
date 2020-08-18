@@ -10,9 +10,5 @@ import SpriteKit
 
 public protocol Destroyable: class {
     
-    var points: Variable<Int> { get }
-    
-    var defence: Variable<Int> { get }
-    
-    var restore: Variable<Int> { get }
+    var health: Variable<Int> { get }
 }
