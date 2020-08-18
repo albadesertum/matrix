@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Effect {
+open class Effect {
     
     public enum Time {        
         case permanently, during(count: Int)
@@ -20,11 +20,11 @@ public class Effect {
     
     internal weak var receiver: AnyObject?
     
-    public var time: Time {
+    open var time: Time {
         return .permanently
     }
     
-    public var isApplied: Bool {
+    open var isApplied: Bool {
         return true
     }
     
@@ -47,7 +47,7 @@ public class Effect {
     
     // MARK: - Public
     
-    public func doEffect() {
+    open func doEffect() {
         switch time {
         case .during:
             count = count + 1
@@ -55,8 +55,4 @@ public class Effect {
             break
         }
     }
-}
-
-public class Concentration: Effect {
-    
 }

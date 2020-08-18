@@ -10,8 +10,8 @@ import Foundation
 
 public class Dice {
     
-    static public func roll(to percent: Double, attempts: Int = 10) -> Bool {
-        guard attempts > 0 else {
+    static public func roll(to percent: Double, attempts: Int = 3) -> Bool {
+        if attempts <= 0 {
             fatalError()
         }
         var count = 0
@@ -23,7 +23,7 @@ public class Dice {
         return Double(count) / Double(attempts) > 0.5
     }
     
-    static public func roll(to percent: Float, attempts: Int = 10) -> Bool {
+    static public func roll(to percent: Float, attempts: Int = 3) -> Bool {
         return roll(to: Double(percent), attempts: attempts)
     }
 }

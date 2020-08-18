@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Action {
+open class Action {
     
     public let sender: AnyObject
     
@@ -21,7 +21,7 @@ public class Action {
         self.receivers = receivers.isEmpty ? [sender] : receivers
     }
     
-    public func doAction() {
+    open func doAction() {
         /* Abstract. */
     }
 }

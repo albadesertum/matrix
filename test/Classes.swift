@@ -92,8 +92,8 @@ public class ArtificialIntelligence {
         let isReceiverNormal = receiver.points.ratio >= 0.4
         let isConcentration = sender.effects.filter { $0 is Concentration }.isNotEmpty
         let percent = isConcentration ? (isReceiverNormal ? 0.6 : 0.9) : (isReceiverNormal ? 0.2 : 0.5)
-        let isAttack = isSenderNormal ? true : Dice.roll(to: percent)
-        if isAggression || isAttack {
+        let isAttack = isSenderNormal ? isAggression : Dice.roll(to: percent)
+        if isAttack {
             return isConcentration ? receivers : [receiver]
         }
         return []
@@ -104,6 +104,26 @@ public class ArtificialIntelligence {
             return receivers.min { $0.points.value < $1.points.value }!
         }
         return receivers.randomElement()!
+    }
+}
+
+class Cure: Action {
+    override func doAction() {
+        super.doAction()
+        for receiver in receivers {
+            (receiver as? Destroyable)?.points.increase(by: Int.random(in: 10...20))
+        }
+    }
+}
+
+public class Concentration: Effect {
+    override public var time: Time {
+        return .during(count: 1)
+    }
+    
+    override public var isApplied: Bool {
+        let level = 10.0
+        return Dice.roll(to: 0.5 + 0.04 * level)
     }
 }
 

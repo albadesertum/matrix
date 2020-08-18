@@ -8,9 +8,9 @@
 
 import Foundation
 
-public class Undo<T: Effect>: Action {
+open class Undo<T: Effect>: Action {
     
-    override public func doAction() {
+    override open func doAction() {
         for receiver in receivers {
             if let receiver = receiver as? Effectable {
                 receiver.effects = receiver.effects.filter { $0 is T == false }

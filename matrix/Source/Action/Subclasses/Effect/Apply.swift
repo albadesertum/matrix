@@ -8,9 +8,9 @@
 
 import Foundation
 
-public class Apply<T: Effect>: Action {
+open class Apply<T: Effect>: Action {
     
-    override public func doAction() {
+    override open func doAction() {
         for receiver in receivers {
             if let receiver = receiver as? Effectable {
                 let effect = T(sender: sender, receiver: receiver)
