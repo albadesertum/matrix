@@ -9,47 +9,64 @@
 import matrix
 import SpriteKit
 
-public typealias Charater = Attacking & Destroyable & Effectable & Equipmentable & Luckiness & Magical & Artificial
+public typealias Animatable = Attributable & Destroyable & Effectable & Equipmentable
 
-public class Someone: Charater {
-    public var agility = Variable<Int>(value: 0, minimum: 0, maximum: 0)
+public class Human: Animatable {
     
-    public var health = Variable<Int>(value: 0, minimum: 0, maximum: 0)
+    public var strength: Variable<Int>
     
-    public var strength = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
+    public var endurance: Variable<Int>
     
-    public var accuracy = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
+    public var intelegence: Variable<Int>
     
-    public var endurance = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
+    public var agility: Variable<Int>
     
-    public var effects = [Effect]()
+    public var wizdom: Variable<Int>
     
-    public var weapon = Equipment()
+    public var luck: Variable<Int>
     
-    public var armor = Equipment()
+    public var health: Variable<Int>
     
-    public var artefact = Equipment()
+    public var effects: [Effect]
     
-    public var luck = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
+    public var weapon: Equipment
     
-    public var mana = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
+    public var armor: Equipment
     
-    public var wizdom = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
+    public var artefact: Equipment
     
-    public var points = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
+    init() {
+        self.strength = Variable<Int>(value: 0, minimum: 0, maximum: 0)
+        self.endurance = Variable<Int>(value: 0, minimum: 0, maximum: 0)
+        self.intelegence = Variable<Int>(value: 0, minimum: 0, maximum: 0)
+        self.agility = Variable<Int>(value: 0, minimum: 0, maximum: 0)
+        self.wizdom = Variable<Int>(value: 0, minimum: 0, maximum: 0)
+        self.luck = Variable<Int>(value: 0, minimum: 0, maximum: 0)
+        self.health = Variable<Int>(value: 0, minimum: 0, maximum: 0)
+        self.effects = []
+        self.weapon = Equipment()
+        self.armor = Equipment()
+        self.artefact = Equipment()
+    }
+}
+
+public class Warrior: Human {
     
-    public var defence = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
+}
+
+public class Sorceror: Human, Magicable {
     
-    public var restore = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
+    public var mana: Variable<Int>
     
-    public var intelegence = Variable<Int>(value: 0, minimum: 0, maximum: 2048)
-    
-    public var aggression = Variable<Float>(value: 0.5, minimum: 0.0, maximum: 1.0)
+    override init() {
+        self.mana = Variable<Int>(value: 0, minimum: 0, maximum: 0)
+        super.init()
+    }
 }
 
 public class Logic {
     
-    public static func applyEffects(to units: [AnyObject]) {
+    public static func effect(to units: [AnyObject]) {
         for unit in units {
             if let unit = unit as? Effectable {
                 for effect in unit.effects {
@@ -60,7 +77,7 @@ public class Logic {
         }
     }
     
-    public static func makeMove(with actions: [Action]) {
+    public static func move(with actions: [Action]) {
         for action in actions {
             action.doAction()
         }
@@ -76,7 +93,7 @@ public class ArtificialIntelligence {
     
     // MARK: - Public
     
-    public func makeDesicion(by sender: Charater, and receivers: [Charater]) {
+    public func makeDesicion(by sender: Animatable, and receivers: [Animatable]) {
         if receivers.isEmpty {
             fatalError()
         }
@@ -90,64 +107,64 @@ public class ArtificialIntelligence {
     
     // MARK: - Private
     
-    private func getReceivers(for sender: Charater, from receivers: [Charater]) -> [Charater] {
-//        let receiver = getReceiver(for: sender, from: receivers)
-//        let isAggression = Dice.roll(to: sender.aggression.ratio)
-//        let isSenderNormal = sender.health.ratio >= 0.4
-//        let isReceiverNormal = receiver.health.ratio >= 0.4
-//        let isConcentration = sender.effects.filter { $0 is Concentration }.isNotEmpty
-//        let percent = isConcentration ? (isReceiverNormal ? 0.6 : 0.9) : (isReceiverNormal ? 0.2 : 0.5)
-//        let isAttack = isSenderNormal ? isAggression : Dice.roll(to: percent)
-//        if isAttack {
-//            return isConcentration ? receivers : [receiver]
-//        }
+    private func getReceivers(for sender: Animatable, from receivers: [Animatable]) -> [Animatable] {
+        //        let receiver = getReceiver(for: sender, from: receivers)
+        //        let isAggression = Dice.roll(to: sender.aggression.ratio)
+        //        let isSenderNormal = sender.health.ratio >= 0.4
+        //        let isReceiverNormal = receiver.health.ratio >= 0.4
+        //        let isConcentration = sender.effects.filter { $0 is Concentration }.isNotEmpty
+        //        let percent = isConcentration ? (isReceiverNormal ? 0.6 : 0.9) : (isReceiverNormal ? 0.2 : 0.5)
+        //        let isAttack = isSenderNormal ? isAggression : Dice.roll(to: percent)
+        //        if isAttack {
+        //            return isConcentration ? receivers : [receiver]
+        //        }
         return []
     }
     
-    private func getReceiver(for sender: Charater, from receivers: [Charater]) -> Charater {
-//        if Dice.roll(to: sender.intelegence.ratio) {
-//            return receivers.min { $0.hea.value < $1.points.value }!
-//        }
+    private func getReceiver(for sender: Animatable, from receivers: [Animatable]) -> Animatable {
+        //        if Dice.roll(to: sender.intelegence.ratio) {
+        //            return receivers.min { $0.hea.value < $1.points.value }!
+        //        }
         return receivers.randomElement()!
     }
 }
 
-class Cure: Action {
-    override func doAction() {
-        super.doAction()
-        for receiver in receivers {
-            (receiver as? Destroyable)?.health.increase(by: Int.random(in: 10...20))
-        }
-    }
-}
+//class Cure: Action {
+//    override func doAction() {
+//        super.doAction()
+//        for receiver in receivers {
+//            (receiver as? Destroyable)?.health.increase(by: Int.random(in: 10...20))
+//        }
+//    }
+//}
 
 /*
-
-class Cure2: Action {
-    override func doAction() {
-        super.doAction()
-        if Dice.roll(to: 0.9) {
-            for receiver in receivers {
-                (receiver as? Destroyable)?.points.increase(by: Int.random(in: 60...80))
-            }
-        }
-    }
-}
-
-class Cure3: Action {
-    override func doAction() {
-        super.doAction()
-        if Dice.roll(to: 0.8) {
-            for receiver in receivers {
-                if let receiver = receiver as? Destroyable {
-                    receiver.points.increase(by: receiver.points.maximum)
-                }
-            }
-        }
-    }
-}
-
-*/
+ 
+ class Cure2: Action {
+ override func doAction() {
+ super.doAction()
+ if Dice.roll(to: 0.9) {
+ for receiver in receivers {
+ (receiver as? Destroyable)?.points.increase(by: Int.random(in: 60...80))
+ }
+ }
+ }
+ }
+ 
+ class Cure3: Action {
+ override func doAction() {
+ super.doAction()
+ if Dice.roll(to: 0.8) {
+ for receiver in receivers {
+ if let receiver = receiver as? Destroyable {
+ receiver.points.increase(by: receiver.points.maximum)
+ }
+ }
+ }
+ }
+ }
+ 
+ */
 
 public class Concentration: Effect {
     override public var time: Time {

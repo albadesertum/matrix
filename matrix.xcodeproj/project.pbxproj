@@ -69,8 +69,6 @@
 		C7910AC624DC840400221E86 /* Equipmentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7910AC524DC840400221E86 /* Equipmentable.swift */; };
 		C7910ACB24DC86D100221E86 /* Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7910ACA24DC86D100221E86 /* Equipment.swift */; };
 		C7910ACD24DCA35700221E86 /* Variable+Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7910ACC24DCA35700221E86 /* Variable+Operation.swift */; };
-		C7910ACF24DCB4A300221E86 /* Attacking.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7910ACE24DCB4A300221E86 /* Attacking.swift */; };
-		C7910AD124DCB4C300221E86 /* Luckiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7910AD024DCB4C300221E86 /* Luckiness.swift */; };
 		C7963DC524C1EC4C006FA73D /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7963DC424C1EC4B006FA73D /* ProgressView.swift */; };
 		C799B69A24D9F11A002A4AFE /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C799B69924D9F11A002A4AFE /* Dice.swift */; };
 		C79CA18724BCD9A400A25A26 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79CA18624BCD9A400A25A26 /* MenuViewController.swift */; };
@@ -81,7 +79,7 @@
 		C7DF0FF12422491D006EF23E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DF0FEF2422491D006EF23E /* Main.storyboard */; };
 		C7DF0FF324224921006EF23E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7DF0FF224224921006EF23E /* Assets.xcassets */; };
 		C7DF0FF624224921006EF23E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DF0FF424224921006EF23E /* LaunchScreen.storyboard */; };
-		C7EA170E24E30CEC003D0A01 /* Magical.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EA170D24E30CEC003D0A01 /* Magical.swift */; };
+		C7EA170E24E30CEC003D0A01 /* Magicable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EA170D24E30CEC003D0A01 /* Magicable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,8 +168,6 @@
 		C7910AC524DC840400221E86 /* Equipmentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipmentable.swift; sourceTree = "<group>"; };
 		C7910ACA24DC86D100221E86 /* Equipment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equipment.swift; sourceTree = "<group>"; };
 		C7910ACC24DCA35700221E86 /* Variable+Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Variable+Operation.swift"; sourceTree = "<group>"; };
-		C7910ACE24DCB4A300221E86 /* Attacking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attacking.swift; sourceTree = "<group>"; };
-		C7910AD024DCB4C300221E86 /* Luckiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Luckiness.swift; sourceTree = "<group>"; };
 		C7963DC424C1EC4B006FA73D /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		C799B69924D9F11A002A4AFE /* Dice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dice.swift; sourceTree = "<group>"; };
 		C79CA18424BCD68F00A25A26 /* UITableView+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Common.swift"; sourceTree = "<group>"; };
@@ -185,7 +181,7 @@
 		C7DF0FF224224921006EF23E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7DF0FF524224921006EF23E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7DF0FF724224921006EF23E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C7EA170D24E30CEC003D0A01 /* Magical.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magical.swift; sourceTree = "<group>"; };
+		C7EA170D24E30CEC003D0A01 /* Magicable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magicable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +246,18 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C75C2D8F24EC5B3800F830D5 /* Gameplay */ = {
+			isa = PBXGroup;
+			children = (
+				C75C2D8C24EC55A000F830D5 /* Attributable.swift */,
+				C790A9B424C3A642001EB04E /* Destroyable.swift */,
+				C767E16124D5CF9300F8215E /* Effectable.swift */,
+				C7910AC524DC840400221E86 /* Equipmentable.swift */,
+				C7EA170D24E30CEC003D0A01 /* Magicable.swift */,
+			);
+			path = Gameplay;
 			sourceTree = "<group>";
 		};
 		C767E15824D5CDF400F8215E /* Action */ = {
@@ -531,18 +539,12 @@
 		C790A9AF24C3A642001EB04E /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				C7910ACE24DCB4A300221E86 /* Attacking.swift */,
-				C75C2D8C24EC55A000F830D5 /* Attributable.swift */,
 				C790A9B224C3A642001EB04E /* Datable.swift */,
-				C790A9B424C3A642001EB04E /* Destroyable.swift */,
-				C767E16124D5CF9300F8215E /* Effectable.swift */,
-				C7910AC524DC840400221E86 /* Equipmentable.swift */,
-				C7910AD024DCB4C300221E86 /* Luckiness.swift */,
-				C7EA170D24E30CEC003D0A01 /* Magical.swift */,
 				C790A9B024C3A642001EB04E /* Movable.swift */,
 				C790A9B124C3A642001EB04E /* Routable.swift */,
 				C790A9B324C3A642001EB04E /* Storable.swift */,
 				C790A9B624C3A642001EB04E /* Delegates */,
+				C75C2D8F24EC5B3800F830D5 /* Gameplay */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -711,7 +713,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7910ACF24DCB4A300221E86 /* Attacking.swift in Sources */,
 				C790A9C824C3A642001EB04E /* Item+Hashable.swift in Sources */,
 				C767E15E24D5CF3D00F8215E /* Apply.swift in Sources */,
 				C767E16024D5CF4800F8215E /* Undo.swift in Sources */,
@@ -727,7 +728,7 @@
 				C790A9C624C3A642001EB04E /* Item.swift in Sources */,
 				C790A9DC24C3A642001EB04E /* Storable.swift in Sources */,
 				C7910ACB24DC86D100221E86 /* Equipment.swift in Sources */,
-				C7EA170E24E30CEC003D0A01 /* Magical.swift in Sources */,
+				C7EA170E24E30CEC003D0A01 /* Magicable.swift in Sources */,
 				C790A9C724C3A642001EB04E /* Item+CustomStringConvertible.swift in Sources */,
 				C790A9CC24C3A642001EB04E /* Index+Equatable.swift in Sources */,
 				C75C2D8D24EC55A000F830D5 /* Attributable.swift in Sources */,
@@ -740,7 +741,6 @@
 				C790A9CE24C3A642001EB04E /* Index+CustomStringConvertible.swift in Sources */,
 				C799B69A24D9F11A002A4AFE /* Dice.swift in Sources */,
 				C790A9CB24C3A642001EB04E /* Index+Operation.swift in Sources */,
-				C7910AD124DCB4C300221E86 /* Luckiness.swift in Sources */,
 				C790A9DF24C3A642001EB04E /* DestroyableDelegate.swift in Sources */,
 				C790A9BA24C3A642001EB04E /* Variable+CustomStringConvertible.swift in Sources */,
 				C790A9C224C3A642001EB04E /* Version.swift in Sources */,
