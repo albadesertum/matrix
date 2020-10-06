@@ -27,6 +27,8 @@
 		C774CE0624CDB79400C40FAB /* DirectionsGameButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774CE0524CDB79400C40FAB /* DirectionsGameButtonDelegate.swift */; };
 		C774CE0924CDB85F00C40FAB /* StandartDirectionsGameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774CE0824CDB85F00C40FAB /* StandartDirectionsGameButton.swift */; };
 		C774CE0B24CDCE9700C40FAB /* UIView+GameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774CE0A24CDCE9700C40FAB /* UIView+GameButton.swift */; };
+		C776A9132525FFD4008975F0 /* HandmadeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C776A9112525FFD4008975F0 /* HandmadeSlider.swift */; };
+		C776A9142525FFD4008975F0 /* HandmadeSlider.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C776A9122525FFD4008975F0 /* HandmadeSlider.xcassets */; };
 		C77AC036249F6B9C0088B846 /* MyScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C77AC035249F6B9C0088B846 /* MyScene.sks */; };
 		C77AC03A249FCE0C0088B846 /* TileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = C77AC039249FCE0C0088B846 /* TileSet.sks */; };
 		C790A96524C375B4001EB04E /* UITableView+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79CA18424BCD68F00A25A26 /* UITableView+Common.swift */; };
@@ -127,6 +129,8 @@
 		C774CE0524CDB79400C40FAB /* DirectionsGameButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DirectionsGameButtonDelegate.swift; path = ../DirectionsGameButtonDelegate.swift; sourceTree = "<group>"; };
 		C774CE0824CDB85F00C40FAB /* StandartDirectionsGameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandartDirectionsGameButton.swift; sourceTree = "<group>"; };
 		C774CE0A24CDCE9700C40FAB /* UIView+GameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView+GameButton.swift"; path = "../UIView+GameButton.swift"; sourceTree = "<group>"; };
+		C776A9112525FFD4008975F0 /* HandmadeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandmadeSlider.swift; sourceTree = "<group>"; };
+		C776A9122525FFD4008975F0 /* HandmadeSlider.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = HandmadeSlider.xcassets; sourceTree = "<group>"; };
 		C77AC035249F6B9C0088B846 /* MyScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyScene.sks; sourceTree = "<group>"; };
 		C77AC039249FCE0C0088B846 /* TileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TileSet.sks; sourceTree = "<group>"; };
 		C790A97D24C3A642001EB04E /* SaveLoad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveLoad.swift; sourceTree = "<group>"; };
@@ -296,6 +300,7 @@
 		C774CDF624CD98D700C40FAB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C776A9102525FFD4008975F0 /* HandmadeSlider */,
 				C774CDFB24CDA32900C40FAB /* BlueSingleGameButton.swift */,
 				C774CDF924CDA31900C40FAB /* RedSingleGameButton.swift */,
 				C774CE0824CDB85F00C40FAB /* StandartDirectionsGameButton.swift */,
@@ -357,6 +362,16 @@
 			);
 			path = Extensions;
 			sourceTree = "<group>";
+		};
+		C776A9102525FFD4008975F0 /* HandmadeSlider */ = {
+			isa = PBXGroup;
+			children = (
+				C776A9112525FFD4008975F0 /* HandmadeSlider.swift */,
+				C776A9122525FFD4008975F0 /* HandmadeSlider.xcassets */,
+			);
+			name = HandmadeSlider;
+			path = test/HandmadeSlider;
+			sourceTree = SOURCE_ROOT;
 		};
 		C790A97B24C3A642001EB04E /* Source */ = {
 			isa = PBXGroup;
@@ -696,6 +711,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C776A9142525FFD4008975F0 /* HandmadeSlider.xcassets in Resources */,
 				C79CA18B24BCE55700A25A26 /* MenuTableViewCell.xib in Resources */,
 				C77AC03A249FCE0C0088B846 /* TileSet.sks in Resources */,
 				C7DF0FF624224921006EF23E /* LaunchScreen.storyboard in Resources */,
@@ -777,6 +793,7 @@
 				C7680456245D74A600861156 /* Classes.swift in Sources */,
 				C79CA18724BCD9A400A25A26 /* MenuViewController.swift in Sources */,
 				C774CE0624CDB79400C40FAB /* DirectionsGameButtonDelegate.swift in Sources */,
+				C776A9132525FFD4008975F0 /* HandmadeSlider.swift in Sources */,
 				C790A96524C375B4001EB04E /* UITableView+Common.swift in Sources */,
 				C774CE0024CDACF600C40FAB /* SingleGameButtonDelegate.swift in Sources */,
 				C774CE0B24CDCE9700C40FAB /* UIView+GameButton.swift in Sources */,

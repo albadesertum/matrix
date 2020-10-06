@@ -21,7 +21,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, SingleGameB
     
     var tap: UITapGestureRecognizer!
     var dTap: UITapGestureRecognizer!
-//    @IBOutlet weak var p: ProgressView!
+    //    @IBOutlet weak var p: ProgressView!
     
     func didPress(_ button: SingleGameButton) {
         if button == redButton {
@@ -68,56 +68,56 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, SingleGameB
         redButton.delegate = self
         blueButton.delegate = self
         directionButton.delegate = self
-//        let saveLoad = SaveLoad("my-save")
-//        saveLoad.load()
-//        print(saveLoad.list ?? ["nil" : "nil"])
-//        saveLoad.list = ["some options" : 0]
-//        saveLoad.save()
-//        var mat = Matrix<Float>.init(m: 2, n: 2, transposed: [2.0, 3.0, 4.0, 6.0])
-//        mat = mat * 2.0
-//        print(mat)
-//        print(mat[0...1, 1...1] * 3.0)
-//        let chest1 = Chest(m: 2, n: 2, items: [Item(id: "0"), Item(id: "1"), Item(id: "2"), Item(id: "3")])
-//        let chest2 = Chest(m: 2, n: 1, items: [Item(id: "4")])
-//
-//        print(chest1.items)
-//        print(chest2.items)
-//
-//        let v1 = Version(string: "2.1.4")!
-//        let v2 = Version(string: "2.1.3")!
-//        print("v1 == v2 \(v1 == v2)")
-//        print("v1 != v2 \(v1 != v2)")
-//        print("v1 < v2 \(v1 < v2)")
-//        print("v1 > v2 \(v1 > v2)")
-//        print("v1 <= v2 \(v1 <= v2)")
-//        print("v1 >= v2 \(v1 >= v2)")
-//        queue.start()
+        //        let saveLoad = SaveLoad("my-save")
+        //        saveLoad.load()
+        //        print(saveLoad.list ?? ["nil" : "nil"])
+        //        saveLoad.list = ["some options" : 0]
+        //        saveLoad.save()
+        //        var mat = Matrix<Float>.init(m: 2, n: 2, transposed: [2.0, 3.0, 4.0, 6.0])
+        //        mat = mat * 2.0
+        //        print(mat)
+        //        print(mat[0...1, 1...1] * 3.0)
+        //        let chest1 = Chest(m: 2, n: 2, items: [Item(id: "0"), Item(id: "1"), Item(id: "2"), Item(id: "3")])
+        //        let chest2 = Chest(m: 2, n: 1, items: [Item(id: "4")])
+        //
+        //        print(chest1.items)
+        //        print(chest2.items)
+        //
+        //        let v1 = Version(string: "2.1.4")!
+        //        let v2 = Version(string: "2.1.3")!
+        //        print("v1 == v2 \(v1 == v2)")
+        //        print("v1 != v2 \(v1 != v2)")
+        //        print("v1 < v2 \(v1 < v2)")
+        //        print("v1 > v2 \(v1 > v2)")
+        //        print("v1 <= v2 \(v1 <= v2)")
+        //        print("v1 >= v2 \(v1 >= v2)")
+        //        queue.start()
         
-//        let work1 = DispatchWorkItem {
-//            self.p.set(progress: 0.5)
-//        }
-//        let work2 = DispatchWorkItem {
-//            self.p.set(progress: 0.6)
-//        }
-//        let work3 = DispatchWorkItem {
-//            self.p.set(progress: 0.0)
-//        }
-//        let work4 = DispatchWorkItem {
-////            self.p.showDownloadButton()
-//        }
-//        let work5 = DispatchWorkItem {
-//            self.p.set(progress: 0.9)
-//        }
-//        let work6 = DispatchWorkItem {
-////            self.p.showPlayButton()
-//        }
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: work1)
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: work2)
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: work3)
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: work4)
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: work5)
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: work6)
+        //        let work1 = DispatchWorkItem {
+        //            self.p.set(progress: 0.5)
+        //        }
+        //        let work2 = DispatchWorkItem {
+        //            self.p.set(progress: 0.6)
+        //        }
+        //        let work3 = DispatchWorkItem {
+        //            self.p.set(progress: 0.0)
+        //        }
+        //        let work4 = DispatchWorkItem {
+        ////            self.p.showDownloadButton()
+        //        }
+        //        let work5 = DispatchWorkItem {
+        //            self.p.set(progress: 0.9)
+        //        }
+        //        let work6 = DispatchWorkItem {
+        ////            self.p.showPlayButton()
+        //        }
+        //
+        //        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: work1)
+        //        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: work2)
+        //        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: work3)
+        //        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: work4)
+        //        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: work5)
+        //        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: work6)
         
         
         
@@ -161,10 +161,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, SingleGameB
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        let x = MenuViewController()
-//        let nc = UINavigationController(rootViewController: x)
-//        nc.modalPresentationStyle = .fullScreen
-//        present(nc, animated: true, completion: nil)
+        //        let x = MenuViewController()
+        //        let nc = UINavigationController(rootViewController: x)
+        //        nc.modalPresentationStyle = .fullScreen
+        //        present(nc, animated: true, completion: nil)
     }
     
     override func viewDidLayoutSubviews() {
@@ -214,7 +214,7 @@ class TestScene: SKScene, MovableDelegate, DestroyableDelegate {
         main.movableDelegate = self
         addChild(main)
         main.position = point(by: Index(i: 1, j: 1))
-//        let chest = Chest(m: 2, n: 2, items: [])
+        //        let chest = Chest(m: 2, n: 2, items: [])
     }
     
     func nodeDidFinishMove(_ node: SKNode) {
@@ -302,16 +302,44 @@ public class Queue {
 }
 
 class MainVC: UIViewController {
+    @IBOutlet weak var slider: HandmadeSlider!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let item0 = UIBarButtonItem(image: UIImage(named: "icon_0"), style: .plain, target: nil, action: nil)
         let item1 = UIBarButtonItem(image: UIImage(named: "icon_1"), style: .plain, target: nil, action: nil)
         self.navigationItem.leftBarButtonItem = item0
         self.navigationItem.rightBarButtonItem = item1
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        slider.setValue(1.0, animated: true)
+    }
+    
+    @IBAction func vc(_ sender: HandmadeSlider) {
+        print(sender.value)
     }
 }
 
 class TestVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var test: UIStackView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if #available(iOS 13.0, *) {
+            let interaction = UIContextMenuInteraction(delegate: self)
+            //            imageView.addInteraction(interaction)
+            test.addInteraction(interaction)
+        } else {
+            
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 100
     }
@@ -340,4 +368,20 @@ class TestVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
 class AlertVC: UIViewController {
     
+}
+
+@available(iOS 13.0, *)
+extension TestVC: UIContextMenuInteractionDelegate {
+    func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
+        let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
+            let test = UIAction(title: "Test", image: nil) { _ in
+                print("test!")
+            }
+            let test2 = UIAction(title: "Test 2", image: nil) { _ in
+                print("test! 2")
+            }
+            return UIMenu(title: "Menu", image: nil, children: [test, test2])
+        }
+        return configuration
+    }
 }
