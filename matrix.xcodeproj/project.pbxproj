@@ -71,12 +71,13 @@
 		C790A9E024C3A642001EB04E /* MovableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790A9B824C3A642001EB04E /* MovableDelegate.swift */; };
 		C7910AC624DC840400221E86 /* Equipmentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7910AC524DC840400221E86 /* Equipmentable.swift */; };
 		C7910ACB24DC86D100221E86 /* Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7910ACA24DC86D100221E86 /* Equipment.swift */; };
-		C7910ACD24DCA35700221E86 /* Variable+Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7910ACC24DCA35700221E86 /* Variable+Operation.swift */; };
 		C7963DC524C1EC4C006FA73D /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7963DC424C1EC4B006FA73D /* ProgressView.swift */; };
 		C799B69A24D9F11A002A4AFE /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C799B69924D9F11A002A4AFE /* Dice.swift */; };
 		C79CA18724BCD9A400A25A26 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79CA18624BCD9A400A25A26 /* MenuViewController.swift */; };
 		C79CA18A24BCE55700A25A26 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79CA18824BCE55700A25A26 /* MenuTableViewCell.swift */; };
 		C79CA18B24BCE55700A25A26 /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C79CA18924BCE55700A25A26 /* MenuTableViewCell.xib */; };
+		C7B9FB6D2573E1D1004BF69A /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B9FB6C2573E1D1004BF69A /* Observable.swift */; };
+		C7B9FB702573EA97004BF69A /* WeakReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B9FB6F2573EA97004BF69A /* WeakReference.swift */; };
 		C7DF0FEA2422491D006EF23E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF0FE92422491D006EF23E /* AppDelegate.swift */; };
 		C7DF0FEE2422491D006EF23E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF0FED2422491D006EF23E /* ViewController.swift */; };
 		C7DF0FF12422491D006EF23E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DF0FEF2422491D006EF23E /* Main.storyboard */; };
@@ -174,13 +175,14 @@
 		C790A9B824C3A642001EB04E /* MovableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovableDelegate.swift; sourceTree = "<group>"; };
 		C7910AC524DC840400221E86 /* Equipmentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipmentable.swift; sourceTree = "<group>"; };
 		C7910ACA24DC86D100221E86 /* Equipment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equipment.swift; sourceTree = "<group>"; };
-		C7910ACC24DCA35700221E86 /* Variable+Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Variable+Operation.swift"; sourceTree = "<group>"; };
 		C7963DC424C1EC4B006FA73D /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		C799B69924D9F11A002A4AFE /* Dice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dice.swift; sourceTree = "<group>"; };
 		C79CA18424BCD68F00A25A26 /* UITableView+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Common.swift"; sourceTree = "<group>"; };
 		C79CA18624BCD9A400A25A26 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		C79CA18824BCE55700A25A26 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		C79CA18924BCE55700A25A26 /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
+		C7B9FB6C2573E1D1004BF69A /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		C7B9FB6F2573EA97004BF69A /* WeakReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakReference.swift; sourceTree = "<group>"; };
 		C7DF0FE72422491D006EF23E /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DF0FE92422491D006EF23E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7DF0FED2422491D006EF23E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -393,6 +395,7 @@
 				C790A97C24C3A642001EB04E /* SaveLoad */,
 				C790A97E24C3A642001EB04E /* Variable */,
 				C790A98D24C3A642001EB04E /* Version */,
+				C7B9FB6E2573EA82004BF69A /* Observable */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -418,7 +421,6 @@
 			isa = PBXGroup;
 			children = (
 				C790A98024C3A642001EB04E /* Variable+CustomStringConvertible.swift */,
-				C7910ACC24DCA35700221E86 /* Variable+Operation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -593,6 +595,15 @@
 			path = Dice;
 			sourceTree = "<group>";
 		};
+		C7B9FB6E2573EA82004BF69A /* Observable */ = {
+			isa = PBXGroup;
+			children = (
+				C7B9FB6C2573E1D1004BF69A /* Observable.swift */,
+				C7B9FB6F2573EA97004BF69A /* WeakReference.swift */,
+			);
+			path = Observable;
+			sourceTree = "<group>";
+		};
 		C7DF0FE82422491D006EF23E /* test */ = {
 			isa = PBXGroup;
 			children = (
@@ -751,6 +762,7 @@
 				C790A9DC24C3A642001EB04E /* Storable.swift in Sources */,
 				C7910ACB24DC86D100221E86 /* Equipment.swift in Sources */,
 				C7EA170E24E30CEC003D0A01 /* Magicable.swift in Sources */,
+				C7B9FB6D2573E1D1004BF69A /* Observable.swift in Sources */,
 				C790A9C724C3A642001EB04E /* Item+CustomStringConvertible.swift in Sources */,
 				C790A9CC24C3A642001EB04E /* Index+Equatable.swift in Sources */,
 				C75C2D8D24EC55A000F830D5 /* Attributable.swift in Sources */,
@@ -771,13 +783,13 @@
 				C767E16424D5CFCA00F8215E /* Effect.swift in Sources */,
 				C790A9C924C3A642001EB04E /* Item+Equatable.swift in Sources */,
 				C790A9CD24C3A642001EB04E /* Index+Hashable.swift in Sources */,
+				C7B9FB702573EA97004BF69A /* WeakReference.swift in Sources */,
 				C790A9CA24C3A642001EB04E /* Index.swift in Sources */,
 				C790A9D724C3A642001EB04E /* Matrix+Equatable.swift in Sources */,
 				C767E15B24D5CDF400F8215E /* Action.swift in Sources */,
 				C790A9C124C3A642001EB04E /* BooleanOperable.swift in Sources */,
 				C790A9C324C3A642001EB04E /* Version+Comparable.swift in Sources */,
 				C790A9D924C3A642001EB04E /* Movable.swift in Sources */,
-				C7910ACD24DCA35700221E86 /* Variable+Operation.swift in Sources */,
 				C790A9D224C3A642001EB04E /* MatrixError.swift in Sources */,
 				C790A9D824C3A642001EB04E /* Matrix.swift in Sources */,
 				C790A9D324C3A642001EB04E /* Matrix+Routable.swift in Sources */,
