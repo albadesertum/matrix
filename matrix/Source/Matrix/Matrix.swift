@@ -20,14 +20,14 @@ public class Matrix<T> {
     }
     
     public var isEmpty: Bool {
-        return size == empty
+        return size == emptied
     }
     
     public var filled: Int {
-        return size - empty
+        return size - emptied
     }
     
-    public var empty: Int {
+    public var emptied: Int {
         return array.filter { $0 == nil }.count
     }
     

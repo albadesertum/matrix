@@ -27,7 +27,7 @@ public extension Matrix where T: Routable {
             }
             closed.append(current)
             if current == nodeB {
-                return restoredRoute(from: current)
+                return restoreRoute(from: current)
             }
             var childs = [Node]()
             let indices = nearestEmptyIndices(from: current.index)
@@ -128,7 +128,7 @@ public extension Matrix where T: Routable {
         return valueA && valueB
     }
     
-    private func restoredRoute(from node: Node?) -> [Index] {
+    private func restoreRoute(from node: Node?) -> [Index] {
         var route = [Index]()
         var current = node
         while current != nil {
