@@ -11,7 +11,7 @@ import SpriteKit
 
 public typealias Animatable = Attributable & Destroyable & Effectable & Equipmentable
 
-public class Human: Animatable {
+public class Human: Animatable, VariableDelegate {
     
     public var strength: Variable<Int>
     
@@ -41,12 +41,24 @@ public class Human: Animatable {
         self.intelegence = Variable<Int>(value: 0, minimum: 0, maximum: 0)
         self.agility = Variable<Int>(value: 0, minimum: 0, maximum: 0)
         self.wizdom = Variable<Int>(value: 0, minimum: 0, maximum: 0)
-        self.luck = Variable<Int>(value: 0, minimum: 0, maximum: 0)
-        self.health = Variable<Int>(value: 0, minimum: 0, maximum: 0)
+        self.luck = Variable<Int>(value: 0, minimum: 0, maximum: 10)
+        self.health = Variable<Int>(value: 100, minimum: 0, maximum: 200)
         self.effects = []
         self.weapon = Equipment()
         self.armor = Equipment()
         self.artefact = Equipment()
+        self.health.addObserver(self)
+        self.luck.addObserver(self)
+    }
+    
+    public func variableDidChange<Int>(_ variable: Variable<Int>) {
+        print("!")
+        if variable === health {
+            print("HP \(variable.value)")
+        }
+        if variable === luck {
+            print("LUCK \(variable.value)")
+        }
     }
 }
 
@@ -61,6 +73,14 @@ public class Sorceror: Human, Magicable {
     override init() {
         self.mana = Variable<Int>(value: 0, minimum: 0, maximum: 0)
         super.init()
+    }
+    
+    func test() {
+        print("test!")
+        health.increase(by: 20)
+        luck.increase(by: 2)
+        health.decrease(by: 100)
+        luck.increase(by: 5)
     }
 }
 

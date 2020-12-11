@@ -8,19 +8,23 @@
 
 import Foundation
 
-public class Variable<T: SignedNumeric & Comparable> {
+public typealias Numbers = SignedNumeric & Comparable
+
+public protocol VariableDelegate: class {
+    
+    func variableDidChange<T: Numbers>(_ variable: Variable<T>)
+}
+
+public class Variable<T: Numbers>: Observable {
+    
+    public var observers = [ObjectIdentifier : WeakReference]()
     
     public var maximum: T
     public var minimum: T
     
-    public var value: T {
+    public private(set) var value: T {
         didSet {
-            if value < minimum {
-                value = minimum
-            }
-            if value > maximum {
-                value = maximum
-            }
+            notify { ($0 as? VariableDelegate)?.variableDidChange(self) }
         }
     }
     
@@ -38,32 +42,20 @@ public class Variable<T: SignedNumeric & Comparable> {
         self.maximum = maximum
     }
     
+    public func setValue(_ value: T) {
+        if value < minimum {
+            self.value = minimum
+        }
+        if value > maximum {
+            self.value = maximum
+        }
+    }
+    
     public func increase(by value: T) {
-        self.value = self.value + value
+        setValue(self.value + value)
     }
     
     public func decrease(by value: T) {
-        self.value = self.value - value
-    }
-}
-
-public extension Variable where T == Int {
-    
-    var ratio: Float {
-        return Float(value) / Float(maximum)
-    }
-}
-
-public extension Variable where T == Float {
-    
-    var ratio: T {
-        return value / maximum
-    }
-}
-
-public extension Variable where T == Double {
-    
-    var ratio: T {
-        return value / maximum
+        setValue(self.value - value)
     }
 }

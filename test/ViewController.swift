@@ -64,6 +64,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, SingleGameB
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Sorceror().test()
         view.setupGameButtons()
         redButton.delegate = self
         blueButton.delegate = self
@@ -328,8 +329,12 @@ class TestVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var test: UIStackView!
     
+    var s: Sorceror!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        s = Sorceror()
+        s.test()
         
         if #available(iOS 13.0, *) {
             let interaction = UIContextMenuInteraction(delegate: self)
