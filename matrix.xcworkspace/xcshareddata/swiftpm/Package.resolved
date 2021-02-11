@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "MyLibrary",
+        "repositoryURL": "https://github.com/albadesertum/spmhelloworld.git",
+        "state": {
+          "branch": null,
+          "revision": "3fceafbc1645fe9ec906b6ea1eff2619b32200f6",
+          "version": "0.3.3"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

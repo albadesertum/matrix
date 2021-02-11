@@ -173,10 +173,12 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, SingleGameB
     }
 }
 
-class Cell: Routable {
+class Cell: Routable, Codable {
     var isEmpty: Bool {
         return true
     }
+    
+    
 }
 
 class Wall: Cell {
