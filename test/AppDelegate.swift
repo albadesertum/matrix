@@ -24,11 +24,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         matrix[2, 2] = 2
         print(matrix)
         let data = try? JSONEncoder().encode(matrix)
-        print(data)
+        print(data!)
         let json = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments)
-        print(json)
+        let djson = try? JSONSerialization.data(withJSONObject: json!, options: .fragmentsAllowed)
+        let s = String.init(data: djson!, encoding: .utf8)
+        print(json!)
+        print(s!)
         let m2 = try? JSONDecoder().decode(Matrix<Int>.self, from: data!)
-        print(m2)
+        print(m2!)
         return true
     }
 }

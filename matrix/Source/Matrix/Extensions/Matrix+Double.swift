@@ -26,7 +26,7 @@ public extension Matrix where T == Double {
         if lhs.m != rhs.n {
             throw MatrixError.multiplication
         }
-        // TODO:
+        // TODO: Multiplicate two matrix of double.
         return lhs
     }
 }

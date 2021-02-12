@@ -11,6 +11,4 @@ import Foundation
 public enum MatrixError: Error {
     
     case multiplication
-    case encode
-    case decode
 }

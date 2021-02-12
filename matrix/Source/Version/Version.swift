@@ -23,14 +23,24 @@ public class Version {
     public let minor: Int
     public let patch: Int
     
-    public init?(string: String) {
+    public init?(major: Int, minor: Int, patch: Int) {
+        if major < 0 || minor < 0 || patch < 0 {
+            return nil
+        }
+        self.string = "\(major).\(minor).\(patch)"
+        self.major = major
+        self.minor = minor
+        self.patch = patch
+    }
+    
+    public convenience init?(string: String) {
         let array = string.split(separator: ".").compactMap { Int(String($0)) }
         if array.isEmpty {
             return nil
         }
-        self.string = string
-        self.major = Version.value(at: 0, in: array)
-        self.minor = Version.value(at: 1, in: array)
-        self.patch = Version.value(at: 2, in: array)
+        let major = Version.value(at: 0, in: array)
+        let minor = Version.value(at: 1, in: array)
+        let patch = Version.value(at: 2, in: array)
+        self.init(major: major, minor: minor, patch: patch)
     }
 }

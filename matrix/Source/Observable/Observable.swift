@@ -23,7 +23,7 @@ public extension Observable {
         observers[ObjectIdentifier(observer.self)] = nil
     }
     
-    func notify(_ block: (_ reference: AnyObject?) -> ()) {
+    func notify(_ block: (_ reference: AnyObject?) -> Void) {
         for (_, value) in observers {
             block(value.reference)
         }
