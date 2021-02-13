@@ -11,6 +11,7 @@ import SpriteKit
 public extension Matrix where T: Routable {
     
     enum Geometry {
+        
         case plane, isometry
     }
     
@@ -72,7 +73,7 @@ public extension Matrix where T: Routable {
             let j = Int(round(point.x / tileSize.width))
             return Index(i: i, j: j)
         case .isometry:
-            // TODO:
+            // TODO: Index for isometry.
             return .zero
         }
     }
@@ -84,7 +85,7 @@ public extension Matrix where T: Routable {
             let y = CGFloat(m - index.i) * tileSize.height
             return CGPoint(x: x, y: y)
         case .isometry:
-            // TODO:
+            // TODO: Point for isometry.
             return .zero
         }
     }
@@ -98,7 +99,7 @@ public extension Matrix where T: Routable {
             case .plane:
                 point = CGPoint(x: wrongPoint.x + 0.5 * tileSize.width, y: wrongPoint.y - 0.5 * tileSize.height)
             case .isometry:
-                // TODO:
+                // TODO: Sync for isometry.
                 point = .zero
             }
             let column = tileMapNode.tileColumnIndex(fromPosition: point)

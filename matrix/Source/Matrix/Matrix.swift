@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Matrix<T> {
+public class Matrix<T: Codable>: Codable {
     
     public let m: Int
     public let n: Int
@@ -55,12 +55,28 @@ public class Matrix<T> {
         self.init(m: m, n: n, array: elements)
     }
     
-    public convenience init(m: Int, n: Int, transposed: [T?]) {
+    public convenience init?(m: Int, n: Int, transposed: [T?]) {
         if m * n != transposed.count {
-            fatalError("Transposed array count is not equal to matrix size")
+            return nil
         }
         self.init(m: m, n: n)
         self.array = transposed
+    }
+    
+    // MARK: - Codable
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: Keys.self)
+        self.m = try container.decode(Int.self, forKey: .m)
+        self.n = try container.decode(Int.self, forKey: .n)
+        self.array = try container.decode([T?].self, forKey: .array)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: Keys.self)
+        try container.encode(m, forKey: .m)
+        try container.encode(n, forKey: .n)
+        try container.encode(array, forKey: .array)
     }
     
     // MARK: - Subscript
@@ -105,7 +121,7 @@ public class Matrix<T> {
                     transposed.append(self[i, j])
                 }
             }
-            return Matrix<T>(m: m.count, n: n.count, transposed: transposed)
+            return Matrix<T>(m: m.count, n: n.count, transposed: transposed)!
         }
     }
     

@@ -15,7 +15,7 @@ public extension Matrix where T == Float {
         var array = rhs.array
         let count = Int32(array.count)
         array.withUnsafeMutableBufferPointer { cblas_csscal(count, lhs, $0.baseAddress, 1) }
-        return Matrix<T>(m: rhs.m, n: rhs.n, transposed: array)
+        return Matrix<T>(m: rhs.m, n: rhs.n, transposed: array)!
     }
     
     static func * (lhs: Matrix, rhs: T) -> Matrix {
@@ -26,7 +26,7 @@ public extension Matrix where T == Float {
         if lhs.m != rhs.n {
             throw MatrixError.multiplication
         }
-        // TODO:
+        // TODO: Multiplicate two matrix of float.
         return lhs
     }
 }
